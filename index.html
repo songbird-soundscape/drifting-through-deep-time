@@ -1957,11 +1957,11 @@ function loop(ts) {
   if (!playing) return;
   const dt = lastTs ? Math.min(.1, (ts - lastTs) / 1000) : 0; lastTs = ts;
   const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const rate = !OPT.slow ? (rm ? 10 : 22) : T > 66 ? (rm ? 10 : 22) : T > 2.58 ? 3.5 : T > 0.2 ? 0.06 : T > 0.0125 ? (OPT.veg ? 0.002 : 0.06) : 0.0005;   // with pollen vegetation on, the last 200 kyr runs at 2 kyr/s // Myr per second at 1x (Holocene: 500 years per second)
+  const rate = !OPT.slow ? (rm ? 10 : 22) : T > 66 ? (rm ? 10 : 22) : T > 2.58 ? 5 : T > 0.2 ? 0.09 : T > 0.0125 ? (OPT.veg ? 0.004 : 0.09) : 0.0007;   // with pollen vegetation on, the last 200 kyr runs at 2 kyr/s // Myr per second at 1x (Holocene: 500 years per second)
   const near = OAES.some(([a]) => T <= a + .1 && T > a - 1.6) || LIPMAJOR.some(a => T <= a + .1 && T > a - 1.5);
   const info = OPT.info ? infoFactor(T) : 1;
   const early = STORYON && T > 400 ? (T > 470 ? .3 : .45) : 1;   // let the early chapters be read
-  T = Math.max(0, T - dt * (near && rate > 1 ? rate * .06 : rate) * info * speed * early); draw();
+  T = Math.max(0, T - dt * (near && rate > 1 ? rate * .12 : rate) * info * speed * early); draw();
   if (T <= 0) { stop(); return }
   requestAnimationFrame(loop);
 }
