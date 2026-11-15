@@ -29,7 +29,7 @@ Each site is a single `index.html`. Drifting Through Deep Time also loads `data/
    - Suggested first version: global satellite greenness (MODIS/VIIRS, public domain) plus 4–6 well-known migrations (Arctic tern, monarch, a stork, caribou, a whale, a warbler).
    - Possible data: eBird Status & Trends (free, but needs a key and has license terms), Movebank (licenses vary by study), USA-NPN (US phenology).
    - Decide: which species and regions (maybe the birds you band?), and whether the data servers can be reached from the session.
-2. **Phones, other panels:** possibly make the globe and the other big panels work like the plant tree does now: tap to start in place.
+2. **Phones:** the plant tree now grows with playback (no tap needed); check that it feels right on a real phone.
 3. **Computers:** possibly slim the play bar further to just the play button.
 
 ### Posting Drifting Through Deep Time elsewhere (later)

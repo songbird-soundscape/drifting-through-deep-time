@@ -95,11 +95,17 @@ button { font: inherit; color: inherit; cursor: pointer }
 .scrub { position: relative; height: 30px; border-radius: 6px; overflow: visible; margin-bottom: 9px; cursor: pointer; touch-action: none; display: flex; border: 1px solid var(--line) }
 .scrub .seg { height: 100%; display: flex; align-items: flex-end; justify-content: center; font-family: var(--f-display); font-weight: 700; font-size: .85rem; color: #111; padding-bottom: 4px; overflow: hidden; border-left: 1px solid rgb(0 0 0 / .25) }
 .scrub .seg:first-child { border-left: 0 }
+.scrub { margin-bottom: 0 }
+.scrub2 { position: relative; height: 16px; margin: 2px 0 9px; border-radius: 4px; overflow: hidden; cursor: pointer; touch-action: none; background: #1a2026 }
+.scrub2 .ep, .scrub2 .stg { position: absolute; top: 0; bottom: 0; font: 600 .62rem/16px var(--f-body); color: #15191c; text-align: center; white-space: nowrap; overflow: hidden; border-left: 1px solid rgb(0 0 0 / .3) }
+.scrub2 .stg { font-weight: 500 }
+.scrub2 .k2 { position: absolute; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; background: #fff; box-shadow: 0 0 0 1px #000; z-index: 2 }
+.scrub2 .c2 { position: absolute; top: 0; bottom: 0; right: 0; background: rgb(7 9 11 / .45); z-index: 1; pointer-events: none }
 #scrub.refocus .seg, #scrub.refocus .tri, #scrub.refocus .knob, #scrub.refocus .cover { transition: width .35s ease, left .35s ease }
 .seg { white-space: nowrap }
 .scrub .cover { position: absolute; top: 0; bottom: 0; right: 0; background: rgb(7 9 11 / .55); pointer-events: none; border-radius: 0 6px 6px 0 }
 .scrub .knob { position: absolute; top: -2px; bottom: -2px; width: 3px; background: #fff; box-shadow: 0 0 0 1px #000, 0 0 10px rgb(255 255 255 / .6); pointer-events: none; transform: translateX(-1px) }
-.scrub .tri { position: absolute; top: calc(100% + 2px); width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 7px solid #E7ECEF; transform: translateX(-5px); pointer-events: none; display: none }
+.scrub .tri { position: absolute; top: calc(100% + 20px); width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 7px solid #E7ECEF; transform: translateX(-5px); pointer-events: none; display: none }
 .scrub .tri.oae { border-bottom-color: #9AA7B2 } .scrub .tri.lip { border-bottom-color: #FF5A6E }
 .scrub.m-ev .tri.ev, .scrub.m-oae .tri.oae, .scrub.m-lip .tri.lip { display: block }
 .scrub .seg:first-child { border-radius: 6px 0 0 6px } .scrub .seg:last-child { border-radius: 0 6px 6px 0 }
@@ -404,6 +410,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
     <div class="chips" id="pchips"></div><button class="pchip" id="quietBtn" aria-pressed="false" title="Hide all text and controls, show only the pictures">◱ Just the pictures</button>
     <div class="tlrow">
       <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Time" aria-valuemin="0" aria-valuemax="540"></div>
+      <div class="scrub2" id="scrub2" aria-hidden="true"></div>
       <div class="ticks" id="mticks"></div>
     </div>
   </nav>
@@ -450,7 +457,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
     <div class="oaemsg" id="oaemsg" hidden></div>
     <div class="agekey" id="ageKey" aria-label="Rock age shading key"><div class="ak-ramp"><div class="ak-bar"></div><div class="ak-lb"><span>forming now</span><span>oldest</span></div></div><div class="ak-unk"><i style="background:#101010 url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2710%27%3E%3Cpath d=%27M1 5 q2 -2 4 0 t4 0%27 stroke=%27%23687A88%27 stroke-width=%271.4%27 fill=%27none%27/%3E%3C/svg%3E&quot;)"></i>uncertain: no surviving record</div></div>
   </div>
-  <div class="capwrap" aria-live="polite"><div class="caption" id="cap" hidden><div class="when" id="capwhen"></div><div id="captext"></div></div><div class="tip2 dock" id="tipdock" hidden></div></div>
+  <div class="capwrap obj" aria-live="polite"><div class="caption" id="cap" hidden><div class="when" id="capwhen"></div><div id="captext"></div></div><div class="tip2 dock" id="tipdock" hidden></div></div>
   <div class="studycard" id="card" hidden><button class="btn" id="cardx" aria-label="Close" style="justify-self:end">✕ Close</button><div id="cardbody"></div></div>
   <p class="mono" id="studyCount" style="color:var(--muted);margin:-6px 0 0"></p>
     </div>
@@ -501,7 +508,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
         <p class="muted" id="tmodeNote" style="margin:0;font-size:.86rem;max-width:72ch"></p>
         <div class="ffind"><label class="eyebrow" for="famq">Find a family</label><div class="ffwrap"><input id="famq" type="search" placeholder="Type a name: Poaceae, grass, Pinac…, oak" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="famlist" aria-autocomplete="list"><ul id="famlist" role="listbox" hidden></ul></div></div>
         <div class="ctrls" role="group" aria-label="Clade" id="clade"></div>
-    <div class="tree-pane"><div class="tree-wrap obj"><div class="zoomctl" role="group" aria-label="Zoom the tree"><button class="zb" id="tzIn" aria-label="Zoom in">+</button><button class="zb" id="tzOut" aria-label="Zoom out">−</button><button class="zb" id="tzReset" aria-label="Reset view" title="Reset view">⟲</button></div><canvas id="treeCv" aria-label="Circular tree of land-plant families coloured by plant group, animated with the timeline"></canvas><div class="tip2" id="treeTip" hidden></div><div class="tstory" id="tstory" aria-live="polite"></div><div class="tport" id="tport" aria-live="polite"></div><button type="button" class="tgo" id="tGo">▶ Tap to watch the tree grow</button></div>
+    <div class="tree-pane"><div class="tree-wrap obj tlive"><div class="zoomctl" role="group" aria-label="Zoom the tree"><button class="zb" id="tzIn" aria-label="Zoom in">+</button><button class="zb" id="tzOut" aria-label="Zoom out">−</button><button class="zb" id="tzReset" aria-label="Reset view" title="Reset view">⟲</button></div><canvas id="treeCv" aria-label="Circular tree of land-plant families coloured by plant group, animated with the timeline"></canvas><div class="tip2" id="treeTip" hidden></div><div class="tstory" id="tstory" aria-live="polite"></div><div class="tport" id="tport" aria-live="polite"></div><button type="button" class="tgo" id="tGo">▶ Tap to watch the tree grow</button></div>
         <div class="ordtrack" id="ordtrack"></div>
         <div class="tnav" id="tnav" hidden><button class="btn" data-nv="L" aria-label="Previous family from the same period, along the tree">◀</button><button class="btn" data-nv="R" aria-label="Next family from the same period, along the tree">▶</button><button class="btn" data-nv="d" aria-label="Previous family from the same period">▼ older, same period</button><button class="btn" data-nv="u" aria-label="Next family from the same period">▲ younger, same period</button><button class="btn" data-nv="D" aria-label="Jump to an earlier period">⇟ earlier period</button><button class="btn" data-nv="U" aria-label="Jump to a later period">⇞ later period</button><span>Keys: ◀ ▶ along the tree and ▲ ▼ by first appearance, both within the period you are in · PgUp / PgDn change period. Swipe the card on a phone.</span><b id="tnavMsg" role="status" aria-live="polite" style="flex-basis:100%;color:#FFE9A8;font-weight:600"></b></div>
         <div class="famcard" id="famcard"><p class="muted">Hover over a family in the tree to see its plants, flowers, pollen and natural history; click to pin it.</p></div>
@@ -1860,7 +1867,7 @@ function hud() {
   if (oe) { if (lastCap !== oe) { lastCap = oe; $('#capwhen').textContent = `About ${oe[0]} Ma · oceanic anoxic event`; $('#captext').innerHTML = `${escH(oe[1])}: widespread oxygen loss in the oceans, recorded by organic-rich black shales. ${A('https://doi.org/10.1029/2009GC002788', 'Jenkyns 2010, G-cubed')}`; $('#cap').hidden = false } }
   else if (e !== lastCap) { lastCap = e; if (e) { $('#capwhen').textContent = fmtT(e[0]); $('#captext').textContent = e[1]; $('#cap').hidden = false } else $('#cap').hidden = true }
   const s = $('#scrub'); const f = 1 - T / TMAX; s.classList.toggle('m-ev', OPT.evm); s.classList.toggle('m-oae', OPT.oae); s.classList.toggle('m-lip', OPT.lip); $('#stages').classList.toggle('m-oae', OPT.oae); $('#stages').classList.toggle('m-lip', OPT.lip); $('#markKey').hidden = !(OPT.oae || OPT.lip);
-  if (!FISH.drag && (FISH.f == null || Math.abs(FISH.f - T) > Math.max(.02, T * .004))) { fishSet(T); layoutScrub() } const fx = tlX(T) * 100; $('#knob').style.left = fx + '%'; $('#cover').style.left = fx + '%';
+  if (!FISH.drag && (FISH.f == null || Math.abs(FISH.f - T) > Math.max(.00005, T * .004))) { fishSet(T); layoutScrub() } const fx = tlX(T) * 100; $('#knob').style.left = fx + '%'; $('#cover').style.left = fx + '%'; const k2 = $('#k2'); if (k2) { k2.style.left = fx + '%'; $('#c2').style.left = fx + '%' }
   s.setAttribute('aria-valuenow', Math.round(T)); s.setAttribute('aria-valuetext', `${Math.round(T)} million years ago, ${p.n}`);
 }
 
@@ -1913,19 +1920,36 @@ function buildScrub() {
     EX.lipLabels.filter(([t]) => t <= TMAX).map(([t]) => `<span class="tri lip" data-at="${t}" style="left:${(1 - t / TMAX) * 100}%"></span>`).join('') + '<div class="cover" id="cover"></div><div class="knob" id="knob"></div>';
 }
 /* fisheye timeline: the stretch of time around the playhead is magnified, with more and more detail toward it */
-const FISH = { f: null, tab: null, N: 800, drag: false };
-function fishSet(t) {   // the lens gets narrower and stronger toward the present
-  const u0 = 1 - t / TMAX, sg = Math.min(.022, Math.max(.003, t / TMAX * 1.2 + .003)), A = .7 / (sg * 1.772), N = FISH.N, tab = new Float32Array(N + 1); let acc = 0;
-  for (let i = 1; i <= N; i++) { const d = ((i - .5) / N - u0) / sg; acc += 1 + A * Math.exp(-d * d); tab[i] = acc }
-  for (let i = 1; i <= N; i++) tab[i] /= acc; FISH.tab = tab; FISH.f = t;
+const FISH = { f: null, u0: 1, s: .022, A: 18, Z: 1, drag: false };
+// error function (Abramowitz & Stegun 7.1.26), for the lens's exact cumulative width
+function erf(x) { const sg = x < 0 ? -1 : 1; x = Math.abs(x); const k = 1 / (1 + .3275911 * x); return sg * (1 - (((((1.061405429 * k - 1.453152027) * k) + 1.421413741) * k - .284496736) * k + .254829592) * k * Math.exp(-x * x)) }
+function fishF(u) { return u + FISH.A * FISH.s * .886227 * (erf((u - FISH.u0) / FISH.s) - erf(-FISH.u0 / FISH.s)) }
+function fishSet(t) {   // the lens gets narrower and stronger toward the present, down to centuries in the Holocene
+  FISH.u0 = 1 - t / TMAX; FISH.s = Math.min(.022, Math.max(1.5e-5, t / TMAX * 1.2 + 1.5e-5)); FISH.A = .7 / (FISH.s * 1.772); FISH.Z = 1; FISH.Z = fishF(1); FISH.f = t;
 }
-function tlX(t) { const u = Math.max(0, Math.min(1, 1 - t / TMAX)); if (!FISH.tab) return u; const v = u * FISH.N, i = Math.min(FISH.N - 1, Math.floor(v)), r = v - i; return FISH.tab[i] + (FISH.tab[i + 1] - FISH.tab[i]) * r }
-function tlT(x) { const tab = FISH.tab; x = Math.max(0, Math.min(1, x)); if (!tab) return TMAX * (1 - x); let lo = 0, hi = FISH.N; while (hi - lo > 1) { const m = (lo + hi) >> 1; if (tab[m] <= x) lo = m; else hi = m } const r = (x - tab[lo]) / ((tab[hi] - tab[lo]) || 1); return TMAX * (1 - (lo + r) / FISH.N) }
+function tlX(t) { const u = Math.max(0, Math.min(1, 1 - t / TMAX)); return FISH.f == null ? u : fishF(u) / FISH.Z }
+function tlT(x) { x = Math.max(0, Math.min(1, x)); if (FISH.f == null) return TMAX * (1 - x); let lo = 0, hi = 1; for (let i = 0; i < 52; i++) { const m = (lo + hi) / 2; if (fishF(m) / FISH.Z < x) lo = m; else hi = m } return TMAX * (1 - (lo + hi) / 2) }
+// epochs (ICS), drawn under the periods; an epoch that is stretched wide enough opens into its stages
+const EPOCHS = [['Holocene', 0, .0117, '#FEEBD2'], ['Pleistocene', .0117, 2.58, '#FFEFAF'], ['Pliocene', 2.58, 5.333, '#FFFF99'], ['Miocene', 5.333, 23.03, '#FFFF00'], ['Oligocene', 23.03, 33.9, '#FEC07A'], ['Eocene', 33.9, 56, '#FDB46C'], ['Paleocene', 56, 66, '#FDA75F'],
+  ['Late Cretaceous', 66, 100.5, '#A6D84A'], ['Early Cretaceous', 100.5, 145, '#8CCD57'], ['Late Jurassic', 145, 161.5, '#B3E3EE'], ['Middle Jurassic', 161.5, 174.7, '#80CFD8'], ['Early Jurassic', 174.7, 201.4, '#42AED0'],
+  ['Late Triassic', 201.4, 237, '#BD8CC3'], ['Middle Triassic', 237, 247.2, '#B168B1'], ['Early Triassic', 247.2, 251.9, '#A05DA5'], ['Lopingian', 251.9, 259.5, '#FBA794'], ['Guadalupian', 259.5, 273, '#FB745C'], ['Cisuralian', 273, 298.9, '#EF5845'],
+  ['Late Pennsylvanian', 298.9, 307, '#BFD0BA'], ['Middle Pennsylvanian', 307, 315.2, '#A6C7B7'], ['Early Pennsylvanian', 315.2, 323.2, '#8CBEB4'], ['Late Mississippian', 323.2, 330.9, '#B3BE6C'], ['Middle Mississippian', 330.9, 346.7, '#99B46C'], ['Early Mississippian', 346.7, 358.9, '#80AB6C'],
+  ['Late Devonian', 358.9, 382.7, '#F1E19D'], ['Middle Devonian', 382.7, 393.3, '#F1C868'], ['Early Devonian', 393.3, 419.2, '#E5AC4D'], ['Pridoli', 419.2, 423, '#E6F5E1'], ['Ludlow', 423, 427.4, '#BFE6CF'], ['Wenlock', 427.4, 433.4, '#B3E1C2'], ['Llandovery', 433.4, 443.8, '#99D7B3'],
+  ['Late Ordovician', 443.8, 458.4, '#7FCA93'], ['Middle Ordovician', 458.4, 470, '#4DB47E'], ['Early Ordovician', 470, 485.4, '#1A9D6F'], ['Furongian', 485.4, 497, '#B3E095'], ['Miaolingian', 497, 509, '#A6CF86'], ['Series 2', 509, 521, '#99C078'], ['Terreneuvian', 521, 538.8, '#8CB06C']];
+function fitLbl(n, px) {
+  const fit = x => px > x.length * 6.4 + 8; if (fit(n)) return n;
+  const m = n.match(/^(Early|Middle|Late) (.+)$/), c = m ? [m[1][0] + '. ' + m[2], m[1][0] + '. ' + m[2].slice(0, 4) + '.', m[1][0] + '.'] : [n.slice(0, 4) + '.', n.slice(0, 3) + '.'];
+  for (const x of c) if (fit(x)) return x; return '' }
 function layoutScrub() {
   const s = $('#scrub'); if (!s) return; const W = s.clientWidth || 600;
   s.querySelectorAll('.seg').forEach(el => { const w = (tlX(+el.dataset.t) - tlX(+el.dataset.b)) * 100; el.style.width = w + '%'; const px = w * W / 100; const lbl = px > el.dataset.n.length * 8.5 + 10 ? el.dataset.n : px > 16 ? el.dataset.s : ''; if (el.textContent !== lbl) el.textContent = lbl });
   s.querySelectorAll('[data-at]').forEach(el => { el.style.left = tlX(+el.dataset.at) * 100 + '%' });
   document.querySelectorAll('#mticks [data-at]').forEach(el => { el.style.left = tlX(+el.dataset.at) * 100 + '%' });
+  const e2 = $('#scrub2'); if (!e2) return; const ST = (typeof EX !== 'undefined' && EX.stages) || []; let h = '';
+  const box = (n, a, b, c, cls) => { const x0 = tlX(Math.min(TMAX, b)), x1 = tlX(a), px = (x1 - x0) * W; if (px < .6) return ''; return `<div class="${cls}" style="left:${(x0 * 100).toFixed(3)}%;width:${((x1 - x0) * 100).toFixed(3)}%;background:${c}" title="${n}">${fitLbl(n, px)}</div>` };
+  for (const [n, a, b, c] of EPOCHS) { if (a >= TMAX) continue; const px = (tlX(a) - tlX(Math.min(TMAX, b))) * W, kids = ST.filter(k => k[1] >= a - 1e-6 && k[2] <= b + 1e-6 && k[1] < TMAX);
+    if (kids.length > 1 && px > kids.length * 46) { h += kids.map(k => box(k[0], k[1], k[2], k[3], 'stg')).join('') } else h += box(n, a, b, c, 'ep') }
+  e2.innerHTML = h + '<i class="k2" id="k2"></i><i class="c2" id="c2"></i>'; const fx = tlX(T) * 100; $('#k2').style.left = $('#c2').style.left = fx + '%';
 }
 let playing = false, speed = 1, lastTs = 0, drawPending = false;
 function setT(t) { T = Math.max(0, Math.min(TMAX, t)); if (!drawPending) { drawPending = true; requestAnimationFrame(() => { drawPending = false; draw() }) } }
@@ -1964,6 +1988,12 @@ function init() {
   const endDrag = () => { if (!drag) return; drag = false; FISH.drag = false; sc.classList.add('refocus'); setTimeout(() => sc.classList.remove('refocus'), 400); setT(T) };
   sc.addEventListener('pointerup', endDrag); sc.addEventListener('pointercancel', endDrag);
   addEventListener('resize', () => layoutScrub());
+  const sc2 = $('#scrub2'); let drag2 = false;
+  if (sc2) { const t2 = e => { const r = sc2.getBoundingClientRect(); return tlT((e.clientX - r.left) / r.width) };
+    sc2.addEventListener('pointerdown', e => { drag2 = true; FISH.drag = true; sc2.setPointerCapture(e.pointerId); stop(); setT(t2(e)) });
+    sc2.addEventListener('pointermove', e => { if (drag2) setT(t2(e)) });
+    const end2 = () => { if (!drag2) return; drag2 = false; FISH.drag = false; sc.classList.add('refocus'); setTimeout(() => sc.classList.remove('refocus'), 400); setT(T) };
+    sc2.addEventListener('pointerup', end2); sc2.addEventListener('pointercancel', end2) }
   sc.addEventListener('keydown', e => { const m = { ArrowLeft: 5, ArrowRight: -5, PageUp: 50, PageDown: -50, Home: TMAX, End: -TMAX }[e.key]; if (m != null) { e.preventDefault(); stop(); setT(T + m) } });
   $('#play').onclick = () => playing ? stop() : play();
   $('#back').onclick = () => { stop(); setT(START) };  $('#now').onclick = () => { stop(); setT(0) };
