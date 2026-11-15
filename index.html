@@ -346,6 +346,14 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
 <style>
 .aicav{margin-top:12px;max-width:62ch;font-size:.92rem;line-height:1.5;color:#C9D3DA;border-left:3px solid #E9C46A;background:rgb(233 196 106 / .07);padding:8px 12px;border-radius:0 8px 8px 0}
 .aicav .tipwrap{position:relative;display:inline}
+.hdlinks{display:flex;flex-wrap:wrap;gap:8px 10px;margin:12px 0 0}
+.hdlinks a{display:inline-block;padding:6px 14px;border-radius:999px;font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap}
+.hdlinks .xproj{background:#8FD3FF;color:#07090B}
+.hdlinks .ethlink{border:1px solid #E9C46A;color:#E9C46A}
+.pnl{scroll-margin-top:64px}
+.ethx{max-width:72ch;line-height:1.6}.ethx .ecost{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:12px 0}
+.ethx .ecost div{border-left:3px solid #E9C46A;padding:4px 10px;background:rgb(233 196 106 / .05);border-radius:0 6px 6px 0}
+.ethx dt{font-weight:600;color:#fff}.ethx dd{margin:2px 0 0;font-size:.9rem;color:#C9D3DA}.ethx a{color:var(--accent)}
 .aicav .tipwrap > a{color:#E9C46A;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
 .aicav .tip{position:absolute;left:0;top:100%;z-index:50;width:min(320px,80vw);margin-top:2px;padding:12px 14px;background:#0E1216;border:1px solid #E9C46A;border-radius:10px;box-shadow:0 12px 30px rgb(0 0 0 / .6);font-size:.86rem;line-height:1.45;color:#DCE4E9;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .2s,transform .2s,visibility .2s}
 .aicav .tip b{display:block;font-family:var(--f-mono);font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#E9C46A;margin-bottom:4px}
@@ -357,7 +365,8 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
   <header class="top">
     <div><span class="eyebrow" id="eyebrowTop">540 million years · the age of spores and pollen</span><h1 style="margin-top:6px" id="h1Top">Drifting Through Deep Time</h1>
       <p>Today's rocks and ocean floor, carried back to where they formed on a published plate tectonic reconstruction, starting at the base of the Cambrian, 539 million years ago, before plants came ashore (about 470 million years ago). Shaded by how long ago each rock formed (white while forming, fading as younger rock accumulates, hatched black = no surviving record), or by period colour; continents drift together into Pangaea and break apart again; ocean floor is born at the ridges.</p>
-      <p class="aicav">Much of this hub was compiled with the help of AI, so <span class="tipwrap"><a href="https://songbird-soundscape.github.io/open-commons/#critique" target="_blank" rel="noopener" aria-describedby="aiTip">errors are likely</a><span class="tip" id="aiTip" role="tooltip"><b>For educators</b>Those errors make a ready-made teaching tool: students check entries against the scholarly literature, find what's wrong, and fix it. <a href="https://songbird-soundscape.github.io/open-commons/#critique" target="_blank" rel="noopener">Read about the teaching philosophy →</a></span></span>. Please check anything important against the original sources.</p></div>
+      <p class="aicav">Much of this hub was compiled with the help of AI, so <span class="tipwrap"><a href="https://songbird-soundscape.github.io/open-commons/#critique" target="_blank" rel="noopener" aria-describedby="aiTip">errors are likely</a><span class="tip" id="aiTip" role="tooltip"><b>For educators</b>Those errors make a ready-made teaching tool: students check entries against the scholarly literature, find what's wrong, and fix it. <a href="https://songbird-soundscape.github.io/open-commons/#critique" target="_blank" rel="noopener">Read about the teaching philosophy →</a></span></span>. Please check anything important against the original sources.</p>
+      <p class="hdlinks"><a class="xproj" href="https://songbird-soundscape.github.io/open-commons/#explore" target="_blank" rel="noopener">Explore projects ↗</a><a href="#ethics" class="ethlink" id="ethLink">Ethical statement</a></p></div>
   </header>
   <div class="focusbar" id="focusBar" hidden role="toolbar" aria-label="Time focus"><span>Focus: <b id="focusT"></b></span><button data-fs="0">↑ Chart</button><button data-fs="1">Plant tree</button><button data-fs="2">Globe ↓</button><em>Shift+↑ / Shift+↓</em><button id="focusX" aria-label="Leave focus mode">✕</button></div>
   <button class="barshow" id="barShow" title="Show the menu (M)" aria-label="Show the menu">☰ menu</button>
@@ -696,6 +705,27 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
     <div><h3>Sources</h3><p>Ocean depth from crust age: Parsons B. &amp; Sclater J.G. (1977) <i>J. Geophys. Res.</i> 82, 803–827 (depth ≈ 2,600 m + 345 m·√age, levelling near 6,400 m); shelf depths from SRTM15+. Deep-time sea level (66–250 Ma, applied to continental shelves only): Haq B.U., Hardenbol J. &amp; Vail P.R. (1987) <i>Science</i> 235, 1156–1167, via Miller et al. (2005) at NOAA NCEI; its amplitudes are larger than most modern estimates. Glaciations are schematic latitude rules: Snowball Earth intervals, Hirnantian, the Late Paleozoic Ice Age (about 360–260 Ma) and Antarctic (from 34 Ma) and Northern Hemisphere (from 2.7 Ma, scaled with sea level) ice. Orogeny ages are approximate. Biogeographic lines after Wallace (1863), Huxley (1868), Weber and Lydekker (positions approximate); botanical boundaries after van Steenis. Barrier and land-bridge ages are approximate and several are debated. Family photos: iNaturalist research-grade observations under CC0, CC BY or CC BY-SA, credited on each card. Pollen micrographs: Halbritter et al. (2018), CC BY 4.0. Plant tree: family first/last appearances from the Paleobiology Database; branching order from the Open Tree of Life synthetic tree (Hinchliff et al. 2015, updated; angiosperms consistent with APG IV 2016); extinct families not in the synthesis are attached to their order, class or division as polytomies. Branch points sit at the oldest first appearance among their descendants (a minimum age). Studies: Paleobiology Database (paleobiodb.org, CC BY 4.0) plant collections and references, with studies flagged as palynological from their titles; Neotoma Paleoecology Database (neotomadb.org, CC BY 4.0) pollen datasets; Holocene diagrams use Neotoma counts, % of trees, shrubs and upland herbs, 250-year means. Volcanic provinces: Johansson L., Zahirovic S. &amp; Müller R.D. (2018) <i>Geophysical Research Letters</i> 45, doi:10.1029/2017GL076691 (via GPlates); flashes start at each province's onset age. Ocean anoxic events: Jenkyns H.C. (2010) <i>G-cubed</i> 11, Q03004; Devonian events after Kaiser S.I. et al. (2016) <i>Geol. Soc. London Spec. Publ.</i> 423; ages approximate. Stages: International Chronostratigraphic Chart via Macrostrat. Sea level: Miller K.G. et al. (2020) <i>Science Advances</i> 6, eaaz1346, and Spratt R.M. &amp; Lisiecki L.E. (2016) <i>Climate of the Past</i> 12, 1079–1092, via NOAA NCEI; the stack is tapered to 0 m over the last 6 kyr. Elevation: SRTM15+ v2.7 via the GMT data server. Grey scale: Sadler P.M. (1981) Sediment accumulation rates and the completeness of stratigraphic sections, <i>Journal of Geology</i> 89, 569–584. Plate model: Merdith A.S. et al. (2021) <i>Earth-Science Reviews</i> 214, 103477, via GPlates. Geology: Chorlton (2007), GSC, via Macrostrat (CC BY 4.0). Columns and drill cores: Macrostrat (CC BY 4.0). Seafloor age: Seton et al. (2020). Coastlines: Natural Earth. Colours: ICS chart. Projection: Equal Earth.</p></div>
   </div>
     </div>
+  </section>
+  <section class="pnl wide" data-p="ethics" aria-labelledby="ph-ethics" id="ethics">
+    <div class="pnl-h"><h2 id="ph-ethics">Ethical statement</h2><button class="pnl-x" data-close="ethics" aria-label="Collapse Ethical statement" title="Collapse">▾ Collapse</button></div>
+    <div class="pnl-b"><div class="ethx">
+      <p class="eyebrow">A personal note</p>
+      <p>This statement is mine alone. I don't expect anyone else to share it. The tools I use to build this work have a destructive side:</p>
+      <dl class="ecost">
+        <div><dt>Water</dt><dd>Data centers use large amounts of water for cooling, and in dry regions they can draw down local supplies, including groundwater.</dd></div>
+        <div><dt>Mining</dt><dd>Rare earth elements, cobalt, lithium, copper, and tantalum are dug from landscapes at real cost to ecosystems, and too often to the people who mine them, sometimes including children.</dd></div>
+        <div><dt>Energy</dt><dd>Training and running AI, and powering every device, still depends heavily on electricity from fossil fuels.</dd></div>
+        <div><dt>Manufacturing</dt><dd>Making chips consumes huge amounts of energy and ultrapure water, and releases potent greenhouse gases.</dd></div>
+        <div><dt>Electronic waste</dt><dd>Devices are replaced quickly. Much of the waste is shipped abroad and taken apart by hand, exposing workers to toxic metals.</dd></div>
+        <div><dt>Hidden labor</dt><dd>AI systems rely on low-paid workers who label data and filter out disturbing content, often in the Global South.</dd></div>
+        <div><dt>Other people's work</dt><dd>These models were trained on writing, art, and research made by people who were rarely asked and seldom paid.</dd></div>
+        <div><dt>Noise</dt><dd>Data centers run cooling fans and backup generators around the clock. People living nearby describe a constant hum that disrupts sleep and daily life.</dd></div>
+        <div><dt>Local communities</dt><dd>New data centers claim land and strain power grids, which can raise electricity costs for the people living nearby.</dd></div>
+      </dl>
+      <p>It would be arrogant to ask others to give up these tools while I believe that I should keep using them. So I'm not asking. Right or wrong, I believe that in this case the ends justify the means, as long as the end is to share information freely and to create high-quality educational resources that help people understand ecosystem function, organismal biology, human ecology, and climate processes.</p>
+      <p>Part of my reason for creating this work and sharing it openly is to avoid doubling efforts. When knowledge is shared, the cost of building it is paid once instead of over and over. When I looked, there did not appear to be much out there in the same vein. If you know of work like this, please <a href="mailto:stephen.caird@tamu.edu">connect</a>. I would much rather join forces than duplicate.</p>
+      <p class="muted">The same statement appears in <a href="https://songbird-soundscape.github.io/open-commons/#ethical-statement" target="_blank" rel="noopener">The Open Commons of Learning</a>.</p>
+    </div></div>
   </section>
   </div>
 </div>
@@ -1986,9 +2016,9 @@ function init() {
 
 /* ---------- collapsible panels: exactly two content panels open -> side by side ---------- */
 const EVO_PAGE = false, SISTER = null;
-const PANELS = EVO_PAGE ? [['evo', 'Spores & Pollen Through Time'], ['globe', 'Map'], ['tree', 'Plant phylogeny'], ['timeline', 'Timeline details']] : [['globe', 'Map'], ['timeline', 'Timeline details'], ['options', 'Map options'], ['key', 'Map key'], ['tree', 'Plant phylogeny'], ['counts', 'Family counts'], ['table', 'Study table'], ['evo', 'Spores & Pollen Through Time'], ['notes', 'Notes & sources']];
+const PANELS = EVO_PAGE ? [['evo', 'Spores & Pollen Through Time'], ['globe', 'Map'], ['tree', 'Plant phylogeny'], ['timeline', 'Timeline details'], ['ethics', 'Ethical statement']] : [['globe', 'Map'], ['timeline', 'Timeline details'], ['options', 'Map options'], ['key', 'Map key'], ['tree', 'Plant phylogeny'], ['counts', 'Family counts'], ['table', 'Study table'], ['evo', 'Spores & Pollen Through Time'], ['notes', 'Notes & sources'], ['ethics', 'Ethical statement']];
 const CONTENT = new Set(['globe', 'tree', 'counts', 'table']);
-let PSTATE = EVO_PAGE ? { evo: 1, globe: 0, tree: 0, timeline: 0, options: 0, key: 0, counts: 0, table: 0, notes: 0 } : { globe: 1, timeline: 1, options: 1, key: 0, tree: 1, counts: 0, table: 0, evo: 1, notes: 0 };
+let PSTATE = EVO_PAGE ? { evo: 1, globe: 0, tree: 0, timeline: 0, options: 0, key: 0, counts: 0, table: 0, notes: 0, ethics: 0 } : { globe: 1, timeline: 1, options: 1, key: 0, tree: 1, counts: 0, table: 0, evo: 1, notes: 0, ethics: 0 };
 try { const v = JSON.parse(localStorage.getItem(EVO_PAGE ? 'dtdt-evo-panels' : 'dtdt-panels') || 'null'); if (v) PSTATE = Object.assign(PSTATE, v) } catch (e) {}
 
 function layoutPanels() {
@@ -2693,6 +2723,9 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
 (function () {
   var t = document.getElementById("mTog"), bar = document.getElementById("pbar"); if (!t || !bar) return;
   t.addEventListener("click", function () { var open = !bar.classList.contains("mopen"); bar.classList.toggle("mopen", open); t.setAttribute("aria-expanded", String(open)); t.textContent = open ? "Options ▴" : "Options ▾" });
+  // the ethical statement link opens its section and goes there
+  var el = document.getElementById("ethLink");
+  if (el) el.addEventListener("click", function (e) { e.preventDefault(); var c = document.querySelector('#pchips [data-k="ethics"]'), sec = document.getElementById("ethics"); if (sec && sec.hidden && c) c.click(); setTimeout(function () { if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" }) }, 80) });
   // phones: the plant tree opens full screen and plays when tapped
   var tw = document.querySelector(".tree-wrap"), tgo = document.getElementById("tGo"), tsh = document.getElementById("tShut");
   if (tw && tgo && tsh) {
