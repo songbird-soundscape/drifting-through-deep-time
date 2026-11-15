@@ -15,5 +15,9 @@ Part of [The Open Commons of Learning](https://songbird-soundscape.github.io/ope
 
 Images and data come from many sources; their credits appear in the site itself. Please keep those credits when you reuse them.
 
+## License
+
+The code is released under the [MIT License](LICENSE). Images and data keep their own licenses and credits.
+
 Created by [songbird-soundscape](https://github.com/songbird-soundscape).
 To reach out for discussion: stephen.caird@tamu.edu
