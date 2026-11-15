@@ -362,7 +362,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
   <div class="focusbar" id="focusBar" hidden role="toolbar" aria-label="Time focus"><span>Focus: <b id="focusT"></b></span><button data-fs="0">↑ Chart</button><button data-fs="1">Plant tree</button><button data-fs="2">Globe ↓</button><em>Shift+↑ / Shift+↓</em><button id="focusX" aria-label="Leave focus mode">✕</button></div>
   <button class="barshow" id="barShow" title="Show the menu (M)" aria-label="Show the menu">☰ menu</button>
   <nav class="pbar" id="pbar" aria-label="Show or hide sections">
-    <div class="mini"><button class="btn play" id="play2" aria-label="Play">▶</button><span class="mono" id="age2"></span></div>
+    <div class="mini"><button class="btn play" id="play2" aria-label="Play">▶</button><span class="mono" id="age2"></span><button type="button" class="pchip mtog" id="mTog" aria-expanded="false" aria-controls="pchips">Sections ▾</button></div>
     <div class="chips" id="pchips"></div><button class="pchip" id="quietBtn" aria-pressed="false" title="Hide all text and controls, show only the pictures">◱ Just the pictures</button>
     <div class="tlrow">
       <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Time" aria-valuemin="0" aria-valuemax="540"></div>
@@ -2668,7 +2668,31 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
 .dt-tour .dots { margin-left: auto; font: .72rem var(--f-mono); color: #8E9AA3 }
 .dt-back { position: fixed; left: calc(12px + env(safe-area-inset-left, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 45; font: 600 .8rem var(--f-body); color: #E7ECEF; background: rgb(7 9 11 / .9); border: 1px solid #8FD3FF; border-radius: 999px; padding: 7px 13px; text-decoration: none }
 @media (prefers-reduced-motion: reduce) { .dt-tour { animation: none } }
+.mtog{display:none}
+@media (max-width:640px){
+  .pbar{padding:6px 8px;gap:6px 10px}
+  .pbar .mini{width:100%}
+  .pbar .mtog{display:inline-block;margin-left:auto;padding:5px 10px;font-size:.78rem}
+  .pbar .chips,.pbar #quietBtn{display:none}
+  .pbar.mopen .chips{display:flex}.pbar.mopen #quietBtn{display:inline-block}
+  .pbar .mini .btn{min-width:40px;padding:5px 10px}
+  .pbar{transition:transform .25s ease}
+  .pbar.tuck{transform:translateY(calc(-100% - 12px))}
+}
+@media (max-width:640px) and (prefers-reduced-motion:reduce){.pbar{transition:none}}
 </style>
+<script>
+(function () {
+  var t = document.getElementById("mTog"), bar = document.getElementById("pbar"); if (!t || !bar) return;
+  t.addEventListener("click", function () { var open = !bar.classList.contains("mopen"); bar.classList.toggle("mopen", open); t.setAttribute("aria-expanded", String(open)); t.textContent = open ? "Sections ▴" : "Sections ▾" });
+  var lastY = scrollY, mq = window.matchMedia ? matchMedia("(max-width: 640px)") : { matches: false };
+  addEventListener("scroll", function () { var y = scrollY;
+    if (!mq.matches || bar.classList.contains("mopen")) { bar.classList.remove("tuck"); lastY = y; return }
+    if (y > lastY + 6 && y > 200) bar.classList.add("tuck"); else if (y < lastY - 6) bar.classList.remove("tuck");
+    lastY = y }, { passive: true });
+  bar.addEventListener("click", function (e) { if (e.target.closest(".pchip") && e.target !== t && window.matchMedia && matchMedia("(max-width: 640px)").matches) { bar.classList.remove("mopen"); t.setAttribute("aria-expanded", "false"); t.textContent = "Sections ▾" } });
+})();
+</script>
 <div class="dt-tour" id="dtTour" role="dialog" aria-live="polite" aria-label="Guided tour" hidden></div>
 <script>
 (function () {
@@ -2693,6 +2717,7 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
   }
   function show() {
     var s = steps[i]; clearHL();
+    if (s.sel === "#pchips") { var pb = document.getElementById("pbar"); if (pb) { pb.classList.add("mopen"); var mt = document.getElementById("mTog"); if (mt) { mt.setAttribute("aria-expanded", "true"); mt.textContent = "Sections ▴" } } }
     if (s.sel) { hl = document.querySelector(s.sel); if (hl) { hl.classList.add("dt-hl"); hl.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" }) } }
     var first = i === 0, last = i === steps.length - 1;
     var btns = first ? '<button class="pri" data-a="next">Take the tour</button><button data-a="stay">Explore on my own</button>' + backLink
