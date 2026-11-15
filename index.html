@@ -346,6 +346,8 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
 <style>
 .aicav{margin-top:12px;max-width:62ch;font-size:.92rem;line-height:1.5;color:#C9D3DA;border-left:3px solid #E9C46A;background:rgb(233 196 106 / .07);padding:8px 12px;border-radius:0 8px 8px 0}
 .aicav .tipwrap{position:relative;display:inline}
+.top .lede{font-size:1.05rem;line-height:1.6;max-width:62ch}.top .lede b{color:#fff;font-weight:600}
+.howmap{margin-top:8px;max-width:62ch;color:#C9D3DA;font-size:.9rem}.howmap summary{cursor:pointer;color:#8FD3FF;font-weight:600}.howmap p{margin:6px 0 0}
 .hdlinks{display:flex;flex-wrap:wrap;gap:8px 10px;margin:12px 0 0}
 .hdlinks a{display:inline-block;padding:6px 14px;border-radius:999px;font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap}
 .hdlinks .xproj{background:#8FD3FF;color:#07090B}
@@ -364,7 +366,8 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
 <div class="wrap">
   <header class="top">
     <div><span class="eyebrow" id="eyebrowTop">540 million years · the age of spores and pollen</span><h1 style="margin-top:6px" id="h1Top">Drifting Through Deep Time</h1>
-      <p>Today's rocks and ocean floor, carried back to where they formed on a published plate tectonic reconstruction, starting at the base of the Cambrian, 539 million years ago, before plants came ashore (about 470 million years ago). Shaded by how long ago each rock formed (white while forming, fading as younger rock accumulates, hatched black = no surviving record), or by period colour; continents drift together into Pangaea and break apart again; ocean floor is born at the ridges.</p>
+      <p class="lede">Three kinds of drifting, on one timeline. <b>Continents</b> drift apart, collide into Pangaea, and break up again. <b>Spores and pollen</b> drift on wind and water, as plants come ashore and spread across the land. <b>People</b> drift too, migrating out of Africa and onto every continent. Press play to watch 539 million years unfold, from the base of the Cambrian to today.</p>
+      <details class="howmap"><summary>How the map is drawn</summary><p>Today's rocks and ocean floor are carried back to where they formed on a published plate tectonic reconstruction. Each rock is shaded by how long ago it formed (white while forming, fading as younger rock accumulates, hatched black where no record survives), or by period colour. Ocean floor is born at the ridges and sinks at subduction zones.</p></details>
       <p class="aicav">Much of this hub was compiled with the help of AI, so <span class="tipwrap"><a href="https://songbird-soundscape.github.io/open-commons/#critique" target="_blank" rel="noopener" aria-describedby="aiTip">errors are likely</a><span class="tip" id="aiTip" role="tooltip"><b>For educators</b>Those errors make a ready-made teaching tool: students check entries against the scholarly literature, find what's wrong, and fix it. <a href="https://songbird-soundscape.github.io/open-commons/#critique" target="_blank" rel="noopener">Read about the teaching philosophy →</a></span></span>. Please check anything important against the original sources.</p>
       <p class="hdlinks"><a class="xproj" href="https://songbird-soundscape.github.io/open-commons/#explore" target="_blank" rel="noopener">Explore projects ↗</a><a href="#ethics" class="ethlink" id="ethLink">Ethical statement</a></p></div>
   </header>
@@ -2018,24 +2021,25 @@ function init() {
 const EVO_PAGE = false, SISTER = null;
 const PANELS = EVO_PAGE ? [['evo', 'Spores & Pollen Through Time'], ['globe', 'Map'], ['tree', 'Plant phylogeny'], ['timeline', 'Timeline details'], ['ethics', 'Ethical statement']] : [['globe', 'Map'], ['timeline', 'Timeline details'], ['options', 'Map options'], ['key', 'Map key'], ['tree', 'Plant phylogeny'], ['counts', 'Family counts'], ['table', 'Study table'], ['evo', 'Spores & Pollen Through Time'], ['notes', 'Notes & sources'], ['ethics', 'Ethical statement']];
 const CONTENT = new Set(['globe', 'tree', 'counts', 'table']);
-let PSTATE = EVO_PAGE ? { evo: 1, globe: 0, tree: 0, timeline: 0, options: 0, key: 0, counts: 0, table: 0, notes: 0, ethics: 0 } : { globe: 1, timeline: 1, options: 1, key: 0, tree: 1, counts: 0, table: 0, evo: 1, notes: 0, ethics: 0 };
-try { const v = JSON.parse(localStorage.getItem(EVO_PAGE ? 'dtdt-evo-panels' : 'dtdt-panels') || 'null'); if (v) PSTATE = Object.assign(PSTATE, v) } catch (e) {}
+let PSTATE = EVO_PAGE ? { evo: 1, globe: 0, tree: 0, timeline: 0, options: 0, key: 0, counts: 0, table: 0, notes: 0, ethics: 0 } : { globe: 1, timeline: 0, options: 0, key: 0, tree: 1, counts: 0, table: 0, evo: 0, notes: 0, ethics: 0 };
+try { const v = JSON.parse(localStorage.getItem(EVO_PAGE ? 'dtdt-evo-panels' : 'dtdt-panels2') || 'null'); if (v) PSTATE = Object.assign(PSTATE, v) } catch (e) {}
 
 function layoutPanels() {
   document.querySelectorAll('.pnl').forEach(p => { p.hidden = !PSTATE[p.dataset.p] });
   const open = [...CONTENT].filter(k => PSTATE[k]); $('#panels').classList.toggle('duo', open.length === 2);
   $('#pchips').innerHTML = PANELS.map(([k, nm]) => `<button class="pchip" data-k="${k}" aria-pressed="${!!PSTATE[k]}">${nm}</button>`).join('') + (SISTER ? `<a class="pchip sis" href="${SISTER}" target="_blank" rel="noopener">${EVO_PAGE ? '↗ Drifting Through Deep Time' : '↗ Evidence for evolution'}</a>` : '');
-  try { localStorage.setItem(EVO_PAGE ? 'dtdt-evo-panels' : 'dtdt-panels', JSON.stringify(PSTATE)) } catch (e) {}
+  try { localStorage.setItem(EVO_PAGE ? 'dtdt-evo-panels' : 'dtdt-panels2', JSON.stringify(PSTATE)) } catch (e) {}
   requestAnimationFrame(() => { dispatchEvent(new Event('resize')); drawTree(); drawCeno() });
 }
 function syncLayN() { const n = [...document.querySelectorAll('#layPop input[type=checkbox]')].filter(x => x.checked).length; $('#layN').textContent = `(${n} on)` }
-function setBare(k, on) { const p = document.querySelector(`.pnl[data-p=${k}]`); if (!p) return; p.classList.toggle('bare', on); const b = p.querySelector('[data-bare]'); if (b) { b.setAttribute('aria-pressed', on); b.textContent = on ? '◳ Show text & controls' : '◱ Just the picture' } requestAnimationFrame(() => { dispatchEvent(new Event('resize')); drawTree(); drawDiv() }) }
+function setBare(k, on) { const p = document.querySelector(`.pnl[data-p=${k}]`); if (!p) return; p.classList.toggle('bare', on); const b = p.querySelector('[data-bare]'); if (b) { b.setAttribute('aria-pressed', on); b.textContent = on ? '⚙ Adjust' : '✓ Done'; b.title = on ? 'Show the text and controls for this section' : 'Hide the text and controls again' } requestAnimationFrame(() => { dispatchEvent(new Event('resize')); drawTree(); drawDiv() }) }
 function setBarHidden(h) { $('#pbar').classList.toggle('gone', h); try { localStorage.setItem('dtdt-bar', h ? 1 : '') } catch (e) {} }
 function initPanels() {
   addEventListener('keydown', e => { if (e.target.matches('input, textarea, select') || e.ctrlKey || e.metaKey || e.altKey) return; if (e.key === 'm' || e.key === 'M') { e.preventDefault(); setBarHidden(!$('#pbar').classList.contains('gone')) } else if (e.shiftKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) { e.preventDefault(); e.stopImmediatePropagation(); focusStep(e.key === 'ArrowDown' ? 1 : -1) } }, true);
   $('#barShow').onclick = () => setBarHidden(false); try { if (localStorage.getItem('dtdt-bar')) setBarHidden(true) } catch (e) {}
   document.addEventListener('click', e => { const b = e.target.closest('[data-bare]'); if (b) setBare(b.dataset.bare, !b.closest('.pnl').classList.contains('bare')) });
   $('#quietBtn').onclick = () => { const on = !document.body.classList.contains('quiet'); document.body.classList.toggle('quiet', on); $('#quietBtn').setAttribute('aria-pressed', on); ['globe', 'tree', 'counts'].forEach(k => setBare(k, on)) };
+  ['globe', 'tree', 'counts'].forEach(k => setBare(k, true));   // start with just the moving pictures; ⚙ Adjust opens the controls
   $('#layBtn').onclick = () => { const p = $('#layPop'); p.hidden = !p.hidden; $('#layBtn').setAttribute('aria-expanded', !p.hidden) };
   $('#layPop').addEventListener('change', syncLayN); syncLayN();
   try { if (localStorage.getItem('dtdt-hint')) $('#maphint').style.opacity = .55 } catch (e) {}
@@ -2685,7 +2689,9 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
 .dt-tour .dots { margin-left: auto; font: .72rem var(--f-mono); color: #8E9AA3 }
 .dt-back { position: fixed; left: calc(12px + env(safe-area-inset-left, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 45; font: 600 .8rem var(--f-body); color: #E7ECEF; background: rgb(7 9 11 / .9); border: 1px solid #8FD3FF; border-radius: 999px; padding: 7px 13px; text-decoration: none }
 @media (prefers-reduced-motion: reduce) { .dt-tour { animation: none } }
-.mtog{display:none}
+.pbar .mtog{margin-left:auto}
+.pbar .chips,.pbar #quietBtn{display:none}.pbar.mopen .chips{display:flex}.pbar.mopen #quietBtn{display:inline-block}
+.pbar .mini{flex:1 1 100%}
 .tgo,.tshut{display:none}
 @media (max-width:640px){
   .pbar{padding:6px 8px;gap:6px 10px}
@@ -2697,7 +2703,7 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
   .pbar.mopen .chips{display:flex}.pbar.mopen #quietBtn{display:inline-block}
   .pbar .mini .btn{min-width:40px;padding:5px 10px}
   .pbar{transition:transform .25s ease}
-  .pnl-h{display:none}
+  .pnl-h{padding:4px 8px;gap:6px}.pnl-h h2{font-size:.9rem}.pnl-h .pnl-x{font-size:.74rem;padding:3px 9px}
   #mticks .mnow{color:var(--ink);font-weight:500;white-space:nowrap}
   .pnl{border-radius:8px}
   .pnl-b{padding:8px}
@@ -2778,6 +2784,7 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
   }
   function show() {
     var s = steps[i]; clearHL();
+    if (s.sel === "#layBtn" && window.setBare) setBare("globe", false);
     if (s.sel === "#pchips") { var pb = document.getElementById("pbar"); if (pb) { pb.classList.add("mopen"); var mt = document.getElementById("mTog"); if (mt) { mt.setAttribute("aria-expanded", "true"); mt.textContent = "Options ▴" } } }
     if (s.sel) { hl = document.querySelector(s.sel); if (hl) { hl.classList.add("dt-hl"); hl.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" }) } }
     var first = i === 0, last = i === steps.length - 1;
