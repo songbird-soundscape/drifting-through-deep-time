@@ -45,7 +45,7 @@ button { font: inherit; color: inherit; cursor: pointer }
 .stage canvas[hidden] { display: none }
 .inset { position: absolute; right: 12px; bottom: 12px; width: min(20%, 220px); background: rgb(7 9 11 / .72); border: 1px solid var(--line); border-radius: 8px; padding: 6px 6px 4px; backdrop-filter: blur(4px) }
 .agekey { position: absolute; left: 12px; bottom: 12px; z-index: 2; width: min(42%, 230px); padding: 6px 8px; background: rgb(7 9 11 / .72); border: 1px solid var(--line); border-radius: 8px; backdrop-filter: blur(4px); font-family: var(--f-mono); font-size: .66rem; color: #C9D3DA; display: grid; gap: 5px; pointer-events: none }
-.agekey .ak-bar { height: 8px; border-radius: 2px; background: linear-gradient(90deg, #fff, #404040); border: 1px solid var(--line) }
+.agekey .ak-bar { height: 8px; border-radius: 2px; background: linear-gradient(90deg, #F2EAD6, #3A342C); border: 1px solid var(--line) }
 .agekey .ak-lb { display: flex; justify-content: space-between; margin-top: 2px }
 .agekey .ak-unk { display: flex; align-items: center; gap: 6px; line-height: 1.2 }
 .agekey .ak-unk i { flex: none; width: 18px; height: 10px; border-radius: 2px; border: 1px solid var(--line) }
@@ -136,7 +136,7 @@ button { font: inherit; color: inherit; cursor: pointer }
 .nctl { display: inline-flex; gap: 8px; align-items: center; margin-left: 4px }
 .nctl input { accent-color: var(--accent); width: 120px }
 .nctl output { color: var(--ink); min-width: 2.6em }
-.ramp .bar { height: 14px; border-radius: 3px; border: 1px solid var(--line); background: linear-gradient(90deg, #fff, #404040) }
+.ramp .bar { height: 14px; border-radius: 3px; border: 1px solid var(--line); background: linear-gradient(90deg, #F2EAD6, #3A342C) }
 .ramp .tk { position: relative; height: 16px; font-family: var(--f-mono); font-size: .68rem; color: var(--muted) }
 .ramp .tk span { position: absolute; transform: translateX(-50%); white-space: nowrap }
 .ramp .tk span:first-child { transform: none } .ramp .tk span:last-child { transform: translateX(-100%) }
@@ -399,7 +399,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
   <header class="top">
     <div><span class="eyebrow" id="eyebrowTop">540 million years · the age of spores and pollen</span><h1 style="margin-top:6px" id="h1Top">Drifting Through Deep Time</h1>
       <p class="lede">Three kinds of drifting, on one timeline. <b>Continents</b> drift apart, collide into Pangaea, and break up again. <b>Spores and pollen</b> drift on wind and water, as plants come ashore and spread across the land. <b>People</b> drift too, migrating out of Africa and onto every continent. Press play to watch 539 million years unfold, from the base of the Cambrian to today.</p>
-      <details class="howmap"><summary>How the map is drawn</summary><p>Today's rocks and ocean floor are carried back to where they formed on a published plate tectonic reconstruction. Each rock is shaded by how long ago it formed (white while forming, fading as younger rock accumulates, hatched black where no record survives), or by period colour. Ocean floor is born at the ridges and sinks at subduction zones.</p></details>
+      <details class="howmap"><summary>How the map is drawn</summary><p>Today's rocks and ocean floor are carried back to where they formed on a published plate tectonic reconstruction. Each rock is shaded by how long ago it formed (pale parchment while forming, fading as younger rock accumulates, hatched black where no record survives), or by period colour. Ocean floor is born at the ridges and sinks at subduction zones.</p></details>
       <p class="aicav">Much of this hub was compiled with the help of AI, so <span class="tipwrap"><a href="https://songbird-soundscape.github.io/open-commons/#critique" target="_blank" rel="noopener" aria-describedby="aiTip">errors are likely</a><span class="tip" id="aiTip" role="tooltip"><b>For educators</b>Those errors make a ready-made teaching tool: students check entries against the scholarly literature, find what's wrong, and fix it. <a href="https://songbird-soundscape.github.io/open-commons/#critique" target="_blank" rel="noopener">Read about the teaching philosophy →</a></span></span>. Please check anything important against the original sources.</p>
       <p class="hdlinks"><a class="xproj" href="https://songbird-soundscape.github.io/open-commons/#explore" target="_blank" rel="noopener">Explore projects ↗</a><a href="#ethics" class="ethlink" id="ethLink">Ethical statement</a></p></div>
   </header>
@@ -431,7 +431,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
       <span><svg width="26" height="14" aria-hidden="true"><path d="M1 4 H25" stroke="#C58FB8" stroke-width="2"/><path d="M6 4 l3 6 l3 -6z M16 4 l3 6 l3 -6z" fill="#C58FB8"/></svg>Subduction zone (teeth on the overriding plate)</span>
       <span><svg width="26" height="14" aria-hidden="true"><path d="M1 7 H25" stroke="#A3C46F" stroke-width="2.2"/></svg>Spreading ridge</span>
       <span><svg width="26" height="14" aria-hidden="true"><path d="M1 7 H25" stroke="rgba(160,180,195,.6)" stroke-width="1.2"/></svg>Other plate boundary</span>
-      <span>LIPs and orogenies take the colour of the period they began in: bright for continental flood basalts, muted for submarine provinces; orogenies as ▲ mountain glyphs</span><span><i class="sw" style="background:#FAFCFF;box-shadow:0 0 0 2px #7FD8FF"></i>Ice (schematic)<span><i class="sw" style="background:#101010 url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2710%27%3E%3Cpath d=%27M1 5 q2 -2 4 0 t4 0%27 stroke=%27%23687A88%27 stroke-width=%271.4%27 fill=%27none%27/%3E%3C/svg%3E&quot;)"></i>Unknown: no surviving record</span></span>
+      <span>LIPs and orogenies take the colour of the period they began in: bright for continental flood basalts, muted for submarine provinces; orogenies as ▲ mountain glyphs</span><span><i class="sw" style="background:#FAFCFF;box-shadow:0 0 0 2px #7FD8FF"></i>Ice (schematic ice sheets; white)<span><i class="sw" style="background:#101010 url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2710%27%3E%3Cpath d=%27M1 5 q2 -2 4 0 t4 0%27 stroke=%27%23687A88%27 stroke-width=%271.4%27 fill=%27none%27/%3E%3C/svg%3E&quot;)"></i>Unknown: no surviving record</span></span>
     </div>
     </div>
     </div>
@@ -488,7 +488,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
       <div class="ctrls" role="group" aria-label="Age scale" id="scale"><button class="btn" data-sc="sadler" aria-pressed="true">Sadler</button><button class="btn" data-sc="log" aria-pressed="false">Log</button><button class="btn" data-sc="linear" aria-pressed="false">Linear</button></div>
       <label class="nctl" id="nctl"><span class="eyebrow">exponent n</span><input type="range" id="nexp" min="0.2" max="0.8" step="0.05" value="0.7" aria-label="Sadler exponent n"><output id="nval" class="mono">0.70</output></label>
     </div>
-    <div class="ramp" id="ramp"><div class="bar"></div><div class="tk" id="ticks"></div><div class="rk"><span><i class="sw" style="background:#0A2A50"></i>Inferred ocean (floor since subducted)</span><span><i class="sw" style="background:linear-gradient(90deg,#56A4DE,#0E3870)"></i>Ocean crust: lighter = younger and shallower, deeper blue = older and deeper</span><span><i class="sw" style="background:linear-gradient(90deg,#BEE4FA,#70B0E2)"></i>Continental shelf</span><span><i class="sw" style="background:#101010 url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2710%27%3E%3Cpath d=%27M1 5 q2 -2 4 0 t4 0%27 stroke=%27%23687A88%27 stroke-width=%271.4%27 fill=%27none%27/%3E%3C/svg%3E&quot;)"></i>Land with no dated surface rock yet (hatched black)</span><span>White while a rock is forming; it darkens with the time since it finished forming. Sadler scale: darkness ∝ (time since)¹⁻ⁿ, the expected thickness of younger rock accumulated on top (Sadler 1981)</span></div></div>
+    <div class="ramp" id="ramp"><div class="bar"></div><div class="tk" id="ticks"></div><div class="rk"><span><i class="sw" style="background:#0A2A50"></i>Inferred ocean (floor since subducted)</span><span><i class="sw" style="background:linear-gradient(90deg,#56A4DE,#0E3870)"></i>Ocean crust: lighter = younger and shallower, deeper blue = older and deeper</span><span><i class="sw" style="background:linear-gradient(90deg,#BEE4FA,#70B0E2)"></i>Continental shelf</span><span><i class="sw" style="background:#101010 url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2710%27%3E%3Cpath d=%27M1 5 q2 -2 4 0 t4 0%27 stroke=%27%23687A88%27 stroke-width=%271.4%27 fill=%27none%27/%3E%3C/svg%3E&quot;)"></i>Land with no dated surface rock yet (hatched black)</span><span>Pale parchment while a rock is forming; it darkens with the time since it finished forming. Sadler scale: darkness ∝ (time since)¹⁻ⁿ, the expected thickness of younger rock accumulated on top (Sadler 1981)</span></div></div>
     <div class="ctrls">
       <span class="eyebrow">Lens</span>
       <div class="ctrls" role="group" aria-label="Lens" id="lens"><button class="btn" data-l="none" aria-pressed="false">None</button><button class="btn" data-l="sea" aria-pressed="true">Sea level</button><button class="btn" data-l="gaps" aria-pressed="false">Deposition &amp; gaps</button></div>
@@ -740,7 +740,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
     <div class="pnl-b">
   <div class="notes">
     <div><h3>What moves</h3><p>Each dot is a 0.5° cell of today's geological map (1° for ocean floor), assigned to its tectonic plate and rotated with the Merdith et al. (2021) full-plate model. Ocean floor appears only once its crust exists; continental fragments appear when their plate does. Positions are interpolated between 5-million-year steps. Scroll or pinch to zoom, drag to pan, double-click to zoom in; dots grow with zoom because the data are sampled every 0.5° (1° at sea).</p></div>
-    <div><h3>What glows</h3><p>A cell is white while its surface rock is forming, according to the age range on the world geological map, then greys with the time since it finished forming. In period-colour mode it glows in its period colour instead. With columns included, buried layers recorded in boreholes and sections glow too, so you can watch deposition in places now covered by younger rock. Loosely dated units glow faintly for longer.</p></div>
+    <div><h3>What glows</h3><p>A cell is pale parchment while its surface rock is forming (pure white is kept for ice), according to the age range on the world geological map, then greys with the time since it finished forming. In period-colour mode it glows in its period colour instead. With columns included, buried layers recorded in boreholes and sections glow too, so you can watch deposition in places now covered by younger rock. Loosely dated units glow faintly for longer.</p></div>
     <div><h3>The empty oceans</h3><p>Ocean floor is made at spreading ridges and consumed at subduction zones. Most of the floor of the ancient Pacific (Panthalassa) and of older oceans has since sunk into the mantle, so no rock survives to place on the map; those areas are dark. The plate boundaries are drawn from the model itself, so you can watch the trenches that consumed it. Rock eroded from the continents is likewise gone. Before about 540 Ma the reconstruction is much less certain. Continental outlines are today's coastlines, carried along for recognition, not ancient shorelines.</p></div>
     <div><h3>Sources</h3><p>Ocean depth from crust age: Parsons B. &amp; Sclater J.G. (1977) <i>J. Geophys. Res.</i> 82, 803–827 (depth ≈ 2,600 m + 345 m·√age, levelling near 6,400 m); shelf depths from SRTM15+. Deep-time sea level (66–250 Ma, applied to continental shelves only): Haq B.U., Hardenbol J. &amp; Vail P.R. (1987) <i>Science</i> 235, 1156–1167, via Miller et al. (2005) at NOAA NCEI; its amplitudes are larger than most modern estimates. Glaciations are schematic latitude rules: Snowball Earth intervals, Hirnantian, the Late Paleozoic Ice Age (about 360–260 Ma) and Antarctic (from 34 Ma) and Northern Hemisphere (from 2.7 Ma, scaled with sea level) ice. Orogeny ages are approximate. Biogeographic lines after Wallace (1863), Huxley (1868), Weber and Lydekker (positions approximate); botanical boundaries after van Steenis. Barrier and land-bridge ages are approximate and several are debated. Family photos: iNaturalist research-grade observations under CC0, CC BY or CC BY-SA, credited on each card. Pollen micrographs: Halbritter et al. (2018), CC BY 4.0. Plant tree: family first/last appearances from the Paleobiology Database; branching order from the Open Tree of Life synthetic tree (Hinchliff et al. 2015, updated; angiosperms consistent with APG IV 2016); extinct families not in the synthesis are attached to their order, class or division as polytomies. Branch points sit at the oldest first appearance among their descendants (a minimum age). Studies: Paleobiology Database (paleobiodb.org, CC BY 4.0) plant collections and references, with studies flagged as palynological from their titles; Neotoma Paleoecology Database (neotomadb.org, CC BY 4.0) pollen datasets; Holocene diagrams use Neotoma counts, % of trees, shrubs and upland herbs, 250-year means. Volcanic provinces: Johansson L., Zahirovic S. &amp; Müller R.D. (2018) <i>Geophysical Research Letters</i> 45, doi:10.1029/2017GL076691 (via GPlates); flashes start at each province's onset age. Ocean anoxic events: Jenkyns H.C. (2010) <i>G-cubed</i> 11, Q03004; Devonian events after Kaiser S.I. et al. (2016) <i>Geol. Soc. London Spec. Publ.</i> 423; ages approximate. Stages: International Chronostratigraphic Chart via Macrostrat. Sea level: Miller K.G. et al. (2020) <i>Science Advances</i> 6, eaaz1346, and Spratt R.M. &amp; Lisiecki L.E. (2016) <i>Climate of the Past</i> 12, 1079–1092, via NOAA NCEI; the stack is tapered to 0 m over the last 6 kyr. Elevation: SRTM15+ v2.7 via the GMT data server. Grey scale: Sadler P.M. (1981) Sediment accumulation rates and the completeness of stratigraphic sections, <i>Journal of Geology</i> 89, 569–584. Plate model: Merdith A.S. et al. (2021) <i>Earth-Science Reviews</i> 214, 103477, via GPlates. Geology: Chorlton (2007), GSC, via Macrostrat (CC BY 4.0). Columns and drill cores: Macrostrat (CC BY 4.0). Seafloor age: Seton et al. (2020). Coastlines: Natural Earth. Colours: ICS chart. Projection: Equal Earth.</p></div>
   </div>
@@ -966,12 +966,29 @@ const mix = (c, r, g, b, f) => pack((c & 255) * (1 - f) + r * f, ((c >> 8) & 255
 let GAPC = null, OAEF = 0, LIPON = false;
 // schematic glaciations (latitude rules, not mapped ice margins)
 let ICE = null;
+// Quaternary ice sheets, schematic: overlapping caps [lon, lat, radius in degrees at the Last Glacial Maximum], after the LGM margins
+// compiled by Ehlers, Gibbard & Hughes (2011, Quaternary Glaciations: Extent and Chronology) and Dalton et al. (2020, Laurentide).
+// Radii scale with sea level (full at about -120 m); only Greenland and Antarctica persist in interglacials.
+const ICESHEETS = [
+  [-95, 58, 14], [-80, 55, 14], [-72, 48, 7.5], [-86, 46, 7], [-100, 52, 9], [-112, 58, 8], [-90, 66, 10], [-70, 62, 9],   // Laurentide (to about 39 N in the Ohio valley)
+  [-125, 55, 7], [-140, 61, 6], [-118, 50, 4],   // Cordilleran
+  [-90, 77, 8], [-75, 80, 6], [-19, 65, 3],   // Innuitian, Iceland
+  [-4, 55.5, 4.5], [-7, 53.5, 3],   // British-Irish
+  [16, 63, 9], [28, 64, 7], [12, 58, 5], [25, 58, 5], [35, 66, 6],   // Fennoscandian
+  [40, 76, 8], [60, 74, 7], [20, 78, 6],   // Barents-Kara and Svalbard
+  [10, 46.5, 2.2], [-72, -47, 4.5], [-71, -41, 3], [170, -43.5, 1.5]];   // Alps, Patagonia, New Zealand Alps
+function iceSheets(f) {
+  const D = Math.PI / 180, out = [], add = (lo, la, rd) => { if (rd > .4) out.push([Math.cos(la * D) * Math.cos(lo * D), Math.cos(la * D) * Math.sin(lo * D), Math.sin(la * D), Math.cos(rd * D)]) };
+  add(-42, 72, 9 + 2 * f); add(-40, 77, 6 + f);   // Greenland, always
+  for (const [lo, la, r] of ICESHEETS) add(lo, la, r * Math.pow(f, .7));
+  return out }
+function iceIn(lo, la) { if (Math.abs(la) < .6) return false; const cl = Math.cos(la), x = cl * Math.cos(lo), y = cl * Math.sin(lo), z = Math.sin(la); for (const c of ICE.circ) if (x * c[0] + y * c[1] + z * c[2] > c[3]) return true; return false }
 function iceRule(t) {
   if ((t <= 717 && t >= 660) || (t <= 650 && t >= 635)) return { all: true, nm: 'Cryogenian “Snowball Earth” glaciation' };
   if (t <= 445.2 && t >= 443.8) return { s: -55, nm: 'Hirnantian (Late Ordovician) glaciation' };
   if (t <= 360 && t >= 260) return { s: (t <= 340 && t >= 290) ? -48 : -60, nm: 'Late Paleozoic Ice Age' };
   if (t <= 34) { const r = { s: t > 14 ? -72 : -64, nm: t > 2.7 ? 'Antarctic glaciation (Oligocene onward)' : 'Bipolar glaciation' };
-    if (t <= 2.7) { const sl = slAt(t) ?? 0; r.n = sl < -20 ? 76 - Math.min(1, (-sl - 20) / 110) * 31 : 76 } return r }
+    if (t <= 2.7) { const sl = slAt(t) ?? 0, f = Math.max(0, Math.min(1, -sl / 120)); r.circ = iceSheets(f); r.nm = f > .6 ? 'Glacial maximum: ice sheets at full extent' : f > .25 ? 'Ice sheets growing or retreating' : 'Interglacial: Greenland and Antarctic ice'; r.f = f } return r }
   return null;
 }   // per-column cache: 1 deposition, 2 gap (erosion or non-deposition), 0 outside record
 function gapState(ci, t) { const us = COLS[ci - 1]; if (!us) return 0; let older = false, younger = false;
@@ -1037,7 +1054,7 @@ const sOf = a => { a = Math.max(0, a);
   if (OPT.scale === 'log') return Math.log10(1 + a) / Math.log10(1 + AMAX);
   if (OPT.scale === 'sadler') return Math.pow(a / AMAX, 1 - OPT.n);
   return a / AMAX };
-const grey = a => { const v = 255 * (1 - .75 * Math.min(1, sOf(a))); return pack(v, v, v) };
+const grey = a => { const u = Math.min(1, sOf(a)); return pack(242 - 184 * u, 234 - 182 * u, 214 - 170 * u) };   // parchment while forming, to dark umber-grey; pure white is kept for ice
 // Time since the rock at the top of the pile finished forming (0 while it is still forming); null if nothing dated exists yet.
 function colTop(ci, t) { const us = COLS[ci - 1]; if (!us) return null; let best = null;
   for (const u of us) if (u[1] >= t) { const since = Math.max(0, u[0] - t); if (best == null || since < best) best = since } return best }
@@ -1104,7 +1121,7 @@ function draw() {
       if (OAEF > 0 && (k === 2 || k === 3)) { const v = Math.random() < .5 ? Math.random() * 70 : 150 + Math.random() * 105; c = mix(mix(c, 0, 0, 0, OAEF * .85), v, v, v, OAEF * .75) }   // scratchy TV static
       const [lo, la] = rot(qs, PLATE[i], X0[i], Y0[i], Z0[i]); const [x, y] = ee(lo, la);
       PX[i] = (cx + x * sx) / dpr; PY[i] = (cy - y * sy) / dpr;
-      if (ICE && (k === 0 || k === 1)) { const d = la * 57.2958; if (ICE.all || (ICE.s != null && d < ICE.s) || (ICE.n != null && d > ICE.n)) { c = ICEC; SPM = 1 } }
+      if (ICE && (k === 0 || k === 1)) { const d = la * 57.2958; if (ICE.all || (ICE.s != null && d < ICE.s) || (ICE.n != null && d > ICE.n) || (ICE.circ && iceIn(lo, la))) { c = ICEC; SPM = 1 } }
       { const ss = k === 2 ? sOcean : k === 3 ? sLand + 1 : sLand; splat(cx + x * sx, cy - y * sy, ss, c, gl && Math.abs(la) > .6 ? Math.round(ss * eeStretch(la)) : ss);
         if (gl && Math.abs(la) > Math.PI / 2 - CA) { const rr = (Math.PI / 2 - Math.abs(la)) * CS / (2 * CA); capSplat(CAPB[la > 0 ? 0 : 1], CS / 2 + rr * Math.sin(lo), CS / 2 + rr * Math.cos(lo), Math.max(2, Math.round(ss * capK)), c) } }
     }
