@@ -454,7 +454,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
     <div class="ramp" id="ramp"><div class="bar"></div><div class="tk" id="ticks"></div><div class="rk"><span><i class="sw" style="background:#0A2A50"></i>Inferred ocean (floor since subducted)</span><span><i class="sw" style="background:linear-gradient(90deg,#56A4DE,#0E3870)"></i>Ocean crust: lighter = younger and shallower, deeper blue = older and deeper</span><span><i class="sw" style="background:linear-gradient(90deg,#BEE4FA,#70B0E2)"></i>Continental shelf</span><span><i class="sw" style="background:#101010 url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2710%27%3E%3Cpath d=%27M1 5 q2 -2 4 0 t4 0%27 stroke=%27%23687A88%27 stroke-width=%271.4%27 fill=%27none%27/%3E%3C/svg%3E&quot;)"></i>Land with no dated surface rock yet (hatched black)</span><span>White while a rock is forming; it darkens with the time since it finished forming. Sadler scale: darkness ∝ (time since)¹⁻ⁿ, the expected thickness of younger rock accumulated on top (Sadler 1981)</span></div></div>
     <div class="ctrls">
       <span class="eyebrow">Lens</span>
-      <div class="ctrls" role="group" aria-label="Lens" id="lens"><button class="btn" data-l="none" aria-pressed="true">None</button><button class="btn" data-l="sea" aria-pressed="false">Sea level</button><button class="btn" data-l="gaps" aria-pressed="false">Deposition &amp; gaps</button></div>
+      <div class="ctrls" role="group" aria-label="Lens" id="lens"><button class="btn" data-l="none" aria-pressed="false">None</button><button class="btn" data-l="sea" aria-pressed="true">Sea level</button><button class="btn" data-l="gaps" aria-pressed="false">Deposition &amp; gaps</button></div>
       <label class="opts" style="margin-left:6px"><input type="checkbox" id="oSlow" checked> Slow down in the Cenozoic</label>
       <label class="opts"><input type="checkbox" id="oInfo" checked> Pace by how much we know</label>
     </div>
@@ -920,7 +920,7 @@ function drawInset() {
   for (let la = 90; la >= -90; la -= 3) { const [x, y] = P2(-Math.PI, la * Math.PI / 180); g.lineTo(x, y) } g.closePath();
   g.save(); g.clip(); g.drawImage(cv, 0, 0, W, H); g.restore(); g.lineWidth = 1; g.strokeStyle = 'rgba(143,211,255,.5)'; g.stroke();
 }
-const OPT = { hum: false, veg: false, evm: false, ice: false, orog: false, tropics: false, biogeo: false, info: true, botany: false, paly: false, pdata: false, lip: false, oae: false, form: true, cols: true, ocean: true, coast: true, cores: false, bnd: false, mode: 'gray', scale: 'sadler', n: 0.7, lens: 'none', slow: true };
+const OPT = { hum: false, veg: false, evm: false, ice: false, orog: false, tropics: false, biogeo: false, info: true, botany: false, paly: false, pdata: false, lip: false, oae: false, form: true, cols: true, ocean: true, coast: true, cores: false, bnd: false, mode: 'gray', scale: 'sadler', n: 0.7, lens: 'sea', slow: true };
 // Global mean sea level, m relative to present: Spratt & Lisiecki (2016) stack to 798 ka, Miller et al. (2020) beyond; ages in ka
 function slAt(t) { const a = t * 1000; if (!SLA || a > SLA[SLA.length - 1]) return null; let lo = 0, hi = SLA.length - 1;
   if (a <= SLA[0]) return SLV[0]; while (hi - lo > 1) { const m = (lo + hi) >> 1; if (SLA[m] <= a) lo = m; else hi = m }
