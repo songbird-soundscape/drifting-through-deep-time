@@ -459,7 +459,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
         <p class="muted" id="tmodeNote" style="margin:0;font-size:.86rem;max-width:72ch"></p>
         <div class="ffind"><label class="eyebrow" for="famq">Find a family</label><div class="ffwrap"><input id="famq" type="search" placeholder="Type a name: Poaceae, grass, Pinac…, oak" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="famlist" aria-autocomplete="list"><ul id="famlist" role="listbox" hidden></ul></div></div>
         <div class="ctrls" role="group" aria-label="Clade" id="clade"></div>
-    <div class="tree-pane"><div class="tree-wrap obj"><div class="zoomctl" role="group" aria-label="Zoom the tree"><button class="zb" id="tzIn" aria-label="Zoom in">+</button><button class="zb" id="tzOut" aria-label="Zoom out">−</button><button class="zb" id="tzReset" aria-label="Reset view" title="Reset view">⟲</button></div><canvas id="treeCv" aria-label="Circular tree of land-plant families coloured by plant group, animated with the timeline"></canvas><div class="tip2" id="treeTip" hidden></div><div class="tstory" id="tstory" aria-live="polite"></div><div class="tport" id="tport" aria-live="polite"></div></div>
+    <div class="tree-pane"><div class="tree-wrap obj"><div class="zoomctl" role="group" aria-label="Zoom the tree"><button class="zb" id="tzIn" aria-label="Zoom in">+</button><button class="zb" id="tzOut" aria-label="Zoom out">−</button><button class="zb" id="tzReset" aria-label="Reset view" title="Reset view">⟲</button></div><canvas id="treeCv" aria-label="Circular tree of land-plant families coloured by plant group, animated with the timeline"></canvas><div class="tip2" id="treeTip" hidden></div><div class="tstory" id="tstory" aria-live="polite"></div><div class="tport" id="tport" aria-live="polite"></div><button type="button" class="tgo" id="tGo">▶ Tap to watch the tree grow</button><button type="button" class="tshut" id="tShut" aria-label="Close the tree">✕ Close</button></div>
         <div class="ordtrack" id="ordtrack"></div>
         <div class="tnav" id="tnav" hidden><button class="btn" data-nv="L" aria-label="Previous family from the same period, along the tree">◀</button><button class="btn" data-nv="R" aria-label="Next family from the same period, along the tree">▶</button><button class="btn" data-nv="d" aria-label="Previous family from the same period">▼ older, same period</button><button class="btn" data-nv="u" aria-label="Next family from the same period">▲ younger, same period</button><button class="btn" data-nv="D" aria-label="Jump to an earlier period">⇟ earlier period</button><button class="btn" data-nv="U" aria-label="Jump to a later period">⇞ later period</button><span>Keys: ◀ ▶ along the tree and ▲ ▼ by first appearance, both within the period you are in · PgUp / PgDn change period. Swipe the card on a phone.</span><b id="tnavMsg" role="status" aria-live="polite" style="flex-basis:100%;color:#FFE9A8;font-weight:600"></b></div>
         <div class="famcard" id="famcard"><p class="muted">Hover over a family in the tree to see its plants, flowers, pollen and natural history; click to pin it.</p></div>
@@ -2656,6 +2656,7 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
 .dt-back { position: fixed; left: calc(12px + env(safe-area-inset-left, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 45; font: 600 .8rem var(--f-body); color: #E7ECEF; background: rgb(7 9 11 / .9); border: 1px solid #8FD3FF; border-radius: 999px; padding: 7px 13px; text-decoration: none }
 @media (prefers-reduced-motion: reduce) { .dt-tour { animation: none } }
 .mtog{display:none}
+.tgo,.tshut{display:none}
 @media (max-width:640px){
   .pbar{padding:6px 8px;gap:6px 10px}
   .pbar .mini{width:100%}
@@ -2674,6 +2675,16 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
   .maptools{gap:6px}
   .maptools .ctrls .eyebrow{display:none}
   .maptools .btn{padding:5px 9px;font-size:.82rem}
+  /* plant tree: a calm preview until tapped, then its own full-screen view with the story underneath */
+  .tree-wrap:not(.tfull) .tstory,.tree-wrap:not(.tfull) .tport,.tree-wrap:not(.tfull) .zoomctl{display:none}
+  .tree-wrap:not(.tfull) .tgo{display:block;position:absolute;inset:0;width:100%;border:0;border-radius:14px;background:rgb(7 9 11 / .35);color:#fff;font:600 1rem var(--f-body);cursor:pointer}
+  .tree-wrap.tfull{position:fixed;inset:0;z-index:15;max-width:none;margin:0;overflow:auto;background:#07090B;padding:64px 10px 24px;display:flex;flex-direction:column;gap:10px}
+  .tree-wrap.tfull .tshut{display:block;position:fixed;right:10px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:16;border:1px solid var(--line);border-radius:999px;background:#0E1216;color:var(--ink);padding:8px 14px;font:600 .85rem var(--f-body)}
+  .tree-wrap.tfull #treeCv{flex:none}
+  .tree-wrap.tfull .zoomctl{top:72px;right:16px}
+  .tree-wrap.tfull .tstory,.tree-wrap.tfull .tport{position:static;width:auto;max-width:none;max-height:none;overflow:visible}
+  .tree-wrap.tfull .tport:not(.on){display:none}
+  body.tfullon{overflow:hidden}
   /* bar stays pinned: Play, Ma and Options are always in reach */
 }
 @media (max-width:640px) and (prefers-reduced-motion:reduce){.pbar{transition:none}}
@@ -2682,6 +2693,14 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
 (function () {
   var t = document.getElementById("mTog"), bar = document.getElementById("pbar"); if (!t || !bar) return;
   t.addEventListener("click", function () { var open = !bar.classList.contains("mopen"); bar.classList.toggle("mopen", open); t.setAttribute("aria-expanded", String(open)); t.textContent = open ? "Options ▴" : "Options ▾" });
+  // phones: the plant tree opens full screen and plays when tapped
+  var tw = document.querySelector(".tree-wrap"), tgo = document.getElementById("tGo"), tsh = document.getElementById("tShut");
+  if (tw && tgo && tsh) {
+    tgo.addEventListener("click", function () { tw.classList.add("tfull"); document.body.classList.add("tfullon"); tw.scrollTop = 0; var pb = document.getElementById("play"); if (pb && !/Pause/.test(pb.textContent)) pb.click(); tsh.focus() });
+    var shut = function () { if (!tw.classList.contains("tfull")) return; tw.classList.remove("tfull"); document.body.classList.remove("tfullon"); var pb = document.getElementById("play"); if (pb && /Pause/.test(pb.textContent)) pb.click(); tgo.focus() };
+    tsh.addEventListener("click", shut); addEventListener("keydown", function (e) { if (e.key === "Escape") shut() });
+    if (window.matchMedia) matchMedia("(max-width: 640px)").addEventListener("change", function (m) { if (!m.matches) shut() });
+  }
   // phones: under the timeline, name only the period you're in
   var tk = document.getElementById("mticks"), mqT = window.matchMedia ? matchMedia("(max-width: 640px)") : { matches: false }, lastP = null;
   window.dtMtick = function (per) {
