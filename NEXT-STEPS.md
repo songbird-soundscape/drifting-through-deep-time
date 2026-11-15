@@ -32,6 +32,18 @@ Each site is a single `index.html`. Drifting Through Deep Time also loads `data/
 2. **Phones, other panels:** possibly make the globe and the other big panels work like the plant tree does now: tap to start in place.
 3. **Computers:** possibly slim the play bar further to just the play button.
 
+### Posting Drifting Through Deep Time elsewhere (later)
+
+Turn on GitHub Pages first, so the links work. Then, in this order:
+
+1. **Zenodo:** link GitHub, switch on this repo, and make a release such as "v1.0" to get a DOI. Use this one DOI everywhere.
+2. **SERC Teach the Earth:** submit an activity write-up.
+3. **QUBES:** post it citing the Zenodo DOI. Don't take a second DOI.
+4. **OER Commons:** add a listing.
+5. **Wikiversity:** paste `docs/wikiversity-draft.wiki` (ready to go).
+
+Keep the site and repo as the one real home. Send corrections to one place, either the Wikiversity talk page or GitHub issues. Claude offered to build a submission kit with descriptions, keywords, a citation and a SERC-format activity.
+
 ### The Open Commons of Learning
 
 4. **Once Pages is live:**

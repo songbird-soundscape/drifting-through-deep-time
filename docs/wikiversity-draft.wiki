@@ -1,0 +1,57 @@
+'''Drifting Through Deep Time''' is an interactive learning resource that follows three kinds of drifting on one timeline, from the base of the [[w:Cambrian|Cambrian]] (539 million years ago) to today:
+* '''Continents''' drift apart, collide into [[w:Pangaea|Pangaea]], and break up again.
+* '''Spores and pollen''' drift on wind and water, as plants come ashore and spread across the land.
+* '''People''' drift too, migrating out of Africa and onto every continent.
+
+'''Open it here:''' [https://songbird-soundscape.github.io/drifting-through-deep-time/ Drifting Through Deep Time], or start with the [https://songbird-soundscape.github.io/drifting-through-deep-time/#tutorial guided tour]. It was created by the user songbird-soundscape. The code is MIT-licensed and on [https://github.com/songbird-soundscape/drifting-through-deep-time GitHub]. Text added to this page is shared under Wikiversity's CC BY-SA 4.0 license.
+
+Much of the resource was compiled with the help of AI, so '''errors are likely'''. That is part of the design: finding and fixing them is the main activity below.
+
+== What you can explore ==
+; Globe and flat map
+: Today's rocks and ocean floor, carried back to where they formed on the [[w:Plate reconstruction|plate tectonic reconstruction]] of Merdith et al. (2021). Rock is shaded white while it forms and darkens with time since it formed, scaled after Sadler (1981). With the sea-level lens on, inland seas such as the [[w:Western Interior Seaway|Western Interior Seaway]] appear in light blue.
+; Layers
+: Plate boundaries, mountain building, [[w:Large igneous province|large igneous provinces]], [[w:Anoxic event|ocean anoxic events]], glaciations, a frost line, biogeographic lines such as [[w:Wallace Line|Wallace's line]], paleobotanical and palynological study sites, and human dispersal routes over the last 2 million years.
+; Plant phylogeny
+: A circular tree of land-plant families that grows with the timeline. Family first appearances come from the [[w:Paleobiology Database|Paleobiology Database]], and branching order from the [[w:Open Tree of Life|Open Tree of Life]] (angiosperms consistent with [[w:APG IV system|APG IV]]). Story captions and family portraits appear as it plays.
+; Spores and pollen through time
+: How plant reproductive cells changed, from [[w:Charophyta|charophyte algae]] to flowering plants, as evidence for common ancestry and descent with modification.
+; Study table and family counts
+: Published studies and pollen datasets ([[w:Neotoma Paleoecology Database|Neotoma]]) placed on the map and timeline.
+
+== Learning activities ==
+# '''Check an entry (AI critique).''' Pick a family card, a story caption, or a map event. Find the original sources and check the dates, places, and claims. Record what you found on this page's talk page: ''correct'', ''wrong'' (with the source), or ''uncertain''.
+# '''Follow one place through time.''' Choose a region you know, such as where you live or do fieldwork. Play from the Cambrian to today and write down when it was sea, coast, mountain, or ice, and which plant groups appear around it.
+# '''Track the Western Interior Seaway.''' When did it open and close? What rocks and fossils record it? A good place to start is the Book Cliffs, Utah, in the resource.
+# '''Read the pollen record.''' Using the spores and pollen section, explain one change in form, such as air sacs or apertures, and what it did for the plant.
+# '''Trace a human dispersal route.''' Turn on human migrations, go to the last 2 million years, and compare the route with the evidence that dates it.
+# '''Present your findings''' to classmates or a working group, together with any corrections you made.
+
+== For educators ==
+* The activities suit undergraduate courses in geology, paleobiology, botany, biogeography, and human ecology.
+* Students' corrections can be collected on the talk page, or sent as issues or pull requests on [https://github.com/songbird-soundscape/drifting-through-deep-time GitHub], so each class leaves the resource better than it found it.
+* This resource is the first example of a ''knowledge hub'' in [https://songbird-soundscape.github.io/open-commons/ The Open Commons of Learning], a framework for open teaching and research.
+
+== Main sources ==
+* Merdith A.S. et al. (2021). Extending full-plate tectonic models into deep time. ''Earth-Science Reviews'' 214, 103477.
+* Sadler P.M. (1981). Sediment accumulation rates and the completeness of stratigraphic sections. ''Journal of Geology'' 89, 569–584.
+* Haq B.U., Hardenbol J. & Vail P.R. (1987). Chronology of fluctuating sea levels since the Triassic. ''Science'' 235, 1156–1167.
+* Miller K.G. et al. (2020). Cenozoic sea-level and cryospheric evolution from deep-sea geochemical and continental margin records. ''Science Advances'' 6, eaaz1346.
+* Jenkyns H.C. (2010). Geochemistry of oceanic anoxic events. ''Geochemistry, Geophysics, Geosystems'' 11, Q03004.
+* Johansson L., Zahirovic S. & Müller R.D. (2018). ''Geophysical Research Letters'' 45.
+* Halbritter H. et al. (2018). ''Illustrated Pollen Terminology'', 2nd ed. Springer (CC BY 4.0).
+* Paleobiology Database (paleobiodb.org) and Neotoma Paleoecology Database (neotomadb.org), CC BY 4.0.
+The full list is in the resource's ''Notes & sources'' section.
+
+== See also ==
+* [[w:Plate tectonics|Plate tectonics]]
+* [[w:Geologic time scale|Geologic time scale]]
+* [[w:Evolutionary history of plants|Evolutionary history of plants]]
+* [[w:Palynology|Palynology]]
+* [[w:Early human migrations|Early human migrations]]
+
+[[Category:Geology]]
+[[Category:Paleontology]]
+[[Category:Botany]]
+[[Category:Earth science]]
+[[Category:Open educational resources]]
