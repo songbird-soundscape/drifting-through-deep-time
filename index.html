@@ -95,6 +95,8 @@ button { font: inherit; color: inherit; cursor: pointer }
 .scrub { position: relative; height: 30px; border-radius: 6px; overflow: visible; margin-bottom: 9px; cursor: pointer; touch-action: none; display: flex; border: 1px solid var(--line) }
 .scrub .seg { height: 100%; display: flex; align-items: flex-end; justify-content: center; font-family: var(--f-display); font-weight: 700; font-size: .85rem; color: #111; padding-bottom: 4px; overflow: hidden; border-left: 1px solid rgb(0 0 0 / .25) }
 .scrub .seg:first-child { border-left: 0 }
+#scrub.refocus .seg, #scrub.refocus .tri, #scrub.refocus .knob, #scrub.refocus .cover { transition: width .35s ease, left .35s ease }
+.seg { white-space: nowrap }
 .scrub .cover { position: absolute; top: 0; bottom: 0; right: 0; background: rgb(7 9 11 / .55); pointer-events: none; border-radius: 0 6px 6px 0 }
 .scrub .knob { position: absolute; top: -2px; bottom: -2px; width: 3px; background: #fff; box-shadow: 0 0 0 1px #000, 0 0 10px rgb(255 255 255 / .6); pointer-events: none; transform: translateX(-1px) }
 .scrub .tri { position: absolute; top: calc(100% + 2px); width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 7px solid #E7ECEF; transform: translateX(-5px); pointer-events: none; display: none }
@@ -1858,7 +1860,7 @@ function hud() {
   if (oe) { if (lastCap !== oe) { lastCap = oe; $('#capwhen').textContent = `About ${oe[0]} Ma · oceanic anoxic event`; $('#captext').innerHTML = `${escH(oe[1])}: widespread oxygen loss in the oceans, recorded by organic-rich black shales. ${A('https://doi.org/10.1029/2009GC002788', 'Jenkyns 2010, G-cubed')}`; $('#cap').hidden = false } }
   else if (e !== lastCap) { lastCap = e; if (e) { $('#capwhen').textContent = fmtT(e[0]); $('#captext').textContent = e[1]; $('#cap').hidden = false } else $('#cap').hidden = true }
   const s = $('#scrub'); const f = 1 - T / TMAX; s.classList.toggle('m-ev', OPT.evm); s.classList.toggle('m-oae', OPT.oae); s.classList.toggle('m-lip', OPT.lip); $('#stages').classList.toggle('m-oae', OPT.oae); $('#stages').classList.toggle('m-lip', OPT.lip); $('#markKey').hidden = !(OPT.oae || OPT.lip);
-  $('#knob').style.left = (f * 100) + '%'; $('#cover').style.left = (f * 100) + '%';
+  if (!FISH.drag && (FISH.f == null || Math.abs(FISH.f - T) > Math.max(.02, T * .004))) { fishSet(T); layoutScrub() } const fx = tlX(T) * 100; $('#knob').style.left = fx + '%'; $('#cover').style.left = fx + '%';
   s.setAttribute('aria-valuenow', Math.round(T)); s.setAttribute('aria-valuetext', `${Math.round(T)} million years ago, ${p.n}`);
 }
 
@@ -1905,10 +1907,25 @@ function drawStages() {
 /* ---------- timeline & playback ---------- */
 function buildScrub() {
   const segs = P.filter(p => p.t < TMAX).map(p => { const b = Math.min(TMAX, p.b); return { ...p, w: (b - p.t) / TMAX * 100 } }).reverse();
-  $('#scrub').innerHTML = segs.map(p => `<div class="seg" style="width:${p.w}%;background:${p.c}" title="${p.n}">${p.w > 3 ? p.s : ''}</div>`).join('') +
-    EVENTS.filter(([t]) => t <= TMAX).map(([t]) => `<span class="tri ev" style="left:${(1 - t / TMAX) * 100}%"></span>`).join('') +
-    OAES.filter(([t]) => t <= TMAX).map(([t]) => `<span class="tri oae" style="left:${(1 - t / TMAX) * 100}%"></span>`).join('') +
-    EX.lipLabels.filter(([t]) => t <= TMAX).map(([t]) => `<span class="tri lip" style="left:${(1 - t / TMAX) * 100}%"></span>`).join('') + '<div class="cover" id="cover"></div><div class="knob" id="knob"></div>';
+  $('#scrub').innerHTML = segs.map(p => `<div class="seg" data-b="${Math.min(TMAX, p.b)}" data-t="${p.t}" data-n="${p.n}" data-s="${p.s}" style="width:${p.w}%;background:${p.c}" title="${p.n}">${p.w > 3 ? p.s : ''}</div>`).join('') +
+    EVENTS.filter(([t]) => t <= TMAX).map(([t]) => `<span class="tri ev" data-at="${t}" style="left:${(1 - t / TMAX) * 100}%"></span>`).join('') +
+    OAES.filter(([t]) => t <= TMAX).map(([t]) => `<span class="tri oae" data-at="${t}" style="left:${(1 - t / TMAX) * 100}%"></span>`).join('') +
+    EX.lipLabels.filter(([t]) => t <= TMAX).map(([t]) => `<span class="tri lip" data-at="${t}" style="left:${(1 - t / TMAX) * 100}%"></span>`).join('') + '<div class="cover" id="cover"></div><div class="knob" id="knob"></div>';
+}
+/* fisheye timeline: the stretch of time around the playhead is magnified, with more and more detail toward it */
+const FISH = { f: null, tab: null, N: 800, drag: false };
+function fishSet(t) {   // the lens gets narrower and stronger toward the present
+  const u0 = 1 - t / TMAX, sg = Math.min(.022, Math.max(.003, t / TMAX * 1.2 + .003)), A = .7 / (sg * 1.772), N = FISH.N, tab = new Float32Array(N + 1); let acc = 0;
+  for (let i = 1; i <= N; i++) { const d = ((i - .5) / N - u0) / sg; acc += 1 + A * Math.exp(-d * d); tab[i] = acc }
+  for (let i = 1; i <= N; i++) tab[i] /= acc; FISH.tab = tab; FISH.f = t;
+}
+function tlX(t) { const u = Math.max(0, Math.min(1, 1 - t / TMAX)); if (!FISH.tab) return u; const v = u * FISH.N, i = Math.min(FISH.N - 1, Math.floor(v)), r = v - i; return FISH.tab[i] + (FISH.tab[i + 1] - FISH.tab[i]) * r }
+function tlT(x) { const tab = FISH.tab; x = Math.max(0, Math.min(1, x)); if (!tab) return TMAX * (1 - x); let lo = 0, hi = FISH.N; while (hi - lo > 1) { const m = (lo + hi) >> 1; if (tab[m] <= x) lo = m; else hi = m } const r = (x - tab[lo]) / ((tab[hi] - tab[lo]) || 1); return TMAX * (1 - (lo + r) / FISH.N) }
+function layoutScrub() {
+  const s = $('#scrub'); if (!s) return; const W = s.clientWidth || 600;
+  s.querySelectorAll('.seg').forEach(el => { const w = (tlX(+el.dataset.t) - tlX(+el.dataset.b)) * 100; el.style.width = w + '%'; const px = w * W / 100; const lbl = px > el.dataset.n.length * 8.5 + 10 ? el.dataset.n : px > 16 ? el.dataset.s : ''; if (el.textContent !== lbl) el.textContent = lbl });
+  s.querySelectorAll('[data-at]').forEach(el => { el.style.left = tlX(+el.dataset.at) * 100 + '%' });
+  document.querySelectorAll('#mticks [data-at]').forEach(el => { el.style.left = tlX(+el.dataset.at) * 100 + '%' });
 }
 let playing = false, speed = 1, lastTs = 0, drawPending = false;
 function setT(t) { T = Math.max(0, Math.min(TMAX, t)); if (!drawPending) { drawPending = true; requestAnimationFrame(() => { drawPending = false; draw() }) } }
@@ -1937,14 +1954,16 @@ function syncPlayBtn() { if (playing) return; const end = T <= 0; $('#play').tex
 function stop() { const was = playing; playing = false; syncPlayBtn(); if (was) noteChange() }   // at the present it simply holds there
 
 function init() {
-  unpack(); buildScrub(); initStory(); $('#mticks').innerHTML = [[538.8, 'Cambrian 539 Ma'], [419.2, 'Devonian'], [298.9, 'Permian'], [201.4, 'Jurassic'], [66, 'Cenozoic'], [0, 'Today']].map(([t, l]) => `<span style="position:absolute;left:${(1 - t / TMAX) * 100}%;transform:translateX(${t > 500 ? '0' : t ? '-50%' : '-100%'})">${l}</span>`).join('');
+  unpack(); buildScrub(); initStory(); $('#mticks').innerHTML = [[538.8, 'Cambrian 539 Ma'], [419.2, 'Devonian'], [298.9, 'Permian'], [201.4, 'Jurassic'], [66, 'Cenozoic'], [0, 'Today']].map(([t, l]) => `<span data-at="${t}" style="position:absolute;left:${(1 - t / TMAX) * 100}%;transform:translateX(${t > 500 ? '0' : t ? '-50%' : '-100%'})">${l}</span>`).join('');
   cv = $('#cv'); ctx = cv.getContext('2d'); $('#loading').remove(); const G = initGlobe();
   if (G) { gcv.hidden = false; cv.hidden = true; $('#insetWrap').hidden = false } else { cv.hidden = false; $('#spin').hidden = true } size();
   const sc = $('#scrub'); let drag = false;
-  const tFrom = e => { const r = sc.getBoundingClientRect(); return TMAX * (1 - Math.max(0, Math.min(1, (e.clientX - r.left) / r.width))) };
-  sc.addEventListener('pointerdown', e => { drag = true; sc.setPointerCapture(e.pointerId); stop(); setT(tFrom(e)) });
+  const tFrom = e => { const r = sc.getBoundingClientRect(); return tlT((e.clientX - r.left) / r.width) };
+  sc.addEventListener('pointerdown', e => { drag = true; FISH.drag = true; sc.setPointerCapture(e.pointerId); stop(); setT(tFrom(e)) });
   sc.addEventListener('pointermove', e => { if (drag) setT(tFrom(e)) });
-  sc.addEventListener('pointerup', () => drag = false);
+  const endDrag = () => { if (!drag) return; drag = false; FISH.drag = false; sc.classList.add('refocus'); setTimeout(() => sc.classList.remove('refocus'), 400); setT(T) };
+  sc.addEventListener('pointerup', endDrag); sc.addEventListener('pointercancel', endDrag);
+  addEventListener('resize', () => layoutScrub());
   sc.addEventListener('keydown', e => { const m = { ArrowLeft: 5, ArrowRight: -5, PageUp: 50, PageDown: -50, Home: TMAX, End: -TMAX }[e.key]; if (m != null) { e.preventDefault(); stop(); setT(T + m) } });
   $('#play').onclick = () => playing ? stop() : play();
   $('#back').onclick = () => { stop(); setT(START) };  $('#now').onclick = () => { stop(); setT(0) };
@@ -2780,7 +2799,7 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
     if (!tk || !per) return; lastP = per;
     if (tk.dataset.full == null) tk.dataset.full = tk.innerHTML;
     if (!mqT.matches) { if (tk.dataset.mob) { tk.innerHTML = tk.dataset.full; delete tk.dataset.mob } return }
-    var tm = (typeof TMAX !== "undefined") ? TMAX : 540, top = Math.min(tm, per.b), x = (1 - (per.t + top) / 2 / tm) * 100;
+    var tm = (typeof TMAX !== "undefined") ? TMAX : 540, top = Math.min(tm, per.b), x = (typeof tlX === "function") ? (tlX(per.t) + tlX(top)) / 2 * 100 : (1 - (per.t + top) / 2 / tm) * 100;
     x = Math.max(4, Math.min(96, x)); var shift = x < 15 ? "0" : x > 85 ? "-100%" : "-50%";
     var html = '<span class="mnow" style="position:absolute;left:' + x.toFixed(1) + '%;transform:translateX(' + shift + ')">' + per.n + '</span>';
     if (tk.dataset.mob !== html) { tk.innerHTML = html; tk.dataset.mob = html }
