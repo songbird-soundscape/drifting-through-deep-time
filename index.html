@@ -1793,7 +1793,7 @@ let lastCap = null;
 const fmtT = t => t < .00005 ? 'Today' : t < .02 ? `${(Math.round(t * 1e6 / 50) * 50).toLocaleString()} yr BP` : t < .0005 ? 'Today' : t < 1 ? `${Math.round(t * 1000).toLocaleString()} ka` : t < 10 ? `${t.toFixed(t < 2.58 ? 2 : 1)} Ma` : `${Math.round(t)} Ma`;
 function hud() {
   const p = P[perOf(T)];
-  $('#age').textContent = fmtT(T); $('#age2').textContent = fmtT(T); syncPlayBtn();
+  $('#age').textContent = fmtT(T); $('#age2').textContent = fmtT(T); syncPlayBtn(); if (window.dtMtick) dtMtick(p);
   const slOn = OPT.lens === 'sea'; $('#slread').hidden = !slOn; if (slOn && T > 250) $('#slread').textContent = 'Sea level: no global curve this far back; sediment accumulating now shown as shallow sea or coastal lowland'; else if (slOn) { const v = slAt(T); $('#slread').textContent = `Sea level ${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(Math.round(v))} m${T > 66 ? ' (Haq et al. 1987; shelf only)' : ''}` }
   $('#frostread').hidden = !OPT.tropics; if (OPT.tropics) $('#frostread').textContent = `Frost line ≈ ${Math.round(frostLat(T))}° N and S (schematic)`;
   const ic = OPT.ice ? iceRule(T) : null; $('#iceread').hidden = !ic; if (ic) $('#iceread').textContent = '❄ ' + ic.nm;
@@ -2678,6 +2678,7 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
   .pbar .mini .btn{min-width:40px;padding:5px 10px}
   .pbar{transition:transform .25s ease}
   .pnl-h{display:none}
+  #mticks .mnow{color:var(--ink);font-weight:500;white-space:nowrap}
   .pnl{border-radius:8px}
   .pnl-b{padding:8px}
   .maphint{display:none}
@@ -2692,6 +2693,18 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
 (function () {
   var t = document.getElementById("mTog"), bar = document.getElementById("pbar"); if (!t || !bar) return;
   t.addEventListener("click", function () { var open = !bar.classList.contains("mopen"); bar.classList.toggle("mopen", open); t.setAttribute("aria-expanded", String(open)); t.textContent = open ? "Sections ▴" : "Sections ▾" });
+  // phones: under the timeline, name only the period you're in
+  var tk = document.getElementById("mticks"), mqT = window.matchMedia ? matchMedia("(max-width: 640px)") : { matches: false }, lastP = null;
+  window.dtMtick = function (per) {
+    if (!tk || !per) return; lastP = per;
+    if (tk.dataset.full == null) tk.dataset.full = tk.innerHTML;
+    if (!mqT.matches) { if (tk.dataset.mob) { tk.innerHTML = tk.dataset.full; delete tk.dataset.mob } return }
+    var tm = (typeof TMAX !== "undefined") ? TMAX : 540, top = Math.min(tm, per.b), x = (1 - (per.t + top) / 2 / tm) * 100;
+    x = Math.max(4, Math.min(96, x)); var shift = x < 15 ? "0" : x > 85 ? "-100%" : "-50%";
+    var html = '<span class="mnow" style="position:absolute;left:' + x.toFixed(1) + '%;transform:translateX(' + shift + ')">' + per.n + '</span>';
+    if (tk.dataset.mob !== html) { tk.innerHTML = html; tk.dataset.mob = html }
+  };
+  if (mqT.addEventListener) mqT.addEventListener("change", function () { if (lastP) dtMtick(lastP) });
   var lastY = scrollY, mq = window.matchMedia ? matchMedia("(max-width: 640px)") : { matches: false };
   addEventListener("scroll", function () { var y = scrollY;
     if (!mq.matches || bar.classList.contains("mopen")) { bar.classList.remove("tuck"); lastY = y; return }
