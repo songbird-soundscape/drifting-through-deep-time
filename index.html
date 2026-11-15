@@ -374,7 +374,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
   <div class="focusbar" id="focusBar" hidden role="toolbar" aria-label="Time focus"><span>Focus: <b id="focusT"></b></span><button data-fs="0">↑ Chart</button><button data-fs="1">Plant tree</button><button data-fs="2">Globe ↓</button><em>Shift+↑ / Shift+↓</em><button id="focusX" aria-label="Leave focus mode">✕</button></div>
   <button class="barshow" id="barShow" title="Show the menu (M)" aria-label="Show the menu">☰ menu</button>
   <nav class="pbar" id="pbar" aria-label="Show or hide sections">
-    <div class="mini"><button class="btn play" id="play2" aria-label="Play">▶</button><span class="mono" id="age2"></span><button type="button" class="pchip mtog" id="mTog" aria-expanded="false" aria-controls="pchips" aria-label="Options: timeline, sections, pictures only">Options ▾</button></div>
+    <div class="mini"><button class="btn play" id="play2" aria-label="Play">▶</button><span class="mono" id="age2"></span><button type="button" class="pchip mtog" id="mTog" aria-expanded="false" aria-controls="pchips" aria-label="Options: sections, pictures only">Options ▾</button></div>
     <div class="chips" id="pchips"></div><button class="pchip" id="quietBtn" aria-pressed="false" title="Hide all text and controls, show only the pictures">◱ Just the pictures</button>
     <div class="tlrow">
       <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Time" aria-valuemin="0" aria-valuemax="540"></div>
@@ -2699,7 +2699,7 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
   .pbar .mini{width:100%}
   .pbar .mtog{display:inline-block;margin-left:auto;padding:5px 10px;font-size:.78rem}
   .pbar .chips,.pbar #quietBtn{display:none}
-  .pbar .tlrow{display:none}.pbar.mopen .tlrow{display:grid}
+  
   .pbar .mini{display:flex;align-items:center;gap:10px}.pbar .mini .play{min-width:48px;font-size:1.05rem}
   .pbar.mopen .chips{display:flex}.pbar.mopen #quietBtn{display:inline-block}
   .pbar .mini .btn{min-width:40px;padding:5px 10px}
