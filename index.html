@@ -178,6 +178,25 @@ button { font: inherit; color: inherit; cursor: pointer }
 .tstory p { margin: 3px 0 0 } .tstory .sx { position: absolute; right: 4px; top: 2px; all: unset; position: absolute; right: 8px; top: 4px; cursor: pointer; color: #9AA3A9; font-size: 1rem }
 .tstory ol.pro { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 3px; font-size: .71rem; line-height: 1.35 }
 .tstory ol.pro li { padding-left: 10px; border-left: 2px solid rgb(155 212 90 / .5) } .tstory ol.pro span { display: block; font: 600 .68rem "IBM Plex Mono", monospace; color: #9BD45A }
+#tstory { position: static !important; max-width: none !important; max-height: none !important; margin-top: 8px; transform: none }
+#tstory:not(.on) { display: none }
+.tflora { margin-top: 8px; padding: 10px 12px 12px; border-radius: 12px; background: rgb(10 15 19 / .82); border: 1px solid rgb(255 255 255 / .08) }
+.tflora .k { font: 600 .66rem/1.2 "IBM Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: #9BD45A }
+.tflora .fh { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin: 2px 0 8px }
+.tflora .fh b { font: 700 1rem/1.2 "Barlow Condensed", sans-serif; color: #fff }
+.tflora .fh span { font: .68rem "IBM Plex Mono", monospace; color: #9AA3A9 }
+.tflora .fp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px }
+.tflora figure { margin: 0; display: grid; gap: 4px; align-content: start; min-width: 0 }
+.tflora .fp figure { cursor: pointer }
+.tflora .ph { aspect-ratio: 4 / 3; border-radius: 8px; background-color: #1A2228; background-repeat: no-repeat; outline: 1px solid rgb(255 255 255 / .06) }
+.tflora .fp figure:hover .ph { outline-color: #9BD45A }
+.tflora figcaption { font-size: .68rem; line-height: 1.3; color: #C9D1D6; overflow-wrap: anywhere }
+.tflora figcaption a { color: #9AA3A9 }
+.tflora .fs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgb(255 255 255 / .08) }
+.tflora .fs figure { width: 92px }
+.tflora .fs img, .tflora .fs svg { width: 92px; height: 74px; object-fit: cover; border-radius: 6px; background: #0B1014 }
+.tflora .fs .k { flex-basis: 100%; margin-bottom: -2px }
+@media (max-width: 560px) { .tflora .fp { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
 .tport { position: absolute; left: 8px; bottom: 8px; z-index: 2; width: min(205px, 34%); opacity: 0; transform: translateY(8px) scale(.97); transition: opacity .35s, transform .35s; pointer-events: none }
 .tport.on { opacity: 1; transform: none; pointer-events: auto }
 .pcard { cursor: pointer; border-radius: 12px; overflow: hidden; background: rgb(10 15 19 / .9); box-shadow: 0 8px 26px -8px rgb(0 0 0 / .9), inset 0 0 0 1.5px var(--gc); animation: ppop .45s ease-out }
@@ -464,6 +483,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
     <div class="agekey" id="ageKey" aria-label="Rock age shading key"><div class="ak-ramp"><div class="ak-bar"></div><div class="ak-lb"><span>forming now</span><span>oldest</span></div></div><div class="ak-unk"><i style="background:#101010 url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2710%27%3E%3Cpath d=%27M1 5 q2 -2 4 0 t4 0%27 stroke=%27%23687A88%27 stroke-width=%271.4%27 fill=%27none%27/%3E%3C/svg%3E&quot;)"></i>uncertain: no surviving record</div></div>
   </div>
   <div class="capwrap obj" aria-live="polite"><div class="caption" id="cap" hidden><div class="when" id="capwhen"></div><div id="captext"></div></div><div class="tip2 dock" id="tipdock" hidden></div></div>
+  <div class="tstory" id="tstory" aria-live="polite"></div>
   <div class="studycard" id="card" hidden><button class="btn" id="cardx" aria-label="Close" style="justify-self:end">✕ Close</button><div id="cardbody"></div></div>
   <p class="mono" id="studyCount" style="color:var(--muted);margin:-6px 0 0"></p>
     </div>
@@ -514,7 +534,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
         <p class="muted" id="tmodeNote" style="margin:0;font-size:.86rem;max-width:72ch"></p>
         <div class="ffind"><label class="eyebrow" for="famq">Find a family</label><div class="ffwrap"><input id="famq" type="search" placeholder="Type a name: Poaceae, grass, Pinac…, oak" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="famlist" aria-autocomplete="list"><ul id="famlist" role="listbox" hidden></ul></div></div>
         <div class="ctrls" role="group" aria-label="Clade" id="clade"></div>
-    <div class="tree-pane"><div class="tree-wrap obj tlive"><div class="zoomctl" role="group" aria-label="Zoom the tree"><button class="zb" id="tzIn" aria-label="Zoom in">+</button><button class="zb" id="tzOut" aria-label="Zoom out">−</button><button class="zb" id="tzReset" aria-label="Reset view" title="Reset view">⟲</button></div><canvas id="treeCv" aria-label="Circular tree of land-plant families coloured by plant group, animated with the timeline"></canvas><div class="tip2" id="treeTip" hidden></div><div class="tstory" id="tstory" aria-live="polite"></div><div class="tport" id="tport" aria-live="polite"></div><button type="button" class="tgo" id="tGo">▶ Tap to watch the tree grow</button></div>
+    <div class="tree-pane"><div class="tree-wrap obj tlive"><div class="zoomctl" role="group" aria-label="Zoom the tree"><button class="zb" id="tzIn" aria-label="Zoom in">+</button><button class="zb" id="tzOut" aria-label="Zoom out">−</button><button class="zb" id="tzReset" aria-label="Reset view" title="Reset view">⟲</button></div><canvas id="treeCv" aria-label="Circular tree of land-plant families coloured by plant group, animated with the timeline"></canvas><div class="tip2" id="treeTip" hidden></div><div class="tflora" id="tflora" aria-live="polite"></div><div class="tport" id="tport" aria-live="polite"></div><button type="button" class="tgo" id="tGo">▶ Tap to watch the tree grow</button></div>
         <div class="ordtrack" id="ordtrack"></div>
         <div class="tnav" id="tnav" hidden><button class="btn" data-nv="L" aria-label="Previous family from the same period, along the tree">◀</button><button class="btn" data-nv="R" aria-label="Next family from the same period, along the tree">▶</button><button class="btn" data-nv="d" aria-label="Previous family from the same period">▼ older, same period</button><button class="btn" data-nv="u" aria-label="Next family from the same period">▲ younger, same period</button><button class="btn" data-nv="D" aria-label="Jump to an earlier period">⇟ earlier period</button><button class="btn" data-nv="U" aria-label="Jump to a later period">⇞ later period</button><span>Keys: ◀ ▶ along the tree and ▲ ▼ by first appearance, both within the period you are in · PgUp / PgDn change period. Swipe the card on a phone.</span><b id="tnavMsg" role="status" aria-live="polite" style="flex-basis:100%;color:#FFE9A8;font-weight:600"></b></div>
         <div class="famcard" id="famcard"><p class="muted">Hover over a family in the tree to see its plants, flowers, pollen and natural history; click to pin it.</p></div>
@@ -2763,7 +2783,24 @@ function storyTick() {
   if (STORYON) { if (T >= 536) { k = 'pro'; html = `<div class="k">Before the clock starts</div><b>Three billion years of single cells</b><ol class="pro">${PROLOGUE.map(([d, x]) => `<li><span>${d}</span>${x}</li>`).join('')}</ol><p class="muted">Press play to start in the Cambrian.</p>` }
     else { const j = STORY.findLastIndex(s => s[0] >= T); if (j >= 0 && T > STORY[j][0] - 40 && (j === STORY.length - 1 || T > STORY[j + 1][0])) { k = 's' + j; const s = STORY[j]; html = `<div class="k">${fmtT(s[0])} · ${P[perOf(Math.max(0, s[0] - 1e-6))].n}</div><b>${s[1]}</b><p>${s[2]}</p>` } } }
   if (k !== STORYK) { STORYK = k; const el = $('#tstory'); el.classList.remove('on'); if (html) { el.innerHTML = html + '<button class="sx" aria-label="Hide the story" title="Hide the story">×</button>'; requestAnimationFrame(() => el.classList.add('on')) } }
-  drawOrdTrack();
+  drawOrdTrack(); drawFlora();
+}
+// photos of the plants and spores of the moment, under the clock
+let FLORAK = '';
+function drawFlora() {
+  const el = $('#tflora'); if (!el || !ORDS.length) return;
+  let si = -1; for (let k = 0; k < SLC.length; k++) if (SLC[k][1] >= T) si = k;   // youngest slice that is not after T
+  if (si < 0 && T <= 475) si = 0;   // the first spores, before the Devonian slice
+  const appeared = ORDS.map((r, j) => ({ r, j })).filter(x => x.r.fad >= T).sort((a, b) => a.r.fad - b.r.fad);
+  const plants = []; for (const x of appeared) { const i = exemplar(x.r), nm = TREE[i][3], p = famPhoto(nm); if (p) plants.push({ x, i, nm, p }); if (plants.length === 3) break }
+  const key = si + '|' + plants.map(q => q.i).join(',') + '|' + (plants.length ? '' : 'alg');
+  if (key === FLORAK) return; FLORAK = key;
+  let top;
+  if (plants.length) top = `<div class="fh"><b>Plants of this time</b><span>the latest orders to appear</span></div><div class="fp">${plants.map(q => `<figure data-pi="${q.i}" title="Open the ${escH(q.nm)} card"><div class="ph" style="${spr(q.p[0].s, q.p[0].k, q.p[1])}" role="img" aria-label="${escH(q.p[0].sp)}"></div><figcaption><b>${escH(q.x.r.o)}</b> · <i>${escH(q.p[0].sp)}</i> (${escH(q.nm)}), first ${fmtT(q.x.r.fad)}<br>${credit(q.p[0].by, q.p[0].lic, 'https://www.inaturalist.org/observations/' + q.p[0].obs)}</figcaption></figure>`).join('')}</div>`;
+  else { const ks = Object.keys(CHMETA).slice(0, 3);
+    top = `<div class="fh"><b>Before land plants</b><span>green algae, their closest living relatives</span></div><div class="fp">${ks.map(k => { const m = CHMETA[k] || {}; return `<figure><div class="ph" style="background:url(sprites/c_${k.toLowerCase()}.webp) center/cover" role="img" aria-label="${escH(m.sp || k)}"></div><figcaption><i>${escH(m.sp || k)}</i><br>${credit(m.by, m.lic, m.obs && 'https://www.inaturalist.org/observations/' + m.obs)}</figcaption></figure>` }).join('')}</div>` }
+  const sl = SLC[si] || null, pics = (si < 0 ? [] : SLICEPICS[si] || []).slice(0, 5).map(([kind, a, cap]) => kind === 'd' ? `<figure class="mic"><svg viewBox="-28 -24 56 48" role="img" aria-label="Drawing: ${cap.replace(/<[^>]+>/g, '')}">${gIcon4(a, '#D9B26A')}</svg><figcaption>${cap}</figcaption></figure>` : micro(kind === 'f' ? `sprites/f_${a}.webp` : `sprites/b_${a}.webp`, cap)).join('');
+  el.innerHTML = top + (sl ? `<div class="fs"><div class="k">Spores &amp; pollen · ${escH(sl[0])}${sl[1] ? ', about ' + sl[1] + ' Ma' : ''}</div>${pics}</div>` : '');
 }
 function drawOrdTrack() {
   const el = $('#ordtrack'); if (!el || !ORDS.length) return;
@@ -2775,6 +2812,7 @@ function drawOrdTrack() {
 function initStory() {
   $('#tstory').addEventListener('click', e => { if (e.target.closest('.sx')) setStory(false) });
   $('#storyBtn').addEventListener('click', () => setStory(!STORYON));
+  $('#tflora').addEventListener('click', e => { const c = e.target.closest('[data-pi]'); if (c) { FAMPIN = +c.dataset.pi; showFam(FAMPIN); drawTree() } });
   $('#tport').addEventListener('click', e => { const c = e.target.closest('[data-pi]'); if (c && c.dataset.pi !== 'undefined') { FAMPIN = +c.dataset.pi; showFam(FAMPIN); drawTree() } });
   $('#ordtrack').addEventListener('click', e => { const b = e.target.closest('[data-oj]'); if (!b) return; const r = ORDS[+b.dataset.oj]; FAMPIN = exemplar(r); showFam(FAMPIN); drawTree() });
   setStory(STORYON);
