@@ -13,7 +13,26 @@
 <meta name="twitter:title" content="Drifting Through Deep Time">
 <meta name="twitter:description" content="Moving continents, ancient plants, climate, and human migration, layered on one globe across 540 million years. Take the guided tour.">
 <meta name="twitter:image" content="https://songbird-soundscape.github.io/drifting-through-deep-time/share-card.png">
-<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+/* hover / pinned portrait panel for the plant-phylogeny wheel */
+.tpeek { position: fixed; z-index: 25; display: none; padding: 12px 14px 14px; border-radius: 14px; background: rgb(9 13 16 / .97); border: 1px solid rgb(255 255 255 / .12); box-shadow: 0 18px 50px -10px rgb(0 0 0 / .85); color: #DCE4E9; overflow: auto; pointer-events: none }
+.tpeek.on { display: block } .tpeek.pin { pointer-events: auto; border-color: #9BD45A }
+.tpeek .pk-h { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px }
+.tpeek .pk-h b { font: 700 1.25rem/1.15 "Barlow Condensed", sans-serif; color: #fff }
+.tpeek .pk-h .k, .tpeek .pk-sec { font: 600 .66rem/1.3 "IBM Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: #9AA3A9 }
+.tpeek .pk-sec { margin: 10px 0 6px; color: #9BD45A }
+.tpeek .pk-g { display: grid; grid-template-columns: repeat(var(--pkc, 3), minmax(0, 1fr)); gap: 8px }
+.tpeek figure { margin: 0; display: grid; gap: 3px; min-width: 0 }
+.tpeek .ph { width: 100%; aspect-ratio: 4 / 3; border-radius: 8px; background-color: #1A2228; background-repeat: no-repeat }
+.tpeek figcaption { font-size: .68rem; line-height: 1.3; color: #B9C3C9; overflow-wrap: anywhere }
+.tpeek figcaption a { color: #9AA3A9 }
+.tpeek .none, .tpeek .none2 { font-size: .8rem; color: #9AA3A9 }
+.tpeek .pk-nav { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgb(255 255 255 / .08); font: .7rem "IBM Plex Mono", monospace; color: #9AA3A9 }
+.tpeek .pk-nav button { all: unset; cursor: pointer; padding: 3px 9px; border-radius: 999px; border: 1px solid rgb(255 255 255 / .16); color: #DCE4E9 }
+.tpeek .pk-nav button:hover { border-color: #9BD45A }
+.tpeek .pk-x { all: unset; cursor: pointer; font: 600 .8rem "IBM Plex Mono", monospace; color: #9AA3A9; padding: 0 4px } .tpeek .pk-x:hover { color: #fff }
+@media (prefers-reduced-motion: no-preference) { .tpeek.on { animation: pkin .18s ease } @keyframes pkin { from { opacity: 0; transform: translateY(6px) } } }
+</style></head><body>
 <title>Drifting Through Deep Time</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1719,7 +1738,56 @@ const natHist = nm => { const w = WIKI_T && (WIKI_T[nm] || (nm.startsWith('Hornw
   return w ? `<div class="nh"><div class="k">Natural history</div><p>${escH(w.x.replace(/\s*\(\s*[;,]?\s*\)/g, ''))}</p><p class="muted" style="font-size:.78rem">${w.own ? `Written for this page; more on Wikipedia, “${escH(w.t)}” (${A(w.u, 'read more')}).` : `From Wikipedia, “${escH(w.t)}” (${A(w.u, 'read more')}), text CC BY-SA 4.0.`}</p></div>` : '' };
 document.addEventListener('click', e => { const b = e.target.closest('[data-vw]'); if (!b) return; VIEWF = b.dataset.vw; try { localStorage.setItem('dtdt-view', VIEWF) } catch (x) {} if (FAMPIN != null) showFam(FAMPIN) });
 try { VIEWF = localStorage.getItem('dtdt-view') || 'habit' } catch (x) {}
-function showFam(i) { if (i == null || TREE[i][3].startsWith('mrca')) return; $('#famcard').innerHTML = famHTML(i) }
+function showFam(i) { if (i == null || TREE[i][3].startsWith('mrca')) return; $('#famcard').innerHTML = famHTML(i); if (PEEK && PEEK.pin && PEEK.i !== i) peekShow(i, true) }
+/* ---------- portrait panel: hover a spoke to see its photos and pollen; click to pin, then arrows / PgUp / PgDn move between families ---------- */
+let PEEK = null;
+function peekHTML(i) {
+  const n = TREE[i], f = FAM[n[3]] || {}, g = TGROUP[n[7]];
+  const clean = b => (b || '').replace(/^\(c\)\s*/, '© ').replace(/, some rights reserved.*$/, '').split(' (')[0];
+  const fig = (style, lab, cap) => `<figure><div class="ph" style="${style}" role="img" aria-label="${escH(lab)}"></div><figcaption>${cap}</figcaption></figure>`;
+  const plants = [], pollen = [];
+  const pobj = (p, lab, kind) => { if (!p) return; plants.push(fig(spr(p.s, p.k, kind), `${lab}: ${p.sp}`, `${lab}: <i>${escH(p.sp)}</i> · ${escH(clean(p.by))} · ${LIC[p.lic] || p.lic}`)) };
+  const parr = (p, lab) => plants.push(fig(spr(p[0], p[1], 'vw'), `${lab}: ${p[2]}`, `${lab}: <i>${escH(p[2])}</i> · ${escH(clean(p[3]))} · ${LIC[p[4]] || p[4]}`));
+  if (!n[6]) {
+    if (f.ph2) { pobj(f.ph2.plant, 'Habit', 'hp'); pobj(f.ph2.flower, f.ph2.fkind === 'flower' ? 'Flower' : 'Cones / fruit', 'hp') }
+    else if (f.ph) { pobj(f.ph.plant, 'Plant', 'photo'); pobj(f.ph.flower, f.ph.fkind === 'flower' ? 'Flower' : 'Cones / fruit', 'photo') }
+    const vw = f.vw || {}; (vw.habit || []).forEach(p => parr(p, 'Habit')); (vw.flower || []).forEach(p => parr(p, 'Flower'));
+    if (f.seed) plants.push(fig(spr(f.seed[0], f.seed[1], 'sd'), `Fruit or seed: ${f.seed[2]}`, `Fruit / seed: <i>${escH(f.seed[2])}</i> · ${escH(clean(f.seed[3]))} · ${escH(LIC[f.seed[4]] || f.seed[4])}`));
+  }
+  const lm = [...(f.lm || []), ...(f.pol || []).filter(p => p[5] && !(f.lm || []).some(q => q[2] === p[2] && q[4] === p[4])).map(p => [p[0], p[1], p[2], p[3], p[4], 'pol'])];
+  lm.forEach(p => pollen.push(fig(spr(p[0], p[1], p[5] === 'pol' ? 'pol' : 'lm'), `${p[2]} pollen, light micrograph`, `LM: <i>${escH(p[2])}</i> · ${escH(p[3])}`)));
+  (f.pol || []).filter(p => !p[5]).forEach(p => pollen.push(fig(spr(p[0], p[1], 'pol'), `${p[2]} pollen, scanning electron micrograph`, `SEM: <i>${escH(p[2])}</i> · ${escH(p[3])}`)));
+  (f.cpol || []).forEach(([sh, sl, t, page, lic, by]) => pollen.push(fig(spr(sh, sl, 'cp'), t, `${by ? escH(by) + ' · ' : ''}${escH(lic)} · Commons`)));
+  const nm = /^mrca/.test(n[3]) ? 'Unnamed clade' : n[3].replace(/_ott\d+$/, '');
+  const age = n[4] == null ? 'living · no fossil record' : n[6] ? `extinct · ${n[4]}–${n[5]} Ma` : `from ${n[4]} Ma · living`;
+  const plantBlock = n[7] === 'alg' ? `<div class="pk-sec">Living plants</div>${algGal(n[3])}` : n[6] ? '<div class="pk-sec">Living plants</div><div class="none">Extinct family: no living plants to photograph.</div>' : plants.length ? `<div class="pk-sec">Living plants</div><div class="pk-g">${plants.join('')}</div>` : '<div class="pk-sec">Living plants</div><div class="none">No openly licensed photos yet.</div>';
+  const polBlock = pollen.length ? `<div class="pk-sec">Pollen &amp; spores</div><div class="pk-g">${pollen.join('')}</div>` : '<div class="pk-sec">Pollen &amp; spores</div><div class="none">No pollen or spore portraits yet.</div>';
+  const nav = PEEK && PEEK.pin ? `<div class="pk-nav"><button data-nv="L" aria-label="Previous family">◀</button><button data-nv="R" aria-label="Next family">▶</button><button data-nv="d">▼ older</button><button data-nv="u">▲ younger</button><button data-nv="D">⇟ earlier period</button><button data-nv="U">⇞ later period</button><span>Keys: ◀ ▶ ▲ ▼ · PgUp / PgDn · Esc closes</span></div>` : '<div class="pk-nav"><span>Click the spoke to pin, then browse with ◀ ▶ ▲ ▼ and PgUp / PgDn</span></div>';
+  return `<div class="pk-h"><div><div class="k" style="color:${g[1]}">${g[0]}</div><b>${escH(nm)}</b>${f.common ? ` <span class="k">· ${escH(f.common)}</span>` : ''}</div><div style="display:flex;gap:8px;align-items:baseline"><span class="k">${age}</span>${PEEK && PEEK.pin ? '<button class="pk-x" data-pkx aria-label="Close">✕</button>' : ''}</div></div>${plantBlock}${polBlock}${nav}`;
+}
+function peekPlace() {
+  const el = $('#tpeek'); if (!el || !PEEK) return; const r = $('#treeCv').getBoundingClientRect(), vw = innerWidth, vh = innerHeight, pb = document.querySelector('.pbar:not(.gone)'), pbb = pb ? pb.getBoundingClientRect().bottom : 0, top0 = Math.max(8, pbb + 8);
+  let L, T, W, H;
+  if (r.left > 380) { W = Math.min(640, r.left - 20); L = r.left - W - 10; T = Math.max(top0, Math.min(r.top, vh - 200)); H = vh - T - 10 }
+  else if (vw - r.right > 380) { W = Math.min(640, vw - r.right - 20); L = r.right + 10; T = Math.max(top0, Math.min(r.top, vh - 200)); H = vh - T - 10 }
+  else { W = Math.min(r.width, vw - 16); L = Math.max(8, r.left); T = Math.max(top0, Math.min(r.bottom - 120, vh - 260)); H = vh - T - 8 }
+  el.style.left = L + 'px'; el.style.top = T + 'px'; el.style.width = W + 'px'; el.style.maxHeight = Math.max(220, H) + 'px';
+  el.style.setProperty('--pkc', W > 470 ? 3 : 2);
+}
+function peekShow(i, pin) {
+  if (i == null || TREE[i][3].startsWith('mrca')) return; const el = $('#tpeek'); if (!el) return;
+  const same = PEEK && PEEK.i === i && PEEK.pin === !!pin; PEEK = { i, pin: !!pin };
+  if (!same) { el.innerHTML = peekHTML(i); el.scrollTop = 0 }
+  el.classList.add('on'); el.classList.toggle('pin', !!pin); peekPlace();
+}
+function peekHide(force) { if (!PEEK || (PEEK.pin && !force)) return; PEEK = null; const el = $('#tpeek'); if (el) el.classList.remove('on', 'pin') }
+(() => { const el = document.createElement('div'); el.className = 'tpeek'; el.id = 'tpeek'; el.setAttribute('aria-live', 'polite'); document.body.appendChild(el);
+  el.addEventListener('click', e => { if (e.target.closest('[data-pkx]')) { peekHide(true); TNAV = false; return } const b = e.target.closest('[data-nv]'); if (b) famNav(b.dataset.nv) });
+  addEventListener('scroll', () => { if (PEEK) { if (PEEK.pin) peekPlace(); else peekHide() } }, { passive: true }); addEventListener('resize', () => PEEK && peekPlace());
+  addEventListener('keydown', e => { if (e.key === 'Escape' && PEEK) peekHide(true) });
+  document.addEventListener('pointerdown', e => { if (PEEK && PEEK.pin && !e.target.closest('#treeCv, #tpeek, #famcard, #tnav, #famq, #famlist')) peekHide(true) });
+})();
+
 
 const TMNOTE = { fossil: 'Families with a dated fossil record in the Paleobiology Database, living and extinct. Branches start at the first appearance; extinct families thin to a dark trace.',
   mol: 'Every living vascular-plant family, dated by molecular clock: GBOTB.extended megatree (Smith &amp; Brown 2018 seed plants; Zanne et al. 2014 ferns and lycophytes) via V.PhyloMaker2 (Jin &amp; Qian 2022). Each branch starts where the family split from its sister group. Molecular and fossil dates often disagree: hover a family to compare. Bryophytes are not in the megatree, so they appear as three undated lineages, hornworts sister to mosses + liverworts.' };
@@ -1766,7 +1834,7 @@ function famNav(dir) {
     const target = dir === 'U' ? Math.max(...cands.map(pi)) : Math.min(...cands.map(pi));
     const near = cands.filter(n => pi(n) === target), d = n => { const x = Math.abs(ANG[n] - ANG[cur]); return Math.min(x, 2 * Math.PI - x) };
     nx = near.sort((a, b) => d(a) - d(b))[0] }
-  FAMPIN = FOCUSF = nx; showFam(nx); TNAV = true; $('#tnav').hidden = false; $('#treeTip').hidden = true; HOVG = null;
+  FAMPIN = FOCUSF = nx; showFam(nx); if (PEEK && PEEK.pin) peekShow(nx, true); TNAV = true; $('#tnav').hidden = false; $('#treeTip').hidden = true; HOVG = null;
   { const n = TREE[nx]; navMsg(`${n[3]} · ${TGROUP[n[7]][0]} · ${n[4] == null ? 'no fossil record' : `${TMODE === 'mol' ? 'molecular split about' : 'first fossils'} ${n[4]} Ma, ${P[perOf(Math.max(0, n[4] - 1e-6))].n}`}`) }
   if (TV.k > 1) { const cv = $('#treeCv'), S = cv.clientWidth, C = S / 2, R = S * .41, a = ANG[nx] - Math.PI / 2; TV.x = S / 2 - (C + Math.cos(a) * R * .8) * TV.k; TV.y = S / 2 - (C + Math.sin(a) * R * .8) * TV.k }
   drawTree();
@@ -1775,7 +1843,7 @@ let TNAV = false;
 function initTree() {
   $('#tnav').addEventListener('click', e => { const b = e.target.closest('[data-nv]'); if (b) famNav(b.dataset.nv) });
   addEventListener('keydown', e => { if (!TNAV || e.target.matches('input, textarea, select')) return; const m = { ArrowLeft: 'L', ArrowRight: 'R', ArrowUp: 'u', ArrowDown: 'd', PageUp: 'U', PageDown: 'D' }[e.key]; if (!m) return; e.preventDefault(); e.stopImmediatePropagation(); famNav(m) });
-  document.addEventListener('pointerdown', e => { if (!e.target.closest('#treeCv, #famcard, #tnav, #famq, #famlist')) TNAV = false });
+  document.addEventListener('pointerdown', e => { if (!e.target.closest('#treeCv, #famcard, #tnav, #famq, #famlist, #tpeek')) TNAV = false });
   { let sx = null, sy = null; const fc = $('#famcard'); fc.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY }, { passive: true });
     fc.addEventListener('touchend', e => { if (sx == null) return; const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy; sx = null; if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) famNav(dx < 0 ? 'R' : 'L') }) }
   initFamFind();
@@ -1817,12 +1885,13 @@ function initTree() {
     tip.innerHTML = TMODE === 'mol' ? `<div class="k">${TGROUP[n[7]][0]} · molecular tree${n[4] < 480 ? ` · lineage from the ${P[perOf(Math.max(0, n[4] - 1e-6))].n}` : ''}</div><b>${escH(nm3)}</b><div>${n[8] === 2 ? 'Bryophyte lineage: the dated megatree covers vascular plants only' : `Split from its sister group ${n[4]} Ma${n[10] ? ` · living members diversified from ${n[10]} Ma` : ''}${n[8] ? ' · placed from the literature' : ''}`}</div>${fossilOf(n[3])}${raff}`
       : `<div class="k">${TGROUP[n[7]][0]}${n[8] ? ' · placed by classification (?)' : ''}${n[4] != null ? ` · originated in the ${P[perOf(Math.max(0, n[4] - 1e-6))].n}` : ''}</div><b>${escH(nm3)}</b><div>${n[4] == null ? 'Living; no fossil record in the database' : `First appearance ${n[4]} Ma${n[9] ? ` (isolated older record at ${n[9]} Ma set aside)` : ''}${n[6] ? ` · last appearance ${n[5]} Ma (extinct)` : ' · living today'}`}</div>${raff}`;
     if (FAMPIN == null) showFam(best);
+    if (!PEEK || !PEEK.pin) peekShow(best, false);
     if (HOVG !== TREE[best][7]) { HOVG = TREE[best][7]; drawTree() }
     tip.hidden = false; tip.style.left = Math.min(r.width - tip.offsetWidth - 4, ex + 12) + 'px'; tip.style.top = Math.min(r.height - tip.offsetHeight - 4, ey + 12) + 'px' });
-  cv.addEventListener('pointerleave', () => { tip.hidden = true; if (HOVG) { HOVG = null; drawTree() } });
+  cv.addEventListener('pointerleave', () => { tip.hidden = true; peekHide(); if (HOVG) { HOVG = null; drawTree() } });
   cv.addEventListener('click', e => { if (tmoved) return; const r = cv.getBoundingClientRect(), x = (e.clientX - r.left - TV.x) / TV.k, y = (e.clientY - r.top - TV.y) / TV.k, C = r.width / 2, ang = Math.atan2(y - C, x - C);
     let best = null, bd = 1e9; for (const [hx, hy, i] of TPOS || []) { const a = Math.atan2(hy - C, hx - C); let dd = Math.abs(a - ang); dd = Math.min(dd, 2 * Math.PI - dd); if (dd < bd) { bd = dd; best = i } }
-    FAMPIN = bd <= .03 / TV.k ? best : FAMPIN; if (FAMPIN != null) showFam(FAMPIN); else if (best != null && bd <= .03 / TV.k) showFam(best); if (best != null && bd <= .03 / TV.k) { FOCUSF = best; FAMPIN = FAMPIN ?? best; TNAV = true; $('#tnav').hidden = false; drawTree() } });
+    FAMPIN = bd <= .03 / TV.k ? best : FAMPIN; if (FAMPIN != null) showFam(FAMPIN); else if (best != null && bd <= .03 / TV.k) showFam(best); if (best != null && bd <= .03 / TV.k) { FOCUSF = best; FAMPIN = FAMPIN ?? best; TNAV = true; $('#tnav').hidden = false; peekShow(best, true); drawTree() } });
   new ResizeObserver(() => drawTree()).observe(cv);
 }
 
