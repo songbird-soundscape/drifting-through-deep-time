@@ -475,7 +475,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
       <span><svg width="26" height="14" aria-hidden="true"><path d="M1 4 H25" stroke="#C58FB8" stroke-width="2"/><path d="M6 4 l3 6 l3 -6z M16 4 l3 6 l3 -6z" fill="#C58FB8"/></svg>Subduction zone (teeth on the overriding plate)</span>
       <span><svg width="26" height="14" aria-hidden="true"><path d="M1 7 H25" stroke="#A3C46F" stroke-width="2.2"/></svg>Spreading ridge</span>
       <span><svg width="26" height="14" aria-hidden="true"><path d="M1 7 H25" stroke="rgba(160,180,195,.6)" stroke-width="1.2"/></svg>Other plate boundary</span>
-      <span>LIPs and orogenies take the colour of the period they began in: bright for continental flood basalts, muted for submarine provinces; orogenies as ▲ mountain glyphs</span><span><i class="sw" style="background:#FAFCFF;box-shadow:0 0 0 2px #7FD8FF"></i>Ice (schematic ice sheets; white)<span><i class="sw" style="background:#101010 url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2710%27%3E%3Cpath d=%27M1 5 q2 -2 4 0 t4 0%27 stroke=%27%23687A88%27 stroke-width=%271.4%27 fill=%27none%27/%3E%3C/svg%3E&quot;)"></i>Unknown: no surviving record</span></span>
+      <span>LIPs and orogenies take the colour of the period they began in: bright for continental flood basalts, muted for submarine provinces; orogenies as ▲ mountain glyphs</span><span><i class="sw" style="background:#FAFCFF;box-shadow:0 0 0 2px #7FD8FF"></i>Ice (mapped glaciations; white)<span><i class="sw" style="background:#101010 url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2710%27%3E%3Cpath d=%27M1 5 q2 -2 4 0 t4 0%27 stroke=%27%23687A88%27 stroke-width=%271.4%27 fill=%27none%27/%3E%3C/svg%3E&quot;)"></i>Unknown: no surviving record</span></span>
     </div>
     </div>
     </div>
@@ -486,7 +486,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
   <div class="maptools"><div class="ctrls" role="group" aria-label="Map type" id="mapt"><span class="eyebrow">Map</span><button class="btn" data-mt="globe" aria-pressed="true">🌐 Globe</button><button class="btn" data-mt="flat" aria-pressed="false">▭ Flat map</button></div>
     <div class="ctrls"><button class="btn" id="layBtn" aria-expanded="false" aria-controls="layPop">☰ Layers <span id="layN" class="mono"></span></button><button class="btn" id="preBare" title="Turn every layer off">Bare</button><button class="btn" id="preAll" title="Turn every layer on">Everything</button></div>
     <span class="maphint" id="maphint">Drag to turn the globe · scroll or pinch to zoom · hover or click anything for details · arrow keys turn, + / − zoom</span></div>
-    <div class="laypop" id="layPop" hidden><div class="lgrid"><fieldset class="lg"><legend>Earth history</legend><label><input type="checkbox" id="oBnd" checked> Plate boundaries</label><label><input type="checkbox" id="oOrog" checked> ▲ Orogenies</label><label><input type="checkbox" id="oLip" checked> Large igneous provinces (bright: continental · muted: submarine)</label><label><input type="checkbox" id="oCores"> Drill cores</label><label><input type="checkbox" id="oCols" checked> Include buried layers from borehole columns</label><label><input type="checkbox" id="oForm" checked> Highlight rock forming now</label></fieldset><fieldset class="lg"><legend>Paleoenvironment</legend><label><input type="checkbox" id="oIce" checked> <i class="mk" style="background:#FAFCFF;box-shadow:0 0 0 2px #7FD8FF"></i> Glaciations (schematic ice)</label><label><input type="checkbox" id="oTrop" checked> <i class="mk" style="background:transparent;border:2px dotted #FFC27A"></i> Frost line (schematic, dotted = uncertain)</label><label><input type="checkbox" id="oOae" checked> Ocean anoxic events</label><label><input type="checkbox" id="oVeg" checked> <i class="mk" style="background:linear-gradient(90deg,#D9822B,#D4B23A,#8DBF5A,#1F6B3A)"></i> Regional vegetation from pollen (REVEALS forest cover, last ~200 kyr)</label><div class="lgsub">Biogeography</div><label><input type="checkbox" id="oBioG" checked> Biogeographic lines, barriers &amp; land bridges</label><label><input type="checkbox" id="oBot"> <i class="mk" style="background:#E9C46A"></i> Paleobotanical studies</label><label><input type="checkbox" id="oPaly"> <i class="mk" style="background:transparent;border:2px solid #F28DB2"></i> Palynological studies (publication)</label><label><input type="checkbox" id="oPdata"> <i class="mk" style="background:#6FD3FF"></i> Pollen data available (Neotoma)</label></fieldset><fieldset class="lg"><legend>Human migrations</legend><label><input type="checkbox" id="oHum" checked> <i class="mk" style="background:#FF9F43"></i> Human dispersals (schematic routes, last 2 million years)</label><p class="lgnote">Turn on, then go to the last 2 Ma (Cenozoic close-up, or “Today”); routes grow as time plays.</p></fieldset><fieldset class="lg"><legend>Map display</legend><label><input type="checkbox" id="oOcean" checked> Ocean floor</label><label><input type="checkbox" id="oCoast" checked> Today's coastlines</label><label><input type="checkbox" id="oEvm" checked> <i class="mk" style="background:#E7ECEF;border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%)"></i> Event marks on the timeline</label></fieldset></div></div>
+    <div class="laypop" id="layPop" hidden><div class="lgrid"><fieldset class="lg"><legend>Earth history</legend><label><input type="checkbox" id="oBnd" checked> Plate boundaries</label><label><input type="checkbox" id="oOrog" checked> ▲ Orogenies</label><label><input type="checkbox" id="oLip" checked> Large igneous provinces (bright: continental · muted: submarine)</label><label><input type="checkbox" id="oCores"> Drill cores</label><label><input type="checkbox" id="oCols" checked> Include buried layers from borehole columns</label><label><input type="checkbox" id="oForm" checked> Highlight rock forming now</label></fieldset><fieldset class="lg"><legend>Paleoenvironment</legend><label><input type="checkbox" id="oIce" checked> <i class="mk" style="background:#FAFCFF;box-shadow:0 0 0 2px #7FD8FF"></i> Glaciations (mapped ice)</label><label><input type="checkbox" id="oTrop" checked> <i class="mk" style="background:transparent;border:2px dotted #FFC27A"></i> Frost line (schematic, dotted = uncertain)</label><label><input type="checkbox" id="oOae" checked> Ocean anoxic events</label><label><input type="checkbox" id="oVeg" checked> <i class="mk" style="background:linear-gradient(90deg,#D9822B,#D4B23A,#8DBF5A,#1F6B3A)"></i> Regional vegetation from pollen (REVEALS forest cover, last ~200 kyr)</label><div class="lgsub">Biogeography</div><label><input type="checkbox" id="oBioG" checked> Biogeographic lines, barriers &amp; land bridges</label><label><input type="checkbox" id="oBot"> <i class="mk" style="background:#E9C46A"></i> Paleobotanical studies</label><label><input type="checkbox" id="oPaly"> <i class="mk" style="background:transparent;border:2px solid #F28DB2"></i> Palynological studies (publication)</label><label><input type="checkbox" id="oPdata"> <i class="mk" style="background:#6FD3FF"></i> Pollen data available (Neotoma)</label></fieldset><fieldset class="lg"><legend>Human migrations</legend><label><input type="checkbox" id="oHum" checked> <i class="mk" style="background:#FF9F43"></i> Human dispersals (schematic routes, last 2 million years)</label><p class="lgnote">Turn on, then go to the last 2 Ma (Cenozoic close-up, or “Today”); routes grow as time plays.</p></fieldset><fieldset class="lg"><legend>Map display</legend><label><input type="checkbox" id="oOcean" checked> Ocean floor</label><label><input type="checkbox" id="oCoast" checked> Today's coastlines</label><label><input type="checkbox" id="oEvm" checked> <i class="mk" style="background:#E7ECEF;border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%)"></i> Event marks on the timeline</label></fieldset></div></div>
   <div class="laychips obj" id="layChips" role="group" aria-label="Map layers"></div>
   <div class="stage obj" id="stage">
     <div class="loading" id="loading">Unpacking plates and rotations…</div>
@@ -787,7 +787,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
     <div><h3>What moves</h3><p>Each dot is a 0.5° cell of today's geological map (1° for ocean floor), assigned to its tectonic plate and rotated with the Merdith et al. (2021) full-plate model. Ocean floor appears only once its crust exists; continental fragments appear when their plate does. Positions are interpolated between 5-million-year steps. Scroll or pinch to zoom, drag to pan, double-click to zoom in; dots grow with zoom because the data are sampled every 0.5° (1° at sea).</p></div>
     <div><h3>What glows</h3><p>A cell is pale parchment while its surface rock is forming (pure white is kept for ice), according to the age range on the world geological map, then greys with the time since it finished forming. In period-colour mode it glows in its period colour instead. With columns included, buried layers recorded in boreholes and sections glow too, so you can watch deposition in places now covered by younger rock. Loosely dated units glow faintly for longer.</p></div>
     <div><h3>The empty oceans</h3><p>Ocean floor is made at spreading ridges and consumed at subduction zones. Most of the floor of the ancient Pacific (Panthalassa) and of older oceans has since sunk into the mantle, so no rock survives to place on the map; those areas are dark. The plate boundaries are drawn from the model itself, so you can watch the trenches that consumed it. Rock eroded from the continents is likewise gone. Before about 540 Ma the reconstruction is much less certain. Continental outlines are today's coastlines, carried along for recognition, not ancient shorelines.</p></div>
-    <div><h3>Sources</h3><p>Ocean depth from crust age: Parsons B. &amp; Sclater J.G. (1977) <i>J. Geophys. Res.</i> 82, 803–827 (depth ≈ 2,600 m + 345 m·√age, levelling near 6,400 m); shelf depths from SRTM15+. Deep-time sea level (66–250 Ma, applied to continental shelves only): Haq B.U., Hardenbol J. &amp; Vail P.R. (1987) <i>Science</i> 235, 1156–1167, via Miller et al. (2005) at NOAA NCEI; its amplitudes are larger than most modern estimates. Glaciations are schematic latitude rules: Snowball Earth intervals, Hirnantian, the Late Paleozoic Ice Age (about 360–260 Ma) and Antarctic (from 34 Ma) and Northern Hemisphere (from 2.7 Ma, scaled with sea level) ice. Orogeny ages are approximate. Biogeographic lines after Wallace (1863), Huxley (1868), Weber and Lydekker (positions approximate); botanical boundaries after van Steenis. Barrier and land-bridge ages are approximate and several are debated. Family photos: iNaturalist research-grade observations under CC0, CC BY or CC BY-SA, credited on each card. Pollen micrographs: Halbritter et al. (2018), CC BY 4.0. Plant tree: family first/last appearances from the Paleobiology Database; branching order from the Open Tree of Life synthetic tree (Hinchliff et al. 2015, updated; angiosperms consistent with APG IV 2016); extinct families not in the synthesis are attached to their order, class or division as polytomies. Branch points sit at the oldest first appearance among their descendants (a minimum age). Studies: Paleobiology Database (paleobiodb.org, CC BY 4.0) plant collections and references, with studies flagged as palynological from their titles; Neotoma Paleoecology Database (neotomadb.org, CC BY 4.0) pollen datasets; Holocene diagrams use Neotoma counts, % of trees, shrubs and upland herbs, 250-year means. Volcanic provinces: Johansson L., Zahirovic S. &amp; Müller R.D. (2018) <i>Geophysical Research Letters</i> 45, doi:10.1029/2017GL076691 (via GPlates); flashes start at each province's onset age. Ocean anoxic events: Jenkyns H.C. (2010) <i>G-cubed</i> 11, Q03004; Devonian events after Kaiser S.I. et al. (2016) <i>Geol. Soc. London Spec. Publ.</i> 423; ages approximate. Stages: International Chronostratigraphic Chart via Macrostrat. Sea level: Miller K.G. et al. (2020) <i>Science Advances</i> 6, eaaz1346, and Spratt R.M. &amp; Lisiecki L.E. (2016) <i>Climate of the Past</i> 12, 1079–1092, via NOAA NCEI; the stack is tapered to 0 m over the last 6 kyr. Elevation: SRTM15+ v2.7 via the GMT data server. Grey scale: Sadler P.M. (1981) Sediment accumulation rates and the completeness of stratigraphic sections, <i>Journal of Geology</i> 89, 569–584. Plate model: Merdith A.S. et al. (2021) <i>Earth-Science Reviews</i> 214, 103477, via GPlates. Geology: Chorlton (2007), GSC, via Macrostrat (CC BY 4.0). Columns and drill cores: Macrostrat (CC BY 4.0). Seafloor age: Seton et al. (2020). Coastlines: Natural Earth. Colours: ICS chart. Projection: Equal Earth.</p></div>
+    <div><h3>Sources</h3><p>Ocean depth from crust age: Parsons B. &amp; Sclater J.G. (1977) <i>J. Geophys. Res.</i> 82, 803–827 (depth ≈ 2,600 m + 345 m·√age, levelling near 6,400 m); shelf depths from SRTM15+. Deep-time sea level (66–250 Ma, applied to continental shelves only): Haq B.U., Hardenbol J. &amp; Vail P.R. (1987) <i>Science</i> 235, 1156–1167, via Miller et al. (2005) at NOAA NCEI; its amplitudes are larger than most modern estimates. Glaciations are mapped ice regions tied to today's positions of their glacial deposits, so the ice moves with its plate: the Late Ordovician–early Silurian (Ghienne et al. 2007; Le Heron &amp; Dowdeswell 2009), Late Devonian (Isaacson et al. 2008), Late Paleozoic Ice Age episodes about 368–260 Ma (Fielding et al. 2008; Isbell et al. 2012; Montañez &amp; Poulsen 2013), the East Antarctic ice sheet from 34 Ma and all of Antarctica from about 14 Ma, and Quaternary ice sheets from 2.7 Ma whose Last Glacial Maximum outlines (Ehlers et al. 2011; Dalton et al. 2020; Hughes et al. 2016) grow and shrink with sea level. Outlines are simplified, and pre-Quaternary ice extents are approximate. Orogeny ages are approximate. Biogeographic lines after Wallace (1863), Huxley (1868), Weber and Lydekker (positions approximate); botanical boundaries after van Steenis. Barrier and land-bridge ages are approximate and several are debated. Family photos: iNaturalist research-grade observations under CC0, CC BY or CC BY-SA, credited on each card. Pollen micrographs: Halbritter et al. (2018), CC BY 4.0. Plant tree: family first/last appearances from the Paleobiology Database; branching order from the Open Tree of Life synthetic tree (Hinchliff et al. 2015, updated; angiosperms consistent with APG IV 2016); extinct families not in the synthesis are attached to their order, class or division as polytomies. Branch points sit at the oldest first appearance among their descendants (a minimum age). Studies: Paleobiology Database (paleobiodb.org, CC BY 4.0) plant collections and references, with studies flagged as palynological from their titles; Neotoma Paleoecology Database (neotomadb.org, CC BY 4.0) pollen datasets; Holocene diagrams use Neotoma counts, % of trees, shrubs and upland herbs, 250-year means. Volcanic provinces: Johansson L., Zahirovic S. &amp; Müller R.D. (2018) <i>Geophysical Research Letters</i> 45, doi:10.1029/2017GL076691 (via GPlates); flashes start at each province's onset age. Ocean anoxic events: Jenkyns H.C. (2010) <i>G-cubed</i> 11, Q03004; Devonian events after Kaiser S.I. et al. (2016) <i>Geol. Soc. London Spec. Publ.</i> 423; ages approximate. Stages: International Chronostratigraphic Chart via Macrostrat. Sea level: Miller K.G. et al. (2020) <i>Science Advances</i> 6, eaaz1346, and Spratt R.M. &amp; Lisiecki L.E. (2016) <i>Climate of the Past</i> 12, 1079–1092, via NOAA NCEI; the stack is tapered to 0 m over the last 6 kyr. Elevation: SRTM15+ v2.7 via the GMT data server. Grey scale: Sadler P.M. (1981) Sediment accumulation rates and the completeness of stratigraphic sections, <i>Journal of Geology</i> 89, 569–584. Plate model: Merdith A.S. et al. (2021) <i>Earth-Science Reviews</i> 214, 103477, via GPlates. Geology: Chorlton (2007), GSC, via Macrostrat (CC BY 4.0). Columns and drill cores: Macrostrat (CC BY 4.0). Seafloor age: Seton et al. (2020). Coastlines: Natural Earth. Colours: ICS chart. Projection: Equal Earth.</p></div>
   </div>
     </div>
   </section>
@@ -935,9 +935,9 @@ const START = 538.7, TMAX = 540;   // base of the Cambrian; the timeline spans t
 let T = START, cv, ctx, Wpx, Hpx, img, buf, dpr, KF = 1;
 /* ---------- globe: the flat map is rendered off-screen, then wrapped onto an orthographic sphere in WebGL ---------- */
 const GL = { lam: 25 * Math.PI / 180, phi: -25 * Math.PI / 180, spin: false, to: null };
-const CS = 512, CA = 14 * Math.PI / 180;   // polar caps: pole-centred textures, 14 deg radius, so the poles have no seam or pinch
+const CS = 256, CA = 24 * Math.PI / 180;   // polar caps: pole-centred textures, 24 deg radius, so the poles have no seam, pinch or east-west smear
 const CAP = [new ImageData(CS, CS), new ImageData(CS, CS)], CAPB = CAP.map(d => new Uint32Array(d.data.buffer));
-let MAPT = 'globe', GLX = null, gcv = null, gl = null, gcap = null, gU = null, gtex = null, GW = 0, GH = 0, GR0 = 0, GLMAX = 4096, texDirty = true, FL = { sx: 1, sy: 1, cx: 0, cy: 0 };
+let GLOW = null; let MAPT = 'globe', GLX = null, gcv = null, gl = null, gcap = null, gU = null, gtex = null, GW = 0, GH = 0, GR0 = 0, GLMAX = 4096, texDirty = true, FL = { sx: 1, sy: 1, cx: 0, cy: 0 };
 const flatTarget = () => Math.min(GLMAX, Math.max(1400, Math.round(4 * GR0 * VIEW.k)));
 function initGlobe() {
   gcv = $('#globe'); let v2 = true; try { gl = gcv.getContext('webgl2', { antialias: true }); if (!gl) { v2 = false; gl = gcv.getContext('webgl', { antialias: true }) } } catch (e) { gl = null } if (!gl) return false; GL.v2 = v2;
@@ -946,6 +946,7 @@ function initGlobe() {
   const vs = (v2 ? '#version 300 es\nin' : 'attribute') + ' vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }';
   const fs0 = `precision highp float;
 uniform vec2 uRes; uniform float uR; uniform vec2 uRot; uniform vec4 uFlat; uniform sampler2D uTex; uniform sampler2D uCapN; uniform sampler2D uCapS; uniform float uCA; uniform vec3 uBg;
+uniform sampler2D uLow; uniform sampler2D uFlg; uniform sampler2D uOce; uniform vec2 uOceS; uniform vec2 uLowS; uniform vec2 uTexPx; uniform vec4 uHat; uniform vec2 uHat2; uniform float uTime;
 const float A1 = 1.340264, A2 = -0.081106, A3 = 0.000893, A4 = 0.003796, MM = 0.8660254, PI = 3.14159265, D = 57.2957795;
 void main() {
   vec2 p = (gl_FragCoord.xy - 0.5 * uRes) / uR; float r = length(p);
@@ -968,9 +969,24 @@ void main() {
   #else
   vec4 c = texture2D(uTex, uv);
   #endif
+  // smooth land layer: bilinear coverage gives a curved, anti-aliased coastline at any zoom; the overlay (premultiplied) sits on top
+  float landM;
+  { vec2 lu = uv * uLowS; vec4 L = texture2D(uLow, lu), F = texture2D(uFlg, lu);
+    float a = L.a; vec3 lc = L.rgb / max(a, 1e-4); float fa = max(fwidth(a), 1e-4); landM = smoothstep(0.5 - 0.75 * fa, 0.5 + 0.75 * fa, a);
+    vec2 tp = uv * uTexPx; float unk = F.g / max(a, 1e-4);
+    if (unk > 0.02) { float s = sin(6.2831853 * tp.x / uHat2.x), yy = tp.y - uHat.w * s - 0.5 * uHat2.y, k = floor(yy / uHat.x + 0.5), dy = yy - k * uHat.x;
+      float fy = max(fwidth(tp.y), 1e-3), ln = 1.0 - smoothstep(0.5 * uHat2.y, 0.5 * uHat2.y + fy, abs(dy));
+      float dx = mod(tp.x + mod(k, 2.0) * 0.5 * uHat.y, uHat.y), fx = max(fwidth(tp.x), 1e-3), da = smoothstep(0.0, fx, dx) * (1.0 - smoothstep(uHat.z - fx, uHat.z, dx));
+      lc = mix(lc, vec3(104.0, 112.0, 122.0) / 255.0, ln * da * smoothstep(0.35, 0.65, unk) * (1.0 - smoothstep(1.05, 1.2, abs(lat)))); }
+    vec4 O = texture2D(uOce, uv * uOceS); float fo = max(fwidth(O.a), 1e-4), om = smoothstep(0.5 - 0.75 * fo, 0.5 + 0.75 * fo, O.a);
+    vec3 base = mix(mix(uBg, O.rgb / max(O.a, 1e-4), om), lc, landM);
+    float ice = F.r, fi = fwidth(ice), ring = fi > 1e-5 ? 1.0 - smoothstep(0.7, 1.7, abs(ice - 0.5) / fi) : 0.0;
+    float gl2 = 0.5 + 0.5 * sin(tp.x * 0.21 + tp.y * 0.13 - uTime * 2.4) * sin(tp.x * 0.05 - tp.y * 0.17 + uTime * 1.3);
+    base = mix(base, vec3(120.0 + 135.0 * gl2, 215.0 + 40.0 * gl2, 255.0) / 255.0, ring * 0.95);
+    c = vec4(base * (1.0 - c.a) + c.rgb, 1.0); }
   float al = abs(lat), cb = smoothstep(PI / 2.0 - uCA + 0.01, PI / 2.0 - uCA + 0.05, al);
   if (cb > 0.0) { float rr = (PI / 2.0 - al) / (2.0 * uCA); vec2 cu = 0.5 + rr * vec2(sin(lon), cos(lon));
-    vec4 k = lat > 0.0 ? texture2D(uCapN, cu) : texture2D(uCapS, cu); c = mix(c, vec4(mix(uBg, k.rgb, k.a), 1.0), cb); }
+    vec4 k = lat > 0.0 ? texture2D(uCapN, cu) : texture2D(uCapS, cu); float fk = max(fwidth(k.a), 1e-4), mk = smoothstep(0.5 - 0.75 * fk, 0.5 + 0.75 * fk, k.a); c = mix(c, vec4(mix(uBg, k.rgb / max(k.a, 1e-4), mk), 1.0), cb); landM = mix(landM, mk, cb); }
   vec3 col = mix(vec3(0.043, 0.035, 0.028), c.rgb, c.a);
   float px = 1.0 / (uR * max(z, 0.12));
   float dl = abs(mod(lat * D + 15.0, 30.0) - 15.0) / D, dm = abs(mod(lon * D + 15.0, 30.0) - 15.0) / D * cos(lat);
@@ -980,27 +996,33 @@ void main() {
   float l = clamp(dot(vec3(p, z), normalize(vec3(-0.45, 0.5, 0.75))), 0.0, 1.0);
   col *= (0.86 + 0.16 * l) * mix(0.68, 1.0, pow(z, 0.5));
   col += atm * pow(1.0 - z, 3.0) * 0.28;
+  { vec3 n = vec3(p, z), Ld = normalize(vec3(-0.45, 0.5, 0.75)); float spc = pow(max(dot(reflect(-Ld, n), vec3(0.0, 0.0, 1.0)), 0.0), 48.0);
+    col += vec3(0.85, 0.93, 1.0) * spc * 0.20 * (1.0 - 0.8 * landM); }   // soft sun glint on the sea
   float a = clamp((1.0 - r) * uR, 0.0, 1.0);
   gl_FragColor = vec4(mix(atm * glow, col, a), mix(glow, 1.0, a));
 }`;
-  const fs = v2 ? '#version 300 es\n#define V2\n#define texture2D texture\n#define gl_FragColor oc\nout highp vec4 oc;\n' + fs0 : fs0;
+  const dExt = v2 || gl.getExtension('OES_standard_derivatives');
+  const fs = v2 ? '#version 300 es\n#define V2\n#define texture2D texture\n#define gl_FragColor oc\nout highp vec4 oc;\n' + fs0 : (dExt ? '#extension GL_OES_standard_derivatives : enable\n' : '#define fwidth(x) (0.01)\n') + fs0;
   try { const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
     const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
     const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    gU = {}; for (const u of ['uRes', 'uR', 'uRot', 'uFlat', 'uTex', 'uCapN', 'uCapS', 'uCA', 'uBg']) gU[u] = gl.getUniformLocation(pr, u);
+    gU = {}; for (const u of ['uRes', 'uR', 'uRot', 'uFlat', 'uTex', 'uCapN', 'uCapS', 'uCA', 'uBg', 'uLow', 'uFlg', 'uOce', 'uOceS', 'uLowS', 'uTexPx', 'uHat', 'uHat2', 'uTime']) gU[u] = gl.getUniformLocation(pr, u);
     const mk = mip => { const t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t);
       for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, mip ? gl.LINEAR_MIPMAP_LINEAR : gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v); return t };
-    gtex = mk(v2); gcap = [mk(true), mk(true)];
+    gtex = mk(v2); gcap = [mk(true), mk(true)]; GLOW = [mk(false), mk(false), mk(false)];
   } catch (e) { console.warn('globe disabled:', e); gl = null; return false }
   return true;
 }
 function renderGlobe() {
   if (!gl || !GW) return;
   gl.viewport(0, 0, GW, GH); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
-  if (texDirty) { gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, gtex); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cv); if (GL.v2) gl.generateMipmap(gl.TEXTURE_2D);
+  if (texDirty) { gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, gtex); gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cv); gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false); if (GL.v2) gl.generateMipmap(gl.TEXTURE_2D);
+    if (LOWB) { gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1); [LOWB, LOWF, LOWO].forEach((d, h) => { gl.activeTexture(gl.TEXTURE3 + h); gl.bindTexture(gl.TEXTURE_2D, GLOW[h]); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, h === 2 ? OW : LOWW, h === 2 ? OH : LOWH, 0, gl.RGBA, gl.UNSIGNED_BYTE, d) }) }
     for (let h = 0; h < 2; h++) { gl.activeTexture(gl.TEXTURE1 + h); gl.bindTexture(gl.TEXTURE_2D, gcap[h]); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, CAP[h]); gl.generateMipmap(gl.TEXTURE_2D) } texDirty = false }
   gl.uniform1i(gU.uCapN, 1); gl.uniform1i(gU.uCapS, 2); gl.uniform1f(gU.uCA, CA); if (OPT.ocean) gl.uniform3f(gU.uBg, 10 / 255, 42 / 255, 80 / 255); else gl.uniform3f(gU.uBg, .043, .035, .028);
   gl.uniform2f(gU.uRes, GW, GH); gl.uniform1f(gU.uR, GR0 * VIEW.k); gl.uniform2f(gU.uRot, GL.lam, GL.phi);
+  gl.uniform1i(gU.uLow, 3); gl.uniform1i(gU.uFlg, 4); gl.uniform1i(gU.uOce, 5); gl.uniform2f(gU.uOceS, OW ? Wpx / (2 * LOWR * OW) : 1, OH ? Hpx / (2 * LOWR * OH) : 1); gl.uniform2f(gU.uLowS, LOWW ? Wpx / (LOWR * LOWW) : 1, LOWH ? Hpx / (LOWR * LOWH) : 1); gl.uniform2f(gU.uTexPx, Wpx, Hpx);
+  gl.uniform4f(gU.uHat, HATP[0], HATP[1], HATP[2], HATP[3]); gl.uniform2f(gU.uHat2, HATP[4], HATP[5]); gl.uniform1f(gU.uTime, performance.now() / 1000);
   gl.uniform4f(gU.uFlat, FL.cx / Wpx, FL.cy / Hpx, FL.sx / Wpx, FL.sy / Hpx); gl.uniform1i(gU.uTex, 0); gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, gtex);
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); drawInset();
 }
@@ -1021,7 +1043,10 @@ function drawInset() {
   g.beginPath();
   for (let la = -90; la <= 90; la += 3) { const [x, y] = P2(Math.PI, la * Math.PI / 180); la === -90 ? g.moveTo(x, y) : g.lineTo(x, y) }
   for (let la = 90; la >= -90; la -= 3) { const [x, y] = P2(-Math.PI, la * Math.PI / 180); g.lineTo(x, y) } g.closePath();
-  g.save(); g.clip(); g.drawImage(cv, 0, 0, W, H); g.restore(); g.lineWidth = 1; g.strokeStyle = 'rgba(143,211,255,.5)'; g.stroke();
+  g.save(); g.clip();
+  if (gl && LOWB) { g.fillStyle = OPT.ocean ? '#0A2A50' : '#0B0907'; g.fillRect(0, 0, W, H); lowCv = lowCv || document.createElement('canvas'); if (lowCv.width !== LOWW || lowCv.height !== LOWH) { lowCv.width = LOWW; lowCv.height = LOWH }
+    if (INSD) { insetLand(); lowCv.getContext('2d').putImageData(new ImageData(LOWS, LOWW, LOWH), 0, 0); INSD = false } g.imageSmoothingEnabled = true; g.drawImage(lowCv, 0, 0, LOWW * LOWR * s, LOWH * LOWR * s) }
+  g.drawImage(cv, 0, 0, W, H); g.restore(); g.lineWidth = 1; g.strokeStyle = 'rgba(143,211,255,.5)'; g.stroke();
 }
 const OPT = { hum: true, veg: true, evm: true, ice: true, orog: true, tropics: true, biogeo: true, info: true, botany: false, paly: false, pdata: false, lip: true, oae: true, form: true, cols: true, ocean: true, coast: true, cores: false, bnd: true, mode: 'gray', scale: 'sadler', n: 0.7, lens: 'sea', slow: true };
 // Global mean sea level, m relative to present: Spratt & Lisiecki (2016) stack to 798 ka, Miller et al. (2020) beyond; ages in ka
@@ -1030,33 +1055,68 @@ function slAt(t) { const a = t * 1000; if (!SLA || a > SLA[SLA.length - 1]) retu
   const f = (a - SLA[lo]) / ((SLA[hi] - SLA[lo]) || 1); return SLV[lo] * (1 - f) + SLV[hi] * f }
 const mix = (c, r, g, b, f) => pack((c & 255) * (1 - f) + r * f, ((c >> 8) & 255) * (1 - f) + g * f, ((c >> 16) & 255) * (1 - f) + b * f);
 let GAPC = null, OAEF = 0, LIPON = false;
-// schematic glaciations (latitude rules, not mapped ice margins)
+// Glaciations as mapped ice regions, placed by each point's PRESENT-DAY position so the ice rides on its plate.
+// Paleozoic ice centres from the distribution of glacial deposits: Hirnantian after Ghienne et al. (2007) and Le Heron & Dowdeswell (2009);
+// Late Devonian after Isaacson et al. (2008) and Brezinski et al. (2008); Late Paleozoic Ice Age episodes after Fielding et al. (2008),
+// Isbell et al. (2012) and Montañez & Poulsen (2013). Cenozoic Antarctic and Greenland ice after DeConto & Pollard (2003) and Bailey et al. (2013).
+// Quaternary ice-sheet outlines simplified from the Last Glacial Maximum margins of Ehlers, Gibbard & Hughes (2011), Dalton et al. (2020,
+// North America) and Hughes et al. (2016, Eurasia), scaled toward each ice dome with global sea level (full extent at about -120 m).
 let ICE = null;
-// Quaternary ice sheets, schematic: overlapping caps [lon, lat, radius in degrees at the Last Glacial Maximum], after the LGM margins
-// compiled by Ehlers, Gibbard & Hughes (2011, Quaternary Glaciations: Extent and Chronology) and Dalton et al. (2020, Laurentide).
-// Radii scale with sea level (full at about -120 m); only Greenland and Antarctica persist in interglacials.
-const ICESHEETS = [
-  [-95, 58, 14], [-80, 55, 14], [-72, 48, 7.5], [-86, 46, 7], [-100, 52, 9], [-112, 58, 8], [-90, 66, 10], [-70, 62, 9],   // Laurentide (to about 39 N in the Ohio valley)
-  [-125, 55, 7], [-140, 61, 6], [-118, 50, 4],   // Cordilleran
-  [-90, 77, 8], [-75, 80, 6], [-19, 65, 3],   // Innuitian, Iceland
-  [-4, 55.5, 4.5], [-7, 53.5, 3],   // British-Irish
-  [16, 63, 9], [28, 64, 7], [12, 58, 5], [25, 58, 5], [35, 66, 6],   // Fennoscandian
-  [40, 76, 8], [60, 74, 7], [20, 78, 6],   // Barents-Kara and Svalbard
-  [10, 46.5, 2.2], [-72, -47, 4.5], [-71, -41, 3], [170, -43.5, 1.5]];   // Alps, Patagonia, New Zealand Alps
-function iceSheets(f) {
-  const D = Math.PI / 180, out = [], add = (lo, la, rd) => { if (rd > .4) out.push([Math.cos(la * D) * Math.cos(lo * D), Math.cos(la * D) * Math.sin(lo * D), Math.sin(la * D), Math.cos(rd * D)]) };
-  add(-42, 72, 9 + 2 * f); add(-40, 77, 6 + f);   // Greenland, always
-  for (const [lo, la, r] of ICESHEETS) add(lo, la, r * Math.pow(f, .7));
-  return out }
-function iceIn(lo, la) { if (Math.abs(la) < .6) return false; const cl = Math.cos(la), x = cl * Math.cos(lo), y = cl * Math.sin(lo), z = Math.sin(la); for (const c of ICE.circ) if (x * c[0] + y * c[1] + z * c[2] > c[3]) return true; return false }
+const ICEEP = [   // [youngest Ma, oldest Ma, polar ice to this palaeolatitude (land near the pole, where no deposits survive), name, [[lon, lat, radius deg], ...]]
+  [445.2, 453, null, 'Late Ordovician ice building on North Africa', [[2, 25, 10.8]]],
+  [443.8, 445.2, -62, 'Hirnantian glaciation: ice sheet over North Africa and Arabia, with ice in South America and southern Africa',
+    [[0, 26, 18], [12, 24, 12], [-9, 21, 7.2], [-6, 30, 4.8], [24, 23, 8.4], [40, 27, 8.4], [36, 30, 3.6], [-66, -17, 6], [-56, -2, 4.8], [-51, -24, 4.8], [19, -32, 3.6]]],
+  [433, 443.8, null, 'Early Silurian ice in South America', [[-56, -2, 4.2], [-66, -17, 4.8], [-51, -24, 3.6]]],
+  [358.9, 368, null, 'Late Devonian (Famennian) glaciation: Brazil, Bolivia and the Appalachians', [[-66, -16, 6.6], [-56, -2, 5.4], [-44, -6, 4.8], [-78, 40, 3.5]]],
+  [349, 358.9, null, 'Early Mississippian ice in Bolivia and Brazil', [[-66, -17, 6], [-56, -3, 3.6]]],
+  [323, 335, null, 'Mississippian ice: western Argentina and eastern Australia', [[-67.5, -30, 6], [-69.5, -32, 3.6], [151, -31, 4.8]]],
+  [300, 323, -64, 'Late Paleozoic Ice Age (Pennsylvanian): ice across southern Gondwana',
+    [[-67.5, -30, 6], [-70, -43, 4.8], [-50, -25, 9.6], [-62, -22, 6], [24, -29, 10.8], [18, -24, 6], [25, -21, 6], [27, -6, 6], [0, -90, 27], [-59, -51.7, 3.5], [57, 20, 4.8], [45, 24, 4.8], [124, -19, 4.8], [115, -24, 3.6], [134, -28, 6], [146.5, -42, 3.5], [151, -33, 3.6], [149, -24, 3.6]]],
+  [290, 300, -58, 'Late Paleozoic Ice Age at its peak (Carboniferous–Permian boundary)',
+    [[-67.5, -30, 6], [-70, -43, 4.8], [-50, -25, 11.4], [-62, -22, 7.2], [24, -29, 12.6], [18, -24, 7.2], [25, -21, 7.2], [27, -6, 7.2], [35, -9, 3.6], [45, -23, 3.6], [0, -90, 28], [-59, -51.7, 3.5], [57, 20, 5.4], [45, 24, 5.4], [85, 22, 5.4], [80, 18, 3.6], [72, 32.6, 3.5], [124, -19, 5.4], [115, -24, 4.2], [116, -31, 3.5], [134, -27, 8.4], [141, -27, 4.8], [146, -23, 4.2], [149, -24, 3.6], [151, -33, 3.6], [144, -37, 3.5], [146.5, -42, 3.5]]],
+  [283, 290, -68, 'Late Paleozoic Ice Age waning: Karoo, Paraná, Antarctica and Australia', [[24, -30, 8.4], [-50, -26, 6], [0, -90, 20], [150, -28, 7.2], [146.5, -42, 3.5]]],
+  [260, 283, null, 'Permian ice in eastern Australia', [[150, -29, 6.6], [146.5, -42, 3.5]]],
+];
+const ICEAN = [[90, -78, 18], [135, -73, 10], [20, -75, 12], [50, -71, 8]];   // East Antarctic ice sheet, 34-14 Ma
+const ICEPOLY = [   // [name, dome lon, dome lat, always (Greenland), LGM outline [lon, lat, ...]]
+  ['Laurentide', -88, 60, 0, [-114,49,-110,48.6,-104,47.6,-100,46.5,-97.5,45,-95,43.5,-93.6,41.6,-92,42.6,-90,42.4,-88.8,40.6,-87,39.6,-85,39.2,-83,39.6,-81,40.6,-79,41.6,-77,41.2,-75,41,-73.5,40.7,-70,41.2,-67,41.5,-63,42.8,-58,44,-54,45.6,-51,47.5,-52,50,-55,53.5,-58.5,56.5,-62.5,60,-64.5,62.5,-62,66,-64,69,-70,72.5,-75,75,-72,78,-65,80.5,-62,82.5,-75,83.2,-90,82,-105,80,-118,77.5,-125,74,-128,71,-133,69.5,-136,68.6,-131,66,-125,62.5,-120,58,-116,53]],
+  ['Cordilleran', -125, 55, 0, [-124.5,47.2,-121,47.5,-118.5,48.6,-114,49,-116,53,-120,58,-125,62.5,-131,64.5,-136,64,-140,62.5,-145,62.8,-150,63,-153,61.5,-156,59,-160,57.2,-163,55.5,-160,55,-155,57,-151,58.5,-147,59.6,-142,59.5,-138,58.4,-135,56,-133,53.5,-131,51.5,-128,49.8,-125.5,48]],
+  ['Greenland', -42, 72, 1, [-56,60.5,-48,59.2,-42,59.5,-37,63,-30,67.5,-21,70,-16,74,-13,78,-12,81,-22,83.6,-40,84,-58,82.6,-68,80.2,-73,78,-70,76,-62,74.5,-59,71,-57,67,-55,64]],
+  ['Iceland', -19, 65, 0, [-25.5,63.2,-20,62.6,-13,63.8,-11.5,66,-14,67.4,-20,67.6,-25.5,66.8,-26,65]],
+  ['British–Irish', -4.5, 56, 0, [-11,51.2,-11.5,54,-10.5,56.5,-9,58.5,-6,60,-2,61.5,2,61,3,58,2.5,55.5,1,54.2,0.3,53.4,1,52.9,-1,52.8,-2.4,52.3,-3.2,51.6,-4.8,51.6,-6.4,49.9,-8.5,51]],
+  ['Fennoscandian', 17, 63, 0, [3,58,2,61,4,63.5,9,66,13,68.5,17,70,22,71.2,30,71,38,69,44,67.5,47,65.5,45,63.5,41,61.8,38,59.5,34,57.3,31.5,55.3,28,54.3,24,53.8,20.5,53,16.5,52.4,13.5,52.6,11,53.3,9.6,54.3,9,55.6,8.2,56.6,5,57.2]],
+  ['Barents–Kara', 40, 77, 0, [10,77,13,80.8,25,81.6,45,81.6,62,81.8,72,80,70,76,62,73,56,70.5,48,69.5,40,70.2,30,71,22,71.6,16,74,10,76.5]],
+  ['Alpine', 10, 46.3, 0, [5.5,45,6.5,44.2,7.8,44.4,9.5,45.6,12,45.7,14.5,46.2,15.5,46.9,14,47.8,11,47.9,8,47.7,6.2,46.6]],
+  ['Patagonian', -72, -47, 0, [-73.8,-38.5,-71,-38.5,-70.6,-42,-70.2,-46,-70.6,-49.5,-69,-52.3,-66.5,-54.6,-68,-55.8,-71.5,-55.6,-75.6,-53,-76.2,-48,-75.2,-43]],
+  ['Southern Alps', 170.5, -43.6, 0, [167,-46.2,166.5,-45,168.5,-43.8,171.5,-42.3,172.6,-42.8,170.5,-44.6,168.7,-46]],
+].map(([nm, lo, la, al, xs]) => { const c = Math.cos(la * Math.PI / 180), px = [], py = []; let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+  for (let j = 0; j < xs.length; j += 2) { const x = (xs[j] - lo) * c, y = xs[j + 1] - la; px.push(x); py.push(y); x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y) }
+  return { nm, lo, la, c, al, px, py, x0, x1, y0, y1 } });
+function inPoly(P, x, y) { if (x < P.x0 || x > P.x1 || y < P.y0 || y > P.y1) return false; let o = false; const n = P.px.length;
+  for (let a = 0, b = n - 1; a < n; b = a++) { const ya = P.py[a], yb = P.py[b]; if ((ya > y) !== (yb > y) && x < (P.px[b] - P.px[a]) * (y - ya) / (yb - ya) + P.px[a]) o = !o } return o }
+const capV = cs => cs.map(([lo, la, r]) => { const D = Math.PI / 180; return [Math.cos(la * D) * Math.cos(lo * D), Math.cos(la * D) * Math.sin(lo * D), Math.sin(la * D), Math.cos(r * D)] });
+const ICEEPV = ICEEP.map(e => capV(e[4]));
+let ICEM = null, ICEK = '';
 function iceRule(t) {
-  if ((t <= 717 && t >= 660) || (t <= 650 && t >= 635)) return { all: true, nm: 'Cryogenian “Snowball Earth” glaciation' };
-  if (t <= 445.2 && t >= 443.8) return { s: -55, nm: 'Hirnantian (Late Ordovician) glaciation' };
-  if (t <= 360 && t >= 260) return { s: (t <= 340 && t >= 290) ? -48 : -60, nm: 'Late Paleozoic Ice Age' };
-  if (t <= 34) { const r = { s: t > 14 ? -72 : -64, nm: t > 2.7 ? 'Antarctic glaciation (Oligocene onward)' : 'Bipolar glaciation' };
-    if (t <= 2.7) { const sl = slAt(t) ?? 0, f = Math.max(0, Math.min(1, -sl / 120)); r.circ = iceSheets(f); r.nm = f > .6 ? 'Glacial maximum: ice sheets at full extent' : f > .25 ? 'Ice sheets growing or retreating' : 'Interglacial: Greenland and Antarctic ice'; r.f = f } return r }
-  return null;
-}   // per-column cache: 1 deposition, 2 gap (erosion or non-deposition), 0 outside record
+  for (let j = 0; j < ICEEP.length; j++) { const [ty, to, pol, nm] = ICEEP[j]; if (t >= ty && t <= to) { const g = Math.max(.45, Math.min(1, Math.min(t - ty, to - t) / (.18 * (to - ty)) + .45)); return { id: 'p' + j, nm, caps: ICEEPV[j], g, pol: pol == null ? null : pol - 8 * (1 - g) } } }
+  if (t <= 34) { const sl = t <= 2.7 ? (slAt(t) ?? 0) : 0, f = Math.max(0, Math.min(1, -sl / 120));
+    const nm = t > 14 ? 'East Antarctic ice sheet (from the Eocene–Oligocene boundary, 34 Ma)' : t > 2.7 ? 'Antarctic ice sheets; Greenland largely ice-free' : f > .6 ? 'Glacial maximum: ice sheets at full extent' : f > .25 ? 'Ice sheets growing or retreating' : 'Interglacial: Greenland and Antarctic ice';
+    return { id: t > 14 ? 'ea' : t > 2.7 ? 'aa' : 'q', nm, f, q: t <= 2.7 } }
+  return null }
+// per-point ice mask for the moment shown (present-day coordinates; cached per time)
+function iceMask(r) {
+  const key = r.id + '|' + T.toFixed(4); if (ICEM && ICEK === key) return ICEM; ICEK = key; if (!ICEM || ICEM.length !== N) ICEM = new Uint8Array(N); ICEM.fill(0);
+  const D = Math.PI / 180;
+  if (r.caps) { const cs = r.caps.map(c => [c[0], c[1], c[2], Math.cos(Math.acos(c[3]) * r.g)]);
+    for (let i = 0; i < N; i++) { const k = KIND[i]; if (k !== 0 && k !== 1) continue; const x = X0[i], y = Y0[i], z = Z0[i]; for (const c of cs) if (x * c[0] + y * c[1] + z * c[2] > c[3]) { ICEM[i] = 1; break } } return ICEM }
+  const ant = r.id === 'ea' ? capV(ICEAN) : capV([[0, -90, 25 + 3 * r.f], [-62, -66, 4 + 2 * r.f], [-68, -71, 5]]);
+  const polys = r.q ? ICEPOLY.map(P => [P, P.al ? .86 + .14 * r.f : Math.pow(r.f, .6)]).filter(([, sc]) => sc > .08) : [];
+  for (let i = 0; i < N; i++) { const k = KIND[i]; if (k !== 0 && k !== 1) continue; const x = X0[i], y = Y0[i], z = Z0[i];
+    if (z < -.35) { for (const c of ant) if (x * c[0] + y * c[1] + z * c[2] > c[3]) { ICEM[i] = 1; break } continue }
+    if (!polys.length) continue; const lo = LON[i] / 100, la = LAT[i] / 100;
+    for (const [P, sc] of polys) { const px = (lo - P.lo) * P.c / sc, py = (la - P.la) / sc; if (inPoly(P, px, py)) { ICEM[i] = 1; break } } }
+  return ICEM }
+   // per-column cache: 1 deposition, 2 gap (erosion or non-deposition), 0 outside record
 function gapState(ci, t) { const us = COLS[ci - 1]; if (!us) return 0; let older = false, younger = false;
   for (const u of us) { if (u[0] <= t && t <= u[1]) return 1; if (u[1] > t) older = true; if (u[0] < t) younger = true } return older && younger ? 2 : 0 }
 function lens(c, i, k, SL) {
@@ -1091,6 +1151,32 @@ const pack = (r, g, b) => (255 << 24) | ((b & 255) << 16) | ((g & 255) << 8) | (
 function eeStretch(la) { const th = Math.asin(MM * Math.sin(la)), t2 = th * th, t6 = t2 * t2 * t2; return Math.min(8, A1 * Math.cos(th) / (A1 + 3 * A2 * t2 + t6 * (7 * A3 + 9 * A4 * t2)) / Math.max(.03, Math.cos(la))) }
 function splat(x, y, s, c, w) { w = w || s; const x0 = Math.round(x - w / 2), y0 = Math.round(y - s / 2); if (x0 >= Wpx || y0 >= Hpx || x0 + w < 0 || y0 + s < 0) return;
   for (let j = 0; j < s; j++) { const yy = y0 + j; if (yy < 0 || yy >= Hpx) continue; const row = yy * Wpx; for (let i = 0; i < w; i++) { const xx = x0 + i; if (xx >= 0 && xx < Wpx) { buf[row + xx] = c; if (SPM) IM[row + xx] = 1 } } } SPM = 0 }
+// globe: sea-floor points and land/shelf points are splatted as soft round spots into two half-spacing grids, which the GPU turns into
+// smooth, anti-aliased contours (no stair-stepped squares). Weighted sums: colour, weight, ice and 'unknown rock' fractions.
+let INSD = true, OW = 0, OH = 0, LOWW = 0, LOWH = 0, LOWR = 1, LACC = null, OACC = null, LOWB = null, LOWO = null, LOWF = null, LOWS = null, HATP = [13, 19, 12, 2.4, 12, 1.3], lowCv = null;
+const KTAB = (() => { const t = new Float32Array(1024); for (let i = 0; i < 1024; i++) t[i] = Math.exp(-i / 1024 * 4 / 2); return t })();   // exp(-d2/2s2) for d2/s2 in [0, 4)
+function acc(A, W, H, fx, fy, sg, sx2, c, ice, unk, wt) {
+  const rx = Math.ceil(2 * sx2), ry = Math.ceil(2 * sg), i0 = Math.round(fy), j0 = Math.round(fx), r = c & 255, g = (c >>> 8) & 255, b = (c >>> 16) & 255;
+  for (let i = i0 - ry; i <= i0 + ry; i++) { if (i < 0 || i >= H) continue; const dy = (i - fy) / sg, dy2 = dy * dy; if (dy2 >= 4) continue; const row = i * W;
+    for (let j = j0 - rx; j <= j0 + rx; j++) { if (j < 0 || j >= W) continue; const dx = (j - fx) / sx2, d2 = dx * dx + dy2; if (d2 >= 4) continue;
+      const w = KTAB[(d2 * 255.9) | 0] * wt, q = (row + j) * 6; A[q] += r * w; A[q + 1] += g * w; A[q + 2] += b * w; A[q + 3] += w; if (ice) A[q + 4] += w; if (unk) A[q + 5] += w } } }
+function lowPut(x, y, sp, ex, c, ice, unk, wt, A) { const sg = .62 * sp; if (A === OACC) acc(A, OW, OH, x / (2 * LOWR) - .5, y / (2 * LOWR) - .5, sg / 2, sg * ex / 2, c, 0, 0, wt); else acc(A, LOWW, LOWH, x / LOWR - .5, y / LOWR - .5, sg, sg * ex, c, ice, unk, wt) }   // sp: point spacing in texels; ex: east-west stretch near the poles
+// polar caps: the same soft splats on pole-centred grids, land composited over sea floor (premultiplied)
+let CACC = null;
+function capPack() { const n = CS * CS, WREF = 2 * Math.PI * .62 * .62 * .865;
+  for (let h = 0; h < 2; h++) { const L = CACC[h], O = CACC[h + 2], D = CAP[h].data;
+    for (let p = 0; p < n; p++) { const q = p * 6, o = p * 4, wl = L[q + 3], wo = O[q + 3]; if (wl < 1e-4 && wo < 1e-4) { D[o] = D[o + 1] = D[o + 2] = D[o + 3] = 0; continue }
+      const la = Math.min(1, wl / WREF), oa = Math.min(1, wo / WREF) * (1 - la);
+      for (let k = 0; k < 3; k++) D[o + k] = (wl > 1e-4 ? L[q + k] / wl * la : 0) + (wo > 1e-4 ? O[q + k] / wo * oa : 0); D[o + 3] = (la + oa) * 255 } } }
+function lowPack() {   // accumulators -> premultiplied RGBA bytes for the GPU
+  const WREF = 2 * Math.PI * .62 * .62 * .865;   // expected weight on full coverage (spot area / spacing^2, 2-sigma kernel)
+  const pk = (A, B, n) => { for (let p = 0; p < n; p++) { const q = p * 6, o = p * 4, w = A[q + 3]; if (w < 1e-4) { B[o] = B[o + 1] = B[o + 2] = B[o + 3] = 0; continue } const a = Math.min(1, w / WREF), f = a / w;
+    B[o] = A[q] * f; B[o + 1] = A[q + 1] * f; B[o + 2] = A[q + 2] * f; B[o + 3] = a * 255 } };
+  pk(OACC, LOWO, OW * OH); pk(LACC, LOWB, LOWW * LOWH);
+  for (let p = 0, n = LOWW * LOWH; p < n; p++) { const q = p * 6, o = p * 4, w = LACC[q + 3]; if (w < 1e-4) { LOWF[o] = LOWF[o + 1] = 0; LOWF[o + 3] = 255; continue } const f = Math.min(1, w / WREF) / w * 255; LOWF[o] = LACC[q + 4] * f; LOWF[o + 1] = LACC[q + 5] * f; LOWF[o + 3] = 255 } }
+function insetLand() {   // straight-alpha land over sea floor, for the small flat map
+  for (let i = 0; i < LOWH; i++) for (let j = 0; j < LOWW; j++) { const o = (i * LOWW + j) * 4, oo = ((i >> 1) * OW + (j >> 1)) * 4, la = LOWB[o + 3] / 255, oa = LOWO[oo + 3] / 255;
+    for (let k = 0; k < 3; k++) LOWS[o + k] = la > .3 ? LOWB[o + k] / la : oa > .3 ? LOWO[oo + k] / oa : 0; LOWS[o + 3] = Math.max(la, oa) > .45 ? 255 : 0 } }
 function capSplat(b, x, y, s, c) { const x0 = Math.round(x - s / 2), y0 = Math.round(y - s / 2);
   for (let j = Math.max(0, y0); j < Math.min(CS, y0 + s); j++) for (let i = Math.max(0, x0); i < Math.min(CS, x0 + s); i++) b[j * CS + i] = c }
 function colSpans(ci, t) { const us = COLS[ci - 1]; if (!us) return false; for (const u of us) if (u[0] <= t && t <= u[1]) return true; return false }
@@ -1169,13 +1255,16 @@ function draw() {
   if (!buf) return;
   if (gl) { const t = flatTarget(); if (Math.abs(t - Wpx) / Wpx > .15) setFlat(t);
     dpr = Wpx / (2 * XM) * .985 * .8612 / (GR0 * VIEW.k / Math.min(2, devicePixelRatio || 1)) }   // flat px per CSS px on the globe's centre
-  buf.fill(0); KF = gl ? 1 : VIEW.k; if (!IM || IM.length !== Wpx * Hpx) IM = new Uint8Array(Wpx * Hpx); else IM.fill(0);
+  KF = gl ? 1 : VIEW.k; if (!gl) { buf.fill(0); if (!IM || IM.length !== Wpx * Hpx) IM = new Uint8Array(Wpx * Hpx); else IM.fill(0) }
   const qs = plateQuats(T); const K = KF; const sx = Wpx / (2 * XM) * .985 * K, sy = Hpx / (2 * YM) * .985 * K, cx = Wpx / 2 * K + (gl ? 0 : VIEW.x * dpr), cy = Hpx / 2 * K + (gl ? 0 : VIEW.y * dpr);
-  FL = { sx, sy, cx, cy }; if (gl) { CAPB[0].fill(0); CAPB[1].fill(0) } const capK = CS / (2 * CA) / (sx * .8612);
+  FL = { sx, sy, cx, cy }; if (gl) { if (!CACC) CACC = [0, 1, 2, 3].map(() => new Float32Array(CS * CS * 6)); else CACC.forEach(A => A.fill(0)) } const capK = CS / (2 * CA) / (sx * .8612);
   const pt = PRGB[perOf(T)];
   const sLand = Math.max(2, Math.round(Wpx / 480 * K)), sOcean = Math.max(3, Math.round(Wpx / 250 * K));
+  if (gl) { LOWR = sLand / 2; const lw = Math.ceil(Wpx / LOWR), lh = Math.ceil(Hpx / LOWR);
+    if (lw !== LOWW || lh !== LOWH || !LOWB) { LOWW = lw; LOWH = lh; OW = Math.ceil(lw / 2); OH = Math.ceil(lh / 2); LACC = new Float32Array(lw * lh * 6); OACC = new Float32Array(OW * OH * 6); LOWB = new Uint8Array(lw * lh * 4); LOWO = new Uint8Array(OW * OH * 4); LOWF = new Uint8Array(lw * lh * 4); LOWS = new Uint8ClampedArray(lw * lh * 4) } else { LACC.fill(0); OACC.fill(0) }
+    HATP = [Math.max(9, Math.round(13 * dpr)), 0, Math.max(8, Math.round(12 * dpr)), 2.4 * dpr, 12 * dpr, Math.max(1, Math.round(1.3 * dpr))]; HATP[1] = HATP[2] + Math.max(5, Math.round(7 * dpr)) }
   const passes = [2, 1, 0, 3]; PX.fill(NaN); LIPH = [];
-  ICE = OPT.ice ? iceRule(T) : null;
+  ICE = OPT.ice ? iceRule(T) : null; const IMK = ICE ? iceMask(ICE) : null;
   OAEF = OPT.oae ? oaePulse(T) : 0;
   const SL = OPT.lens !== 'sea' ? null : T <= 250 ? slAt(T) : 999;   // 999: before the curve, Paleozoic seas assumed high (no global curve) GAPC = new Uint8Array(COLS.length + 1).fill(255);
   for (const pass of passes) {
@@ -1187,9 +1276,11 @@ function draw() {
       if (OAEF > 0 && (k === 2 || k === 3)) { const v = Math.random() < .5 ? Math.random() * 70 : 150 + Math.random() * 105; c = mix(mix(c, 0, 0, 0, OAEF * .85), v, v, v, OAEF * .75) }   // scratchy TV static
       const [lo, la] = rot(qs, PLATE[i], X0[i], Y0[i], Z0[i]); const [x, y] = ee(lo, la);
       PX[i] = (cx + x * sx) / dpr; PY[i] = (cy - y * sy) / dpr;
-      if (ICE && (k === 0 || k === 1)) { const d = la * 57.2958; if (ICE.all || (ICE.s != null && d < ICE.s) || (ICE.n != null && d > ICE.n) || (ICE.circ && iceIn(lo, la))) { c = ICEC; SPM = 1 } }
-      { const ss = k === 2 ? sOcean : k === 3 ? sLand + 1 : sLand; splat(cx + x * sx, cy - y * sy, ss, c, gl && Math.abs(la) > .6 ? Math.round(ss * eeStretch(la)) : ss);
-        if (gl && Math.abs(la) > Math.PI / 2 - CA) { const rr = (Math.PI / 2 - Math.abs(la)) * CS / (2 * CA); capSplat(CAPB[la > 0 ? 0 : 1], CS / 2 + rr * Math.sin(lo), CS / 2 + rr * Math.cos(lo), Math.max(2, Math.round(ss * capK)), c) } }
+      if (IMK && (k === 0 || k === 1) && (IMK[i] || (ICE.pol != null && la * 57.2958 < ICE.pol))) { c = ICEC; SPM = 1 }
+      { const ss = k === 2 ? sOcean : k === 3 ? sLand + 1 : sLand;
+        if (gl) { if (Math.abs(la) < Math.PI / 2 - CA + .08) lowPut(cx + x * sx, cy - y * sy, k === 2 ? 2 * sOcean / sLand : 2, Math.abs(la) > .6 ? eeStretch(la) : 1, c, SPM, c === DARK, k === 3 ? 6 : 1, k === 2 ? OACC : LACC); SPM = 0 }
+        else splat(cx + x * sx, cy - y * sy, ss, c, ss);
+        if (gl && Math.abs(la) > Math.PI / 2 - CA - .03) { const rr = (Math.PI / 2 - Math.abs(la)) * CS / (2 * CA), sg = .62 * (k === 2 ? sOcean : sLand) * capK; acc(CACC[(la > 0 ? 0 : 1) + (k === 2 ? 2 : 0)], CS, CS, CS / 2 + rr * Math.sin(lo) - .5, CS / 2 + rr * Math.cos(lo) - .5, sg, sg, c, 0, 0, k === 3 ? 6 : 1) } }
     }
   }
   if (OPT.lip) { const sz = sLand + 1;
@@ -1198,9 +1289,10 @@ function draw() {
       const fl = .55 + .3 * Math.sin(now * (7 + pr % 5) + pr) + .15 * Math.sin(now * 23 + pr * 3.1) * (Math.random() < .15 ? -2 : 1);   // per-province flicker
       const f = (T >= a - 2 ? 1 : (T - (a - 12)) / 10) * Math.max(.15, Math.min(1, fl));
       const [lo, la] = rot(qs, LP[j], LX[j], LY[j], LZ[j]); const [x, y] = ee(lo, la);
-      { const [pr0, pg0, pb0] = PRGB[perOf(Math.max(0, a - 1e-6))], k2 = EX.lip.sub[pr] ? .42 * f : f; splat(cx + x * sx, cy - y * sy, sz, pack(16 + (pr0 - 16) * k2, 16 + (pg0 - 16) * k2, 18 + (pb0 - 18) * k2)) } if (j % 3 === 0) LIPH.push([(cx + x * sx) / dpr, (cy - y * sy) / dpr, LPR[j]]) } }
-  // unknown (no surviving record): black with diagonal hatching; ice: white with a glistening edge
-  { const W = Wpx, H = Hpx, hp = Math.max(6, Math.round(9 * dpr)), hw = Math.max(1, Math.round(1.3 * dpr));
+      { const [pr0, pg0, pb0] = PRGB[perOf(Math.max(0, a - 1e-6))], k2 = EX.lip.sub[pr] ? .42 * f : f, lc = pack(16 + (pr0 - 16) * k2, 16 + (pg0 - 16) * k2, 18 + (pb0 - 18) * k2); if (gl) lowPut(cx + x * sx, cy - y * sy, 2, 1, lc, 0, 0, 3, LACC); else splat(cx + x * sx, cy - y * sy, sz, lc) } if (j % 3 === 0) LIPH.push([(cx + x * sx) / dpr, (cy - y * sy) / dpr, LPR[j]]) } }
+  if (gl) { lowPack(); capPack(); INSD = true }
+  // unknown (no surviving record): black with diagonal hatching; ice: white with a glistening edge (on the globe the GPU draws both)
+  if (!gl) { const W = Wpx, H = Hpx, hp = Math.max(6, Math.round(9 * dpr)), hw = Math.max(1, Math.round(1.3 * dpr));
     { const rowSp = Math.max(9, Math.round(13 * dpr)), dash = Math.max(8, Math.round(12 * dpr)), gap = Math.max(5, Math.round(7 * dpr)), per = dash + gap, amp = 2.4 * dpr, wl = 12 * dpr;   // rows of short wavy dashes: 'inferred, not seen'
       for (let r0 = 0; r0 < H; r0 += rowSp) { const off = ((r0 / rowSp) % 2) * (per / 2);
         for (let x = 0; x < W; x++) { if ((x + off) % per >= dash) continue; const yc = Math.round(r0 + amp * Math.sin(x / wl * 2 * Math.PI));
@@ -1210,18 +1302,18 @@ function draw() {
         if (IM[i - r] && IM[i + r] && IM[i - r * W] && IM[i + r * W]) continue;
         const gl = .5 + .5 * Math.sin(x * .21 + y * .13 - now * 2.4) * Math.sin(x * .05 - y * .17 + now * 1.3);   // slow travelling glints
         buf[i] = pack(120 + 135 * gl, 215 + 40 * gl, 255) } } } }
-  offctx.putImageData(img, 0, 0);
+  if (!gl) offctx.putImageData(img, 0, 0);
   ctx.clearRect(0, 0, Wpx, Hpx);
   ctx.save(); ctx.lineWidth = 1 * dpr;
   const rad = Math.PI / 180;
   // ocean whose floor has since been subducted: fill the whole globe first
   ctx.beginPath(); for (let la = -90; la <= 90; la += 2) { const [x, y] = ee(Math.PI, la * rad); la === -90 ? ctx.moveTo(cx + x * sx, cy - y * sy) : ctx.lineTo(cx + x * sx, cy - y * sy) }
   for (let la = 90; la >= -90; la -= 2) { const [x, y] = ee(-Math.PI, la * rad); ctx.lineTo(cx + x * sx, cy - y * sy) } ctx.closePath();
-  if (gl) { ctx.fillStyle = OPT.ocean ? '#0A2A50' : '#0B0907'; ctx.fillRect(0, 0, Wpx, Hpx) } else { ctx.fillStyle = OPT.ocean ? '#0A2A50' : 'transparent'; ctx.fill() }   // inferred ocean (floor since subducted): deep blue
+  if (gl) { /* the globe shader paints the inferred ocean and the land underneath this overlay */ } else { ctx.fillStyle = OPT.ocean ? '#0A2A50' : 'transparent'; ctx.fill() }   // inferred ocean (floor since subducted): deep blue
   const FL0 = OPT.tropics ? frostLat(T) : 0;
   if (OPT.tropics) {   // frost-free belt between the schematic frost lines (palaeolatitude frame)
     const yl = la => cy - ee(0, la * rad)[1] * sy; ctx.fillStyle = 'rgba(255,194,122,.07)'; ctx.fillRect(0, yl(FL0), Wpx, yl(-FL0) - yl(FL0)) }
-  ctx.drawImage(off, 0, 0);
+  if (!gl) ctx.drawImage(off, 0, 0);
   if (OPT.tropics) { const yl = la => cy - ee(0, la * rad)[1] * sy; ctx.lineWidth = 1 * dpr;
     ctx.lineWidth = 3.2 * dpr; for (const la of [FL0, -FL0]) { ctx.strokeStyle = 'rgba(255,194,122,.95)'; ctx.setLineDash([.5 * dpr, 6 * dpr]); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, yl(la)); ctx.lineTo(Wpx, yl(la)); ctx.stroke() }
     ctx.setLineDash([]); ctx.lineCap = 'butt' }
@@ -2147,7 +2239,7 @@ function init() {
   $('#lens').onclick = e => { const b = e.target.closest('[data-l]'); if (!b) return; OPT.lens = b.dataset.l; syncLens(); draw() };
   $('#oSlow').onchange = e => { OPT.slow = e.target.checked };
   $('#oInfo').onchange = e => { OPT.info = e.target.checked };
-  (function fx() { if (!playing && ((OPT.oae && OAEF > 0) || (OPT.lip && LIPON) || (OPT.ice && ICE))) draw(); setTimeout(() => requestAnimationFrame(fx), 90) })();   // keep static and flicker alive while paused
+  (function fx() { if (!playing && ((OPT.oae && OAEF > 0) || (OPT.lip && LIPON))) draw(); else if (!playing && OPT.ice && ICE) { if (gl) renderGlobe(); else draw() } setTimeout(() => requestAnimationFrame(fx), 90) })();   // keep static and flicker alive while paused
   syncLens();
   const LAYERS = ['oHum', 'oVeg', 'oEvm', 'oIce', 'oOrog', 'oTrop', 'oBioG', 'oBot', 'oPaly', 'oPdata', 'oLip', 'oOae', 'oBnd', 'oCores'];
   const preset = on => { setTimeout(syncLayN); LAYERS.forEach(id => { const el = $('#' + id); if (el.checked !== on) { el.checked = on; el.dispatchEvent(new Event('change')) } }); OPT.lens = on ? 'sea' : 'none'; syncLens(); draw() };
