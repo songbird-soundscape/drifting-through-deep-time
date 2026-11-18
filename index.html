@@ -1,17 +1,17 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="A knowledge hub: moving continents, ancient plants, climate, and human migration, layered on one globe across 540 million years.">
+<meta name="description" content="A knowledge hub: moving continents, ancient plants, climate and ice, layered on one globe across 540 million years.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Drifting Through Deep Time">
 <meta property="og:title" content="Drifting Through Deep Time">
-<meta property="og:description" content="Moving continents, ancient plants, climate, and human migration, layered on one globe across 540 million years. Take the guided tour.">
+<meta property="og:description" content="Moving continents, ancient plants, climate and ice, layered on one globe across 540 million years. Take the guided tour.">
 <meta property="og:url" content="https://songbird-soundscape.github.io/drifting-through-deep-time/">
 <meta property="og:image" content="https://songbird-soundscape.github.io/drifting-through-deep-time/share-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Drifting Through Deep Time: Moving continents, ancient plants, climate, and human migration, layered on one globe across 540 million years. Take the guided tour.">
+<meta property="og:image:alt" content="Drifting Through Deep Time: Moving continents, ancient plants, climate and ice, layered on one globe across 540 million years. Take the guided tour.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Drifting Through Deep Time">
-<meta name="twitter:description" content="Moving continents, ancient plants, climate, and human migration, layered on one globe across 540 million years. Take the guided tour.">
+<meta name="twitter:description" content="Moving continents, ancient plants, climate and ice, layered on one globe across 540 million years. Take the guided tour.">
 <meta name="twitter:image" content="https://songbird-soundscape.github.io/drifting-through-deep-time/share-card.png">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
 /* hover / pinned portrait panel for the plant-phylogeny wheel */
@@ -442,7 +442,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
 <div class="wrap">
   <header class="top">
     <div><span class="eyebrow" id="eyebrowTop">540 million years · the age of spores and pollen</span><h1 style="margin-top:6px" id="h1Top">Drifting Through Deep Time</h1>
-      <p class="lede">Three kinds of drifting, on one timeline. <b>Continents</b> drift apart, collide into Pangaea, and break up again. <b>Spores and pollen</b> drift on wind and water, as plants come ashore and spread across the land. <b>People</b> drift too, migrating out of Africa and onto every continent. Press play to watch 539 million years unfold, from the base of the Cambrian to today.</p>
+      <p class="lede">Two kinds of drifting, on one timeline. <b>Continents</b> drift apart, collide into Pangaea, and break up again. <b>Spores and pollen</b> drift on wind and water, as plants come ashore and spread across the land. Press play to watch 539 million years unfold, from the base of the Cambrian to today.</p>
       <details class="howmap"><summary>How the map is drawn</summary><p>Today's rocks and ocean floor are carried back to where they formed on a published plate tectonic reconstruction. Each rock is shaded by how long ago it formed (pale parchment while forming, fading as younger rock accumulates, hatched black where no record survives), or by period colour. Ocean floor is born at the ridges and sinks at subduction zones.</p></details>
       <p class="aicav">Much of this hub was compiled with the help of AI, so <span class="tipwrap"><a href="https://songbird-soundscape.github.io/open-commons/#critique" target="_blank" rel="noopener" aria-describedby="aiTip">errors are likely</a><span class="tip" id="aiTip" role="tooltip"><b>For educators</b>Those errors make a ready-made teaching tool: students check entries against the scholarly literature, find what's wrong, and fix it. <a href="https://songbird-soundscape.github.io/open-commons/#critique" target="_blank" rel="noopener">Read about the teaching philosophy →</a></span></span>. Please check anything important against the original sources.</p>
       <p class="hdlinks"><a class="xproj" href="https://songbird-soundscape.github.io/open-commons/#explore" target="_blank" rel="noopener">Explore projects ↗</a><a href="#ethics" class="ethlink" id="ethLink">Ethical statement</a></p></div>
@@ -486,7 +486,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
   <div class="maptools"><div class="ctrls" role="group" aria-label="Map type" id="mapt"><span class="eyebrow">Map</span><button class="btn" data-mt="globe" aria-pressed="true">🌐 Globe</button><button class="btn" data-mt="flat" aria-pressed="false">▭ Flat map</button></div>
     <div class="ctrls"><button class="btn" id="layBtn" aria-expanded="false" aria-controls="layPop">☰ Layers <span id="layN" class="mono"></span></button><button class="btn" id="preBare" title="Turn every layer off">Bare</button><button class="btn" id="preAll" title="Turn every layer on">Everything</button></div>
     <span class="maphint" id="maphint">Drag to turn the globe · scroll or pinch to zoom · hover or click anything for details · arrow keys turn, + / − zoom</span></div>
-    <div class="laypop" id="layPop" hidden><div class="lgrid"><fieldset class="lg"><legend>Earth history</legend><label><input type="checkbox" id="oBnd" checked> Plate boundaries</label><label><input type="checkbox" id="oOrog" checked> ▲ Orogenies</label><label><input type="checkbox" id="oLip" checked> Large igneous provinces (bright: continental · muted: submarine)</label><label><input type="checkbox" id="oCores"> Drill cores</label><label><input type="checkbox" id="oCols" checked> Include buried layers from borehole columns</label><label><input type="checkbox" id="oForm" checked> Highlight rock forming now</label></fieldset><fieldset class="lg"><legend>Paleoenvironment</legend><label><input type="checkbox" id="oIce" checked> <i class="mk" style="background:#FAFCFF;box-shadow:0 0 0 2px #7FD8FF"></i> Glaciations (mapped ice)</label><label><input type="checkbox" id="oTrop" checked> <i class="mk" style="background:transparent;border:2px dotted #FFC27A"></i> Frost line (schematic, dotted = uncertain)</label><label><input type="checkbox" id="oOae" checked> Ocean anoxic events</label><label><input type="checkbox" id="oVeg" checked> <i class="mk" style="background:linear-gradient(90deg,#D9822B,#D4B23A,#8DBF5A,#1F6B3A)"></i> Regional vegetation from pollen (REVEALS forest cover, last ~200 kyr)</label><div class="lgsub">Biogeography</div><label><input type="checkbox" id="oBioG" checked> Biogeographic lines, barriers &amp; land bridges</label><label><input type="checkbox" id="oBot"> <i class="mk" style="background:#E9C46A"></i> Paleobotanical studies</label><label><input type="checkbox" id="oPaly"> <i class="mk" style="background:transparent;border:2px solid #F28DB2"></i> Palynological studies (publication)</label><label><input type="checkbox" id="oPdata"> <i class="mk" style="background:#6FD3FF"></i> Pollen data available (Neotoma)</label></fieldset><fieldset class="lg"><legend>Human migrations</legend><label><input type="checkbox" id="oHum" checked> <i class="mk" style="background:#FF9F43"></i> Human dispersals (schematic routes, last 2 million years)</label><p class="lgnote">Turn on, then go to the last 2 Ma (Cenozoic close-up, or “Today”); routes grow as time plays.</p></fieldset><fieldset class="lg"><legend>Map display</legend><label><input type="checkbox" id="oOcean" checked> Ocean floor</label><label><input type="checkbox" id="oCoast" checked> Today's coastlines</label><label><input type="checkbox" id="oEvm" checked> <i class="mk" style="background:#E7ECEF;border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%)"></i> Event marks on the timeline</label></fieldset></div></div>
+    <div class="laypop" id="layPop" hidden><div class="lgrid"><fieldset class="lg"><legend>Earth history</legend><label><input type="checkbox" id="oBnd" checked> Plate boundaries</label><label><input type="checkbox" id="oOrog" checked> ▲ Orogenies</label><label><input type="checkbox" id="oLip" checked> Large igneous provinces (bright: continental · muted: submarine)</label><label><input type="checkbox" id="oCores"> Drill cores</label><label><input type="checkbox" id="oCols" checked> Include buried layers from borehole columns</label><label><input type="checkbox" id="oForm" checked> Highlight rock forming now</label></fieldset><fieldset class="lg"><legend>Paleoenvironment</legend><label><input type="checkbox" id="oIce" checked> <i class="mk" style="background:#FAFCFF;box-shadow:0 0 0 2px #7FD8FF"></i> Glaciations (mapped ice)</label><label><input type="checkbox" id="oTrop" checked> <i class="mk" style="background:rgba(255,206,140,.55)"></i> Tropics (warm shading between 23.4° N and S)</label><label><input type="checkbox" id="oOae" checked> Ocean anoxic events</label><label><input type="checkbox" id="oVeg" checked> <i class="mk" style="background:linear-gradient(90deg,#D9822B,#D4B23A,#8DBF5A,#1F6B3A)"></i> Regional vegetation from pollen (REVEALS forest cover, last ~200 kyr)</label><div class="lgsub">Biogeography</div><label><input type="checkbox" id="oBioG" checked> Biogeographic lines, barriers &amp; land bridges</label><label><input type="checkbox" id="oBot"> <i class="mk" style="background:#E9C46A"></i> Paleobotanical studies</label><label><input type="checkbox" id="oPaly"> <i class="mk" style="background:transparent;border:2px solid #F28DB2"></i> Palynological studies (publication)</label><label><input type="checkbox" id="oPdata"> <i class="mk" style="background:#6FD3FF"></i> Pollen data available (Neotoma)</label></fieldset><fieldset class="lg"><legend>Map display</legend><label><input type="checkbox" id="oOcean" checked> Ocean floor</label><label><input type="checkbox" id="oCoast" checked> Today's coastlines</label><label><input type="checkbox" id="oEvm" checked> <i class="mk" style="background:#E7ECEF;border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%)"></i> Event marks on the timeline</label></fieldset></div></div>
   <div class="laychips obj" id="layChips" role="group" aria-label="Map layers"></div>
   <div class="stage obj" id="stage">
     <div class="loading" id="loading">Unpacking plates and rotations…</div>
@@ -1053,7 +1053,7 @@ function drawInset() {
     if (INSD) { insetLand(); lowCv.getContext('2d').putImageData(new ImageData(LOWS, LOWW, LOWH), 0, 0); INSD = false } g.imageSmoothingEnabled = true; g.drawImage(lowCv, 0, 0, LOWW * LOWR * s, LOWH * LOWR * s) }
   g.drawImage(cv, 0, 0, W, H); g.restore(); g.lineWidth = 1; g.strokeStyle = 'rgba(143,211,255,.5)'; g.stroke();
 }
-const OPT = { hum: true, veg: true, evm: true, ice: true, orog: true, tropics: true, biogeo: true, info: true, botany: false, paly: false, pdata: false, lip: true, oae: true, form: true, cols: true, ocean: true, coast: true, cores: false, bnd: true, mode: 'gray', scale: 'sadler', n: 0.7, lens: 'sea', slow: true };
+const OPT = { hum: false, veg: true, evm: true, ice: true, orog: true, tropics: true, biogeo: true, info: true, botany: false, paly: false, pdata: false, lip: true, oae: true, form: true, cols: true, ocean: true, coast: true, cores: false, bnd: true, mode: 'gray', scale: 'sadler', n: 0.7, lens: 'sea', slow: true };
 // Global mean sea level, m relative to present: Spratt & Lisiecki (2016) stack to 798 ka, Miller et al. (2020) beyond; ages in ka
 function slAt(t) { const a = t * 1000; if (!SLA || a > SLA[SLA.length - 1]) return null; let lo = 0, hi = SLA.length - 1;
   if (a <= SLA[0]) return SLV[0]; while (hi - lo > 1) { const m = (lo + hi) >> 1; if (SLA[m] <= a) lo = m; else hi = m }
@@ -1231,7 +1231,7 @@ function grayColor(i, k) {
   return grey(Math.max(0, u.ta - T));                                            // white while forming, then fades with time since
 }
 /* ---------- undo: restore earlier views (time, zoom, layers, lens, colour, tree view) ---------- */
-const CHKMAP = [['oHum', 'hum'], ['oVeg', 'veg'], ['oEvm', 'evm'], ['oIce', 'ice'], ['oOrog', 'orog'], ['oTrop', 'tropics'], ['oBioG', 'biogeo'], ['oBot', 'botany'], ['oPaly', 'paly'], ['oPdata', 'pdata'], ['oLip', 'lip'], ['oOae', 'oae'], ['oBnd', 'bnd'], ['oForm', 'form'], ['oCols', 'cols'], ['oOcean', 'ocean'], ['oCoast', 'coast'], ['oCores', 'cores'], ['oSlow', 'slow'], ['oInfo', 'info']];
+const CHKMAP = [['oVeg', 'veg'], ['oEvm', 'evm'], ['oIce', 'ice'], ['oOrog', 'orog'], ['oTrop', 'tropics'], ['oBioG', 'biogeo'], ['oBot', 'botany'], ['oPaly', 'paly'], ['oPdata', 'pdata'], ['oLip', 'lip'], ['oOae', 'oae'], ['oBnd', 'bnd'], ['oForm', 'form'], ['oCols', 'cols'], ['oOcean', 'ocean'], ['oCoast', 'coast'], ['oCores', 'cores'], ['oSlow', 'slow'], ['oInfo', 'info']];
 const UNDO = { stack: [], committed: null, seen: null, timer: 0, restoring: false };
 const SYNC = {};   // UI sync hooks registered at startup
 const viewState = () => JSON.stringify({ T: +T.toFixed(4), V: VIEW, TV, O: OPT, C: typeof CLADE !== 'undefined' ? CLADE : 'all', M: typeof TMODE !== 'undefined' ? TMODE : 'fossil', Ly: typeof TLAY !== 'undefined' ? TLAY : 'fixed' });
@@ -1315,13 +1315,12 @@ function draw() {
   ctx.beginPath(); for (let la = -90; la <= 90; la += 2) { const [x, y] = ee(Math.PI, la * rad); la === -90 ? ctx.moveTo(cx + x * sx, cy - y * sy) : ctx.lineTo(cx + x * sx, cy - y * sy) }
   for (let la = 90; la >= -90; la -= 2) { const [x, y] = ee(-Math.PI, la * rad); ctx.lineTo(cx + x * sx, cy - y * sy) } ctx.closePath();
   if (gl) { /* the globe shader paints the inferred ocean and the land underneath this overlay */ } else { ctx.fillStyle = OPT.ocean ? '#0A2A50' : 'transparent'; ctx.fill() }   // inferred ocean (floor since subducted): deep blue
-  const FL0 = OPT.tropics ? frostLat(T) : 0;
-  if (OPT.tropics) {   // frost-free belt between the schematic frost lines (palaeolatitude frame)
-    const yl = la => cy - ee(0, la * rad)[1] * sy; ctx.fillStyle = 'rgba(255,194,122,.07)'; ctx.fillRect(0, yl(FL0), Wpx, yl(-FL0) - yl(FL0)) }
   if (!gl) ctx.drawImage(off, 0, 0);
-  if (OPT.tropics) { const yl = la => cy - ee(0, la * rad)[1] * sy; ctx.lineWidth = 1 * dpr;
-    ctx.lineWidth = 3.2 * dpr; for (const la of [FL0, -FL0]) { ctx.strokeStyle = 'rgba(255,194,122,.95)'; ctx.setLineDash([.5 * dpr, 6 * dpr]); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, yl(la)); ctx.lineTo(Wpx, yl(la)); ctx.stroke() }
-    ctx.setLineDash([]); ctx.lineCap = 'butt' }
+  if (OPT.tropics) {   // the tropics (between the Tropics of Cancer and Capricorn, palaeolatitude frame): a light warm wash
+    const yl = la => cy - ee(0, la * rad)[1] * sy, TR = 23.44; ctx.save(); ctx.beginPath();
+    for (let la = 90; la >= -90; la -= 2) { const [x, y] = ee(Math.PI, la * rad); ctx.lineTo(cx + x * sx, cy - y * sy) } for (let la = -90; la <= 90; la += 2) { const [x, y] = ee(-Math.PI, la * rad); ctx.lineTo(cx + x * sx, cy - y * sy) } ctx.closePath(); ctx.clip();
+    const g = ctx.createLinearGradient(0, yl(TR + 3), 0, yl(-TR - 3)); g.addColorStop(0, 'rgba(255,206,140,0)'); g.addColorStop(.1, 'rgba(255,200,130,.24)'); g.addColorStop(.5, 'rgba(255,210,145,.28)'); g.addColorStop(.9, 'rgba(255,200,130,.24)'); g.addColorStop(1, 'rgba(255,206,140,0)');
+    ctx.fillStyle = g; ctx.fillRect(0, yl(TR + 3), Wpx, yl(-TR - 3) - yl(TR + 3)); ctx.restore() }
   // graticule: equator + tropics + outline
   const line = (pts, style, dash) => { ctx.strokeStyle = style; ctx.setLineDash(dash || []); ctx.beginPath(); pts.forEach(([lo, la], j) => { const [x, y] = ee(lo, la); j ? ctx.lineTo(cx + x * sx, cy - y * sy) : ctx.moveTo(cx + x * sx, cy - y * sy) }); ctx.stroke() };
   const edge = []; for (let la = -90; la <= 90; la += 2) edge.push([180 * rad, la * rad]); for (let la = 90; la >= -90; la -= 2) edge.push([-180 * rad, la * rad]);
@@ -1338,7 +1337,7 @@ function draw() {
     ctx.stroke();
   }
   if (OPT.bnd) drawBoundaries(qs, cx, cy, sx, sy); else BSEG = [];
-  drawBiogeo(qs, cx, cy, sx, sy); drawHumans(cx, cy, sx, sy);
+  drawBiogeo(qs, cx, cy, sx, sy);
   if (OPT.lip) { ctx.font = `600 ${12 * dpr}px "Public Sans", system-ui, sans-serif`; ctx.textAlign = 'center';
     for (const [a, nm, j] of EX.lipLabels) { if (T > a + .05 || T < a - 6) continue; const [lo, la] = rot(qs, LP[j], LX[j], LY[j], LZ[j]); const [x, y] = ee(lo, la);
       const X = cx + x * sx, Y = cy - y * sy - 10 * dpr; ctx.globalAlpha = T >= a - 3 ? 1 : (T - (a - 6)) / 3;
@@ -2086,7 +2085,7 @@ function hud() {
   const p = P[perOf(T)];
   $('#age').textContent = fmtT(T); $('#age2').textContent = fmtT(T); syncPlayBtn(); if (window.dtMtick) dtMtick(p);
   const slOn = OPT.lens === 'sea'; $('#slread').hidden = !slOn; if (slOn && T > 250) $('#slread').textContent = 'Sea level: no global curve this far back; sediment accumulating now shown as shallow sea or coastal lowland'; else if (slOn) { const v = slAt(T); $('#slread').textContent = `Sea level ${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(Math.round(v))} m${T > 66 ? ' (Haq et al. 1987; shelf only)' : ''}` }
-  $('#frostread').hidden = !OPT.tropics; if (OPT.tropics) $('#frostread').textContent = `Frost line ≈ ${Math.round(frostLat(T))}° N and S (schematic)`;
+  $('#frostread').hidden = true;
   const ic = OPT.ice ? iceRule(T) : null; $('#iceread').hidden = !ic; if (ic) $('#iceread').textContent = '❄ ' + ic.nm;
   drawCeno(); drawStages(); drawTree();
   if (SEL && SEL[0] === 'nt' && T <= .0105 && BIO.nt[SEL[1]][8] >= 0) { const svg = document.querySelector('#cardbody .pd'); if (svg) svg.outerHTML = pollenSVG(BIO.diag[BIO.nt[SEL[1]][8]]) }
@@ -2246,7 +2245,7 @@ function init() {
   $('#oInfo').onchange = e => { OPT.info = e.target.checked };
   (function fx() { if (!playing && ((OPT.oae && OAEF > 0) || (OPT.lip && LIPON))) draw(); else if (!playing && OPT.ice && ICE) { if (gl) renderGlobe(); else draw() } setTimeout(() => requestAnimationFrame(fx), 90) })();   // keep static and flicker alive while paused
   syncLens();
-  const LAYERS = ['oHum', 'oVeg', 'oEvm', 'oIce', 'oOrog', 'oTrop', 'oBioG', 'oBot', 'oPaly', 'oPdata', 'oLip', 'oOae', 'oBnd', 'oCores'];
+  const LAYERS = ['oVeg', 'oEvm', 'oIce', 'oOrog', 'oTrop', 'oBioG', 'oBot', 'oPaly', 'oPdata', 'oLip', 'oOae', 'oBnd', 'oCores'];
   const preset = on => { setTimeout(syncLayN); LAYERS.forEach(id => { const el = $('#' + id); if (el.checked !== on) { el.checked = on; el.dispatchEvent(new Event('change')) } }); OPT.lens = on ? 'sea' : 'none'; syncLens(); draw() };
   $('#preBare').onclick = () => preset(false); $('#preAll').onclick = () => preset(true);
   SYNC.key = syncKey; SYNC.lens = syncLens;
@@ -3057,7 +3056,7 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
   var tw = document.querySelector(".tree-wrap"), tgo = document.getElementById("tGo");
   if (tw && tgo) tgo.addEventListener("click", function () { tw.classList.add("tlive"); var pb = document.getElementById("play"); if (pb && !/Pause/.test(pb.textContent)) pb.click(); tw.scrollIntoView({ behavior: "smooth", block: "center" }) });
   // layer toggles above the map, so people know they exist (mirrors the checkboxes in the Layers menu)
-  var LC = [["Plate boundaries", ["oBnd"]], ["Mountain building", ["oOrog"]], ["Volcanic provinces", ["oLip"]], ["Ice", ["oIce"]], ["Frost line", ["oTrop"]], ["Anoxic oceans", ["oOae"]], ["Biogeography", ["oBioG"]], ["Vegetation", ["oVeg"]], ["Human migrations", ["oHum"]], ["Data points", ["oBot", "oPaly", "oPdata", "oCores"]]];
+  var LC = [["Plate boundaries", ["oBnd"]], ["Mountain building", ["oOrog"]], ["Volcanic provinces", ["oLip"]], ["Ice", ["oIce"]], ["Tropics", ["oTrop"]], ["Anoxic oceans", ["oOae"]], ["Biogeography", ["oBioG"]], ["Vegetation", ["oVeg"]], ["Data points", ["oBot", "oPaly", "oPdata", "oCores"]]];
   var lcBox = document.getElementById("layChips");
   if (lcBox) {
     lcBox.innerHTML = '<span class="eyebrow">Layers</span>' + LC.map(function (c, j) { return '<button type="button" data-lc="' + j + '" aria-pressed="false">' + c[0] + '</button>' }).join("") + '<button type="button" class="more" id="lcMore">☰ All layers</button>';
@@ -3102,7 +3101,7 @@ if (window.pako) { init(); loadLazy(); UNDO.committed = UNDO.seen = viewState() 
     { k: "Welcome from The Open Commons of Learning", t: "This is a knowledge hub", b: "Drifting Through Deep Time layers moving continents, plants, climate, and people across 540 million years. Take a short tour, or explore on your own." },
     { sel: "#pbar", k: "Step 1", t: "Travel through time", b: "Press ▶ to play, or drag the timeline to any moment in the last 540 million years." },
     { sel: '.pnl[data-p="globe"]', k: "Step 2", t: "Turn the globe", b: "Drag to rotate, scroll or pinch to zoom, and hover or tap anything for details. You can switch to a flat map, too." },
-    { sel: "#layBtn", k: "Step 3", t: "Add layers", b: "Plate boundaries, glaciations, pollen records from Neotoma, paleobotanical studies, and human migration routes." },
+    { sel: "#layBtn", k: "Step 3", t: "Add layers", b: "Plate boundaries, glaciations, pollen records from Neotoma, and paleobotanical studies." },
     { sel: "#pchips", k: "Step 4", t: "Open other panels", b: "Show or hide sections, such as the plant family tree and the table of studies." },
     { k: "Take what you like", t: "Everything here is open", b: "Grab any code, concepts, or files, and build a hub for your own field." + (REPO ? ' <a href="' + REPO + '" target="_blank" rel="noopener">See the files on GitHub ↗</a>' : " A public GitHub repository with all the files is coming soon.") }
   ];
