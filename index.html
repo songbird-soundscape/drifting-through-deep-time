@@ -487,7 +487,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
   <div class="maptools"><div class="ctrls" role="group" aria-label="Map type" id="mapt"><span class="eyebrow">Map</span><button class="btn" data-mt="globe" aria-pressed="true">🌐 Globe</button><button class="btn" data-mt="flat" aria-pressed="false">▭ Flat map</button></div>
     <div class="ctrls"><button class="btn" id="layBtn" aria-expanded="false" aria-controls="layPop">☰ Layers <span id="layN" class="mono"></span></button><button class="btn" id="preBare" title="Turn every layer off">Bare</button><button class="btn" id="preAll" title="Turn every layer on">Everything</button></div>
     <span class="maphint" id="maphint">Drag to turn the globe · scroll or pinch to zoom · hover or click anything for details · arrow keys turn, + / − zoom</span></div>
-    <div class="laypop" id="layPop" hidden><div class="lgrid"><fieldset class="lg"><legend>Earth history</legend><label><input type="checkbox" id="oBnd" checked> Plate boundaries</label><label><input type="checkbox" id="oOrog" checked> ▲ Orogenies</label><label><input type="checkbox" id="oLip" checked> Large igneous provinces (bright: continental · muted: submarine)</label><label><input type="checkbox" id="oCores"> Drill cores</label><label><input type="checkbox" id="oCols" checked> Include buried layers from borehole columns</label><label><input type="checkbox" id="oForm" checked> Highlight rock forming now</label></fieldset><fieldset class="lg"><legend>Paleoenvironment</legend><label><input type="checkbox" id="oIce" checked> <i class="mk" style="background:#FAFCFF;box-shadow:0 0 0 2px #7FD8FF"></i> Glaciations (mapped ice)</label><label><input type="checkbox" id="oTrop" checked> <i class="mk" style="background:rgba(255,206,140,.55)"></i> Tropics (warm shading between 23.4° N and S)</label><label><input type="checkbox" id="oOae" checked> Ocean anoxic events</label><label><input type="checkbox" id="oVeg" checked> <i class="mk" style="background:linear-gradient(90deg,#D9822B,#D4B23A,#8DBF5A,#1F6B3A)"></i> Regional vegetation from pollen (REVEALS forest cover, last ~200 kyr)</label><div class="lgsub">Biogeography</div><label><input type="checkbox" id="oBioG" checked> Biogeographic lines, barriers &amp; land bridges</label><label><input type="checkbox" id="oBot"> <i class="mk" style="background:#E9C46A"></i> Paleobotanical studies</label><label><input type="checkbox" id="oPaly"> <i class="mk" style="background:transparent;border:2px solid #F28DB2"></i> Palynological studies (publication)</label><label><input type="checkbox" id="oPdata"> <i class="mk" style="background:#6FD3FF"></i> Pollen data available (Neotoma)</label></fieldset><fieldset class="lg"><legend>Map display</legend><label><input type="checkbox" id="oOcean" checked> Ocean floor</label><label><input type="checkbox" id="oCrust" checked> <i class="mk" style="background:rgba(232,200,150,.3);box-shadow:inset 0 0 0 1.5px #E8C896;border-radius:2px"></i> Continental crust (plate model)</label><label><input type="checkbox" id="oCoast" checked> Today's coastlines</label><label><input type="checkbox" id="oEvm" checked> <i class="mk" style="background:#E7ECEF;border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%)"></i> Event marks on the timeline</label></fieldset></div></div>
+    <div class="laypop" id="layPop" hidden><div class="lgrid"><fieldset class="lg"><legend>Earth history</legend><label><input type="checkbox" id="oBnd" checked> Plate boundaries</label><label><input type="checkbox" id="oOrog" checked> ▲ Orogenies</label><label><input type="checkbox" id="oLip" checked> Large igneous provinces (bright: continental · muted: submarine)</label><label><input type="checkbox" id="oCores"> Drill cores</label><label><input type="checkbox" id="oCols" checked> Include buried layers from borehole columns</label><label><input type="checkbox" id="oForm" checked> Highlight rock forming now</label></fieldset><fieldset class="lg"><legend>Paleoenvironment</legend><label><input type="checkbox" id="oIce" checked> <i class="mk" style="background:#FAFCFF;box-shadow:0 0 0 2px #7FD8FF"></i> Glaciations (mapped ice)</label><label><input type="checkbox" id="oTrop" checked> <i class="mk" style="background:rgba(255,206,140,.55)"></i> Tropics (warm shading between 23.4° N and S)</label><label><input type="checkbox" id="oOae" checked> Ocean anoxic events</label><label><input type="checkbox" id="oVeg" checked> <i class="mk" style="background:linear-gradient(90deg,#D9822B,#D4B23A,#8DBF5A,#1F6B3A)"></i> Vegetation from pollen: North American grids (Williams et al. 2004) and BIOME 6000 sites for the last 21–30 kyr; REVEALS forest cover at sites, last ~200 kyr</label><div class="lgsub">Biogeography</div><label><input type="checkbox" id="oBioG" checked> Biogeographic lines, barriers &amp; land bridges</label><label><input type="checkbox" id="oBot"> <i class="mk" style="background:#E9C46A"></i> Paleobotanical studies</label><label><input type="checkbox" id="oPaly"> <i class="mk" style="background:transparent;border:2px solid #F28DB2"></i> Palynological studies (publication)</label><label><input type="checkbox" id="oPdata"> <i class="mk" style="background:#6FD3FF"></i> Pollen data available (Neotoma)</label></fieldset><fieldset class="lg"><legend>Map display</legend><label><input type="checkbox" id="oOcean" checked> Ocean floor</label><label><input type="checkbox" id="oCrust" checked> <i class="mk" style="background:rgba(232,200,150,.3);box-shadow:inset 0 0 0 1.5px #E8C896;border-radius:2px"></i> Continental crust (plate model)</label><label><input type="checkbox" id="oCoast" checked> Today's coastlines</label><label><input type="checkbox" id="oEvm" checked> <i class="mk" style="background:#E7ECEF;border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%)"></i> Event marks on the timeline</label></fieldset></div></div>
   <div class="laychips obj" id="layChips" role="group" aria-label="Map layers"></div>
   <div class="stage obj" id="stage">
     <div class="loading" id="loading">Unpacking plates and rotations…</div>
@@ -788,7 +788,7 @@ body:has(.pbar.gone) .barshow { display: block; position: fixed; top: 8px; right
     <div><h3>What moves</h3><p>Each dot is a 0.5° cell of today's geological map (1° for ocean floor), assigned to its tectonic plate and rotated with the Merdith et al. (2021) full-plate model. Ocean floor appears only once its crust exists; continental fragments appear when their plate does. Positions are interpolated between 5-million-year steps. Scroll or pinch to zoom, drag to pan, double-click to zoom in; dots grow with zoom because the data are sampled every 0.5° (1° at sea).</p></div>
     <div><h3>What glows</h3><p>A cell is pale parchment while its surface rock is forming (pure white is kept for ice), according to the age range on the world geological map, then greys with the time since it finished forming. In period-colour mode it glows in its period colour instead. With columns included, buried layers recorded in boreholes and sections glow too, so you can watch deposition in places now covered by younger rock. Loosely dated units glow faintly for longer.</p></div>
     <div><h3>The empty oceans</h3><p>Ocean floor is made at spreading ridges and consumed at subduction zones. Most of the floor of the ancient Pacific (Panthalassa) and of older oceans has since sunk into the mantle, so no rock survives to place on the map; those areas are dark. The plate boundaries are drawn from the model itself, so you can watch the trenches that consumed it. Rock eroded from the continents is likewise gone. Before about 540 Ma the reconstruction is much less certain. Two outlines move with the plates. The pale edge and faint wash mark continental crust out to the continent–ocean boundary, from the plate model's own continental polygons; they include crust that no longer reaches the surface, such as Greater India, the now-vanished northern part of the Indian plate that was underthrust or subducted beneath Asia. The thin dark line is today's coastline (Natural Earth 1:50m), carried along for recognition, not an ancient shoreline.</p></div>
-    <div><h3>Sources</h3><p>Ocean depth from crust age: Parsons B. &amp; Sclater J.G. (1977) <i>J. Geophys. Res.</i> 82, 803–827 (depth ≈ 2,600 m + 345 m·√age, levelling near 6,400 m); shelf depths from SRTM15+. Deep-time sea level (66–250 Ma, applied to continental shelves only): Haq B.U., Hardenbol J. &amp; Vail P.R. (1987) <i>Science</i> 235, 1156–1167, via Miller et al. (2005) at NOAA NCEI; its amplitudes are larger than most modern estimates. Glaciations are mapped ice regions tied to today's positions of their glacial deposits, so the ice moves with its plate: the Late Ordovician–early Silurian (Ghienne et al. 2007; Le Heron &amp; Dowdeswell 2009), Late Devonian (Isaacson et al. 2008), Late Paleozoic Ice Age episodes about 368–260 Ma (Fielding et al. 2008; Isbell et al. 2012; Montañez &amp; Poulsen 2013), the East Antarctic ice sheet from 34 Ma and all of Antarctica from about 14 Ma, and Quaternary ice sheets from 2.7 Ma whose Last Glacial Maximum outlines (Ehlers et al. 2011; Dalton et al. 2020; Hughes et al. 2016) grow and shrink with sea level. Outlines are simplified, and pre-Quaternary ice extents are approximate. Orogeny ages are approximate. Biogeographic lines after Wallace (1863), Huxley (1868), Weber and Lydekker (positions approximate); botanical boundaries after van Steenis. Barrier and land-bridge ages are approximate and several are debated. Family photos: iNaturalist research-grade observations under CC0, CC BY or CC BY-SA, credited on each card. Pollen micrographs: Halbritter et al. (2018), CC BY 4.0. Plant tree: family first/last appearances from the Paleobiology Database; branching order from the Open Tree of Life synthetic tree (Hinchliff et al. 2015, updated; angiosperms consistent with APG IV 2016); extinct families not in the synthesis are attached to their order, class or division as polytomies. Branch points sit at the oldest first appearance among their descendants (a minimum age). Studies: Paleobiology Database (paleobiodb.org, CC BY 4.0) plant collections and references, with studies flagged as palynological from their titles; Neotoma Paleoecology Database (neotomadb.org, CC BY 4.0) pollen datasets; Holocene diagrams use Neotoma counts, % of trees, shrubs and upland herbs, 250-year means. Volcanic provinces: Johansson L., Zahirovic S. &amp; Müller R.D. (2018) <i>Geophysical Research Letters</i> 45, doi:10.1029/2017GL076691 (via GPlates); flashes start at each province's onset age. Ocean anoxic events: Jenkyns H.C. (2010) <i>G-cubed</i> 11, Q03004; Devonian events after Kaiser S.I. et al. (2016) <i>Geol. Soc. London Spec. Publ.</i> 423; ages approximate. Stages: International Chronostratigraphic Chart via Macrostrat. Sea level: Miller K.G. et al. (2020) <i>Science Advances</i> 6, eaaz1346, and Spratt R.M. &amp; Lisiecki L.E. (2016) <i>Climate of the Past</i> 12, 1079–1092, via NOAA NCEI; the stack is tapered to 0 m over the last 6 kyr. Elevation: SRTM15+ v2.7 via the GMT data server. Grey scale: Sadler P.M. (1981) Sediment accumulation rates and the completeness of stratigraphic sections, <i>Journal of Geology</i> 89, 569–584. Plate model: Merdith A.S. et al. (2021) <i>Earth-Science Reviews</i> 214, 103477, via GPlates; continental crust outlines are its continental polygons (GPlates model registry). Coastlines: Natural Earth 1:50m (public domain). Geology: Chorlton (2007), GSC, via Macrostrat (CC BY 4.0). Columns and drill cores: Macrostrat (CC BY 4.0). Seafloor age: Seton et al. (2020). Coastlines: Natural Earth. Colours: ICS chart. Projection: Equal Earth.</p></div>
+    <div><h3>Sources</h3><p>Ocean depth from crust age: Parsons B. &amp; Sclater J.G. (1977) <i>J. Geophys. Res.</i> 82, 803–827 (depth ≈ 2,600 m + 345 m·√age, levelling near 6,400 m); shelf depths from SRTM15+. Deep-time sea level (66–250 Ma, applied to continental shelves only): Haq B.U., Hardenbol J. &amp; Vail P.R. (1987) <i>Science</i> 235, 1156–1167, via Miller et al. (2005) at NOAA NCEI; its amplitudes are larger than most modern estimates. Glaciations are mapped ice regions tied to today's positions of their glacial deposits, so the ice moves with its plate: the Late Ordovician–early Silurian (Ghienne et al. 2007; Le Heron &amp; Dowdeswell 2009), Late Devonian (Isaacson et al. 2008), Late Paleozoic Ice Age episodes about 368–260 Ma (Fielding et al. 2008; Isbell et al. 2012; Montañez &amp; Poulsen 2013), the East Antarctic ice sheet from 34 Ma and all of Antarctica from about 14 Ma, and Quaternary ice sheets from 2.7 Ma whose Last Glacial Maximum outlines (Ehlers et al. 2011; Dalton et al. 2020; Hughes et al. 2016) grow and shrink with sea level. Outlines are simplified, and pre-Quaternary ice extents are approximate. For the last 45,000 years the globe switches to the style of the North America 20k map: North American ice margins from NADI-1 (Dalton et al. 2023, CC BY 4.0) and stage outlines, Patagonian ice from PATICE (Davies et al. 2020), present-day Greenland ice, vegetation tiers from the Williams et al. (2004) pollen grids, BIOME 6000 sites (Harrison 2017), and land, shelf and sea in that map's palette. Orogeny ages are approximate. Biogeographic lines after Wallace (1863), Huxley (1868), Weber and Lydekker (positions approximate); botanical boundaries after van Steenis. Barrier and land-bridge ages are approximate and several are debated. Family photos: iNaturalist research-grade observations under CC0, CC BY or CC BY-SA, credited on each card. Pollen micrographs: Halbritter et al. (2018), CC BY 4.0. Plant tree: family first/last appearances from the Paleobiology Database; branching order from the Open Tree of Life synthetic tree (Hinchliff et al. 2015, updated; angiosperms consistent with APG IV 2016); extinct families not in the synthesis are attached to their order, class or division as polytomies. Branch points sit at the oldest first appearance among their descendants (a minimum age). Studies: Paleobiology Database (paleobiodb.org, CC BY 4.0) plant collections and references, with studies flagged as palynological from their titles; Neotoma Paleoecology Database (neotomadb.org, CC BY 4.0) pollen datasets; Holocene diagrams use Neotoma counts, % of trees, shrubs and upland herbs, 250-year means. Volcanic provinces: Johansson L., Zahirovic S. &amp; Müller R.D. (2018) <i>Geophysical Research Letters</i> 45, doi:10.1029/2017GL076691 (via GPlates); flashes start at each province's onset age. Ocean anoxic events: Jenkyns H.C. (2010) <i>G-cubed</i> 11, Q03004; Devonian events after Kaiser S.I. et al. (2016) <i>Geol. Soc. London Spec. Publ.</i> 423; ages approximate. Stages: International Chronostratigraphic Chart via Macrostrat. Sea level: Miller K.G. et al. (2020) <i>Science Advances</i> 6, eaaz1346, and Spratt R.M. &amp; Lisiecki L.E. (2016) <i>Climate of the Past</i> 12, 1079–1092, via NOAA NCEI; the stack is tapered to 0 m over the last 6 kyr. Elevation: SRTM15+ v2.7 via the GMT data server. Grey scale: Sadler P.M. (1981) Sediment accumulation rates and the completeness of stratigraphic sections, <i>Journal of Geology</i> 89, 569–584. Plate model: Merdith A.S. et al. (2021) <i>Earth-Science Reviews</i> 214, 103477, via GPlates; continental crust outlines are its continental polygons (GPlates model registry). Coastlines: Natural Earth 1:50m (public domain). Geology: Chorlton (2007), GSC, via Macrostrat (CC BY 4.0). Columns and drill cores: Macrostrat (CC BY 4.0). Seafloor age: Seton et al. (2020). Coastlines: Natural Earth. Colours: ICS chart. Projection: Equal Earth.</p></div>
   </div>
     </div>
   </section>
@@ -952,7 +952,7 @@ function initGlobe() {
   const vs = (v2 ? '#version 300 es\nin' : 'attribute') + ' vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }';
   const fs0 = `precision highp float;
 uniform vec2 uRes; uniform float uR; uniform vec2 uRot; uniform vec4 uFlat; uniform sampler2D uTex; uniform sampler2D uCapN; uniform sampler2D uCapS; uniform float uCA; uniform vec3 uBg;
-uniform sampler2D uLow; uniform sampler2D uFlg; uniform sampler2D uOce; uniform vec2 uOceS; uniform vec2 uLowS; uniform vec2 uTexPx; uniform vec4 uHat; uniform vec2 uHat2; uniform float uTime;
+uniform sampler2D uLow; uniform sampler2D uFlg; uniform sampler2D uOce; uniform vec2 uOceS; uniform float uNat; uniform sampler2D uCOn; uniform sampler2D uCOs; uniform float uCapO; uniform vec2 uLowS; uniform vec2 uTexPx; uniform vec4 uHat; uniform vec2 uHat2; uniform float uTime;
 const float A1 = 1.340264, A2 = -0.081106, A3 = 0.000893, A4 = 0.003796, MM = 0.8660254, PI = 3.14159265, D = 57.2957795;
 void main() {
   vec2 p = (gl_FragCoord.xy - 0.5 * uRes) / uR; float r = length(p);
@@ -976,7 +976,7 @@ void main() {
   vec4 c = texture2D(uTex, uv);
   #endif
   // smooth land layer: bilinear coverage gives a curved, anti-aliased coastline at any zoom; the overlay (premultiplied) sits on top
-  float landM;
+  float landM; vec4 ovl = vec4(0.0);
   { vec2 lu = uv * uLowS; vec4 L = texture2D(uLow, lu), F = texture2D(uFlg, lu);
     float a = L.a; vec3 lc = L.rgb / max(a, 1e-4); float fa = max(fwidth(a), 1e-4); landM = smoothstep(0.5 - 0.75 * fa, 0.5 + 0.75 * fa, a);
     vec2 tp = uv * uTexPx; float unk = F.g / max(a, 1e-4);
@@ -988,11 +988,13 @@ void main() {
     vec3 base = mix(mix(uBg, O.rgb / max(O.a, 1e-4), om), lc, landM);
     float ice = F.r, fi = fwidth(ice), ring = fi > 1e-5 ? 1.0 - smoothstep(0.7, 1.7, abs(ice - 0.5) / fi) : 0.0;
     float gl2 = 0.5 + 0.5 * sin(tp.x * 0.21 + tp.y * 0.13 - uTime * 2.4) * sin(tp.x * 0.05 - tp.y * 0.17 + uTime * 1.3);
-    base = mix(base, vec3(120.0 + 135.0 * gl2, 215.0 + 40.0 * gl2, 255.0) / 255.0, ring * 0.95);
-    c = vec4(base * (1.0 - c.a) + c.rgb, 1.0); }
+    base = mix(base, mix(vec3(120.0 + 135.0 * gl2, 215.0 + 40.0 * gl2, 255.0) / 255.0, vec3(0.357, 0.561, 0.69), uNat), ring * mix(0.95, 0.8, uNat));
+    ovl = c; c = vec4(base, 1.0); }
   float al = abs(lat), cb = smoothstep(PI / 2.0 - uCA + 0.01, PI / 2.0 - uCA + 0.05, al);
   if (cb > 0.0) { float rr = (PI / 2.0 - al) / (2.0 * uCA); vec2 cu = 0.5 + rr * vec2(sin(lon), cos(lon));
-    vec4 k = lat > 0.0 ? texture2D(uCapN, cu) : texture2D(uCapS, cu); float fk = max(fwidth(k.a), 1e-4), mk = smoothstep(0.5 - 0.75 * fk, 0.5 + 0.75 * fk, k.a); c = mix(c, vec4(mix(uBg, k.rgb / max(k.a, 1e-4), mk), 1.0), cb); landM = mix(landM, mk, cb); }
+    vec4 k = lat > 0.0 ? texture2D(uCapN, cu) : texture2D(uCapS, cu); float fk = max(fwidth(k.a), 1e-4), mk = smoothstep(0.5 - 0.75 * fk, 0.5 + 0.75 * fk, k.a); c = mix(c, vec4(mix(uBg, k.rgb / max(k.a, 1e-4), mk), 1.0), cb); landM = mix(landM, mk, cb);
+    if (uCapO > 0.5) { vec4 ko = lat > 0.0 ? texture2D(uCOn, cu) : texture2D(uCOs, cu); ovl = mix(ovl, ko, cb); } }
+  c = vec4(c.rgb * (1.0 - ovl.a) + ovl.rgb, 1.0);   // overlay (lines, labels, mapped ice and vegetation) over land and polar caps
   vec3 col = mix(vec3(0.043, 0.035, 0.028), c.rgb, c.a);
   float px = 1.0 / (uR * max(z, 0.12));
   float dl = abs(mod(lat * D + 15.0, 30.0) - 15.0) / D, dm = abs(mod(lon * D + 15.0, 30.0) - 15.0) / D * cos(lat);
@@ -1012,10 +1014,10 @@ void main() {
   try { const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
     const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
     const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    gU = {}; for (const u of ['uRes', 'uR', 'uRot', 'uFlat', 'uTex', 'uCapN', 'uCapS', 'uCA', 'uBg', 'uLow', 'uFlg', 'uOce', 'uOceS', 'uLowS', 'uTexPx', 'uHat', 'uHat2', 'uTime']) gU[u] = gl.getUniformLocation(pr, u);
+    gU = {}; for (const u of ['uRes', 'uR', 'uRot', 'uFlat', 'uTex', 'uCapN', 'uCapS', 'uCA', 'uBg', 'uLow', 'uFlg', 'uOce', 'uOceS', 'uNat', 'uCOn', 'uCOs', 'uCapO', 'uLowS', 'uTexPx', 'uHat', 'uHat2', 'uTime']) gU[u] = gl.getUniformLocation(pr, u);
     const mk = mip => { const t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t);
       for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, mip ? gl.LINEAR_MIPMAP_LINEAR : gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v); return t };
-    gtex = mk(v2); gcap = [mk(true), mk(true)]; GLOW = [mk(false), mk(false), mk(false)];
+    gtex = mk(v2); gcap = [mk(true), mk(true)]; GLOW = [mk(false), mk(false), mk(false), mk(true), mk(true)];
   } catch (e) { console.warn('globe disabled:', e); gl = null; return false }
   return true;
 }
@@ -1023,9 +1025,10 @@ function renderGlobe() {
   if (!gl || !GW) return;
   gl.viewport(0, 0, GW, GH); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
   if (texDirty) { gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, gtex); gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cv); gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false); if (GL.v2) gl.generateMipmap(gl.TEXTURE_2D);
+    if (CAPOON) { gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true); for (let h = 0; h < 2; h++) { gl.activeTexture(gl.TEXTURE6 + h); gl.bindTexture(gl.TEXTURE_2D, GLOW[3 + h]); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, CAPO[h]); gl.generateMipmap(gl.TEXTURE_2D) } gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false) }
     if (LOWB) { gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1); [LOWB, LOWF, LOWO].forEach((d, h) => { gl.activeTexture(gl.TEXTURE3 + h); gl.bindTexture(gl.TEXTURE_2D, GLOW[h]); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, h === 2 ? OW : LOWW, h === 2 ? OH : LOWH, 0, gl.RGBA, gl.UNSIGNED_BYTE, d) }) }
     for (let h = 0; h < 2; h++) { gl.activeTexture(gl.TEXTURE1 + h); gl.bindTexture(gl.TEXTURE_2D, gcap[h]); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, CAP[h]); gl.generateMipmap(gl.TEXTURE_2D) } texDirty = false }
-  gl.uniform1i(gU.uCapN, 1); gl.uniform1i(gU.uCapS, 2); gl.uniform1f(gU.uCA, CA); if (OPT.ocean) gl.uniform3f(gU.uBg, 10 / 255, 42 / 255, 80 / 255); else gl.uniform3f(gU.uBg, .043, .035, .028);
+  gl.uniform1i(gU.uCapN, 1); gl.uniform1i(gU.uCapS, 2); gl.uniform1f(gU.uCA, CA); if (OPT.ocean) { const w = NATWV; gl.uniform3f(gU.uBg, (10 + 149 * w) / 255, (42 + 153 * w) / 255, (80 + 129 * w) / 255) } else gl.uniform3f(gU.uBg, .043, .035, .028); gl.uniform1f(gU.uNat, NATWV); gl.uniform1i(gU.uCOn, 6); gl.uniform1i(gU.uCOs, 7); gl.uniform1f(gU.uCapO, CAPOON ? 1 : 0);
   gl.uniform2f(gU.uRes, GW, GH); gl.uniform1f(gU.uR, GR0 * VIEW.k); gl.uniform2f(gU.uRot, GL.lam, GL.phi);
   gl.uniform1i(gU.uLow, 3); gl.uniform1i(gU.uFlg, 4); gl.uniform1i(gU.uOce, 5); gl.uniform2f(gU.uOceS, OW ? Wpx / (2 * LOWR * OW) : 1, OH ? Hpx / (2 * LOWR * OH) : 1); gl.uniform2f(gU.uLowS, LOWW ? Wpx / (LOWR * LOWW) : 1, LOWH ? Hpx / (LOWR * LOWH) : 1); gl.uniform2f(gU.uTexPx, Wpx, Hpx);
   gl.uniform4f(gU.uHat, HATP[0], HATP[1], HATP[2], HATP[3]); gl.uniform2f(gU.uHat2, HATP[4], HATP[5]); gl.uniform1f(gU.uTime, performance.now() / 1000);
@@ -1050,7 +1053,7 @@ function drawInset() {
   for (let la = -90; la <= 90; la += 3) { const [x, y] = P2(Math.PI, la * Math.PI / 180); la === -90 ? g.moveTo(x, y) : g.lineTo(x, y) }
   for (let la = 90; la >= -90; la -= 3) { const [x, y] = P2(-Math.PI, la * Math.PI / 180); g.lineTo(x, y) } g.closePath();
   g.save(); g.clip();
-  if (gl && LOWB) { g.fillStyle = OPT.ocean ? '#0A2A50' : '#0B0907'; g.fillRect(0, 0, W, H); lowCv = lowCv || document.createElement('canvas'); if (lowCv.width !== LOWW || lowCv.height !== LOWH) { lowCv.width = LOWW; lowCv.height = LOWH }
+  if (gl && LOWB) { g.fillStyle = OPT.ocean ? `rgb(${10 + 149 * NATWV | 0},${42 + 153 * NATWV | 0},${80 + 129 * NATWV | 0})` : '#0B0907'; g.fillRect(0, 0, W, H); lowCv = lowCv || document.createElement('canvas'); if (lowCv.width !== LOWW || lowCv.height !== LOWH) { lowCv.width = LOWW; lowCv.height = LOWH }
     if (INSD) { insetLand(); lowCv.getContext('2d').putImageData(new ImageData(LOWS, LOWW, LOWH), 0, 0); INSD = false } g.imageSmoothingEnabled = true; g.drawImage(lowCv, 0, 0, LOWW * LOWR * s, LOWH * LOWR * s) }
   g.drawImage(cv, 0, 0, W, H); g.restore(); g.lineWidth = 1; g.strokeStyle = 'rgba(143,211,255,.5)'; g.stroke();
 }
@@ -1106,17 +1109,17 @@ let ICEM = null, ICEK = '';
 function iceRule(t) {
   for (let j = 0; j < ICEEP.length; j++) { const [ty, to, pol, nm] = ICEEP[j]; if (t >= ty && t <= to) { const g = Math.max(.45, Math.min(1, Math.min(t - ty, to - t) / (.18 * (to - ty)) + .45)); return { id: 'p' + j, nm, caps: ICEEPV[j], g, pol: pol == null ? null : pol - 8 * (1 - g) } } }
   if (t <= 34) { const sl = t <= 2.7 ? (slAt(t) ?? 0) : 0, f = Math.max(0, Math.min(1, -sl / 120));
-    const nm = t > 14 ? 'East Antarctic ice sheet (from the Eocene–Oligocene boundary, 34 Ma)' : t > 2.7 ? 'Antarctic ice sheets; Greenland largely ice-free' : f > .6 ? 'Glacial maximum: ice sheets at full extent' : f > .25 ? 'Ice sheets growing or retreating' : 'Interglacial: Greenland and Antarctic ice';
+    const nm = t <= .0455 && QI ? (t <= .025 ? 'Ice margins: NADI-1 (North America), PATICE (Patagonia); elsewhere simplified outlines' : 'Ice-sheet stage outlines (North America), PATICE (Patagonia)') : t > 14 ? 'East Antarctic ice sheet (from the Eocene–Oligocene boundary, 34 Ma)' : t > 2.7 ? 'Antarctic ice sheets; Greenland largely ice-free' : f > .6 ? 'Glacial maximum: ice sheets at full extent' : f > .25 ? 'Ice sheets growing or retreating' : 'Interglacial: Greenland and Antarctic ice';
     return { id: t > 14 ? 'ea' : t > 2.7 ? 'aa' : 'q', nm, f, q: t <= 2.7 } }
   return null }
 // per-point ice mask for the moment shown (present-day coordinates; cached per time)
 function iceMask(r) {
-  const key = r.id + '|' + T.toFixed(4); if (ICEM && ICEK === key) return ICEM; ICEK = key; if (!ICEM || ICEM.length !== N) ICEM = new Uint8Array(N); ICEM.fill(0);
+  const key = r.id + '|' + T.toFixed(4) + (QI ? 'q' : ''); if (ICEM && ICEK === key) return ICEM; ICEK = key; if (!ICEM || ICEM.length !== N) ICEM = new Uint8Array(N); ICEM.fill(0);
   const D = Math.PI / 180;
   if (r.caps) { const cs = r.caps.map(c => [c[0], c[1], c[2], Math.cos(Math.acos(c[3]) * r.g)]);
     for (let i = 0; i < N; i++) { const k = KIND[i]; if (k !== 0 && k !== 1) continue; const x = X0[i], y = Y0[i], z = Z0[i]; for (const c of cs) if (x * c[0] + y * c[1] + z * c[2] > c[3]) { ICEM[i] = 1; break } } return ICEM }
   const ant = r.id === 'ea' ? capV(ICEAN) : capV([[0, -90, 25 + 3 * r.f], [-62, -66, 4 + 2 * r.f], [-68, -71, 5]]);
-  const polys = r.q ? ICEPOLY.map(P => [P, P.al ? .86 + .14 * r.f : Math.pow(r.f, .6)]).filter(([, sc]) => sc > .08) : [];
+  const polys = r.q && !(QI && T <= .0455) ? ICEPOLY.map(P => [P, P.al ? .86 + .14 * r.f : Math.pow(r.f, .6)]).filter(([, sc]) => sc > .08) : [];
   for (let i = 0; i < N; i++) { const k = KIND[i]; if (k !== 0 && k !== 1) continue; const x = X0[i], y = Y0[i], z = Z0[i];
     if (z < -.35) { for (const c of ant) if (x * c[0] + y * c[1] + z * c[2] > c[3]) { ICEM[i] = 1; break } continue }
     if (!polys.length) continue; const lo = LON[i] / 100, la = LAT[i] / 100;
@@ -1272,6 +1275,7 @@ function draw() {
   const passes = [2, 1, 0, 3]; PX.fill(NaN); LIPH = [];
   ICE = OPT.ice ? iceRule(T) : null; const IMK = ICE ? iceMask(ICE) : null;
   OAEF = OPT.oae ? oaePulse(T) : 0;
+  const NW = NATWV = natW(T), SLn = NW > 0 ? (slAt(T) ?? 0) : 0;
   const SL = OPT.lens !== 'sea' ? null : T <= 250 ? slAt(T) : 999;   // 999: before the curve, Paleozoic seas assumed high (no global curve) GAPC = new Uint8Array(COLS.length + 1).fill(255);
   for (const pass of passes) {
     if (pass === 2 && !OPT.ocean) continue; if (pass === 3 && !OPT.cores) continue;
@@ -1279,6 +1283,7 @@ function draw() {
       const k = KIND[i]; if (k !== pass) continue;
       let c = OPT.mode === 'gray' ? grayColor(i, k) : icsColor(i, k, pt); if (c == null) continue;
       if (OPT.lens !== 'none') c = lens(c, i, k, SL);
+      if (NW > 0 && k !== 3) { const [r, g, b] = natRGB(i, k, SLn); c = mix(c, r, g, b, NW) }
       if (OAEF > 0 && (k === 2 || k === 3)) { const v = Math.random() < .5 ? Math.random() * 70 : 150 + Math.random() * 105; c = mix(mix(c, 0, 0, 0, OAEF * .85), v, v, v, OAEF * .75) }   // scratchy TV static
       const [lo, la] = rot(qs, PLATE[i], X0[i], Y0[i], Z0[i]); const [x, y] = ee(lo, la);
       PX[i] = (cx + x * sx) / dpr; PY[i] = (cy - y * sy) / dpr;
@@ -1315,7 +1320,7 @@ function draw() {
   // ocean whose floor has since been subducted: fill the whole globe first
   ctx.beginPath(); for (let la = -90; la <= 90; la += 2) { const [x, y] = ee(Math.PI, la * rad); la === -90 ? ctx.moveTo(cx + x * sx, cy - y * sy) : ctx.lineTo(cx + x * sx, cy - y * sy) }
   for (let la = 90; la >= -90; la -= 2) { const [x, y] = ee(-Math.PI, la * rad); ctx.lineTo(cx + x * sx, cy - y * sy) } ctx.closePath();
-  if (gl) { /* the globe shader paints the inferred ocean and the land underneath this overlay */ } else { ctx.fillStyle = OPT.ocean ? '#0A2A50' : 'transparent'; ctx.fill() }   // inferred ocean (floor since subducted): deep blue
+  if (gl) { /* the globe shader paints the inferred ocean and the land underneath this overlay */ } else { ctx.fillStyle = OPT.ocean ? `rgb(${10 + 149 * NATWV | 0},${42 + 153 * NATWV | 0},${80 + 129 * NATWV | 0})` : 'transparent'; ctx.fill() }   // inferred ocean (floor since subducted): deep blue
   const mapClip = new Path2D(); { let j = 0; for (let la = -90; la <= 90; la += 2) { const [x, y] = ee(Math.PI, la * rad); j++ ? mapClip.lineTo(cx + x * sx, cy - y * sy) : mapClip.moveTo(cx + x * sx, cy - y * sy) }
     for (let la = 90; la >= -90; la -= 2) { const [x, y] = ee(-Math.PI, la * rad); mapClip.lineTo(cx + x * sx, cy - y * sy) } mapClip.closePath() }
   drawCrust(qs, cx, cy, sx, sy, 'fill', mapClip);   // continental crust tint: under the dots on the flat map, a light wash over them on the globe
@@ -1325,6 +1330,7 @@ function draw() {
     for (let la = 90; la >= -90; la -= 2) { const [x, y] = ee(Math.PI, la * rad); ctx.lineTo(cx + x * sx, cy - y * sy) } for (let la = -90; la <= 90; la += 2) { const [x, y] = ee(-Math.PI, la * rad); ctx.lineTo(cx + x * sx, cy - y * sy) } ctx.closePath(); ctx.clip();
     const g = ctx.createLinearGradient(0, yl(TR + 3), 0, yl(-TR - 3)); g.addColorStop(0, 'rgba(255,206,140,0)'); g.addColorStop(.1, 'rgba(255,200,130,.24)'); g.addColorStop(.5, 'rgba(255,210,145,.28)'); g.addColorStop(.9, 'rgba(255,200,130,.24)'); g.addColorStop(1, 'rgba(255,206,140,0)');
     ctx.fillStyle = g; ctx.fillRect(0, yl(TR + 3), Wpx, yl(-TR - 3) - yl(TR + 3)); ctx.restore() }
+  drawQI(cx, cy, sx, sy);
   // graticule: equator + tropics + outline
   const line = (pts, style, dash) => { ctx.strokeStyle = style; ctx.setLineDash(dash || []); ctx.beginPath(); pts.forEach(([lo, la], j) => { const [x, y] = ee(lo, la); j ? ctx.lineTo(cx + x * sx, cy - y * sy) : ctx.moveTo(cx + x * sx, cy - y * sy) }); ctx.stroke() };
   const edge = []; for (let la = -90; la <= 90; la += 2) edge.push([180 * rad, la * rad]); for (let la = 90; la >= -90; la -= 2) edge.push([-180 * rad, la * rad]);
@@ -1461,6 +1467,7 @@ const WIKI = q => A(`https://en.wikipedia.org/wiki/Special:Search?search=${encod
 const segD = (px, py, s) => { const [x0, y0, x1, y1] = s, dx = x1 - x0, dy = y1 - y0, L = dx * dx + dy * dy || 1; const t = Math.max(0, Math.min(1, ((px - x0) * dx + (py - y0) * dy) / L)); return Math.hypot(px - x0 - t * dx, py - y0 - t * dy) };
 function anyHit(px, py) {
   const h = hitAt(px, py); if (h) return { short: studyHTML(h[2], h[3], false), full: studyHTML(h[2], h[3], true) };
+  { let b = null, bd = 8; for (const v of B6H) { const d = Math.hypot(v[0] - px, v[1] - py); if (d < bd) { bd = d; b = v } } if (b) return `<div class="k">BIOME 6000 site biome · ${b[3]} ka slice</div><b>${escH(QI.b6k.names[b[2]])}</b><div class="muted">Pollen-based biome at this site (Harrison 2017)</div>` }
   { let b = null, bd = 9; for (const v of VEGH) { const d = Math.hypot(v[0] - px, v[1] - py); if (d < bd) { bd = d; b = v } } if (b) return vegHTML(b[2], b[3]) }
   const near = (arr, rad) => { let b = null, bd = rad; for (const a of arr) { const d = Math.hypot(a[0] - px, a[1] - py); if (d < bd) { bd = d; b = a } } return b };
   let best = -1, bd = 7; for (let i = 0; i < N; i++) { if (KIND[i] !== 3 || isNaN(PX[i])) continue; const d = Math.hypot(PX[i] - px, PY[i] - py); if (d < bd) { bd = d; best = i } }
@@ -1505,10 +1512,67 @@ function drawVeg(qs, cx, cy, sx, sy) {
   VEGH = []; if (!OPT.veg) return;
   if (!VEG) { if (!vegLoading) { vegLoading = true; fetch('data/veg.json').then(r => r.json()).then(j => { VEG = j; VEGV = vec(j.s); redrawSoon() }).catch(() => {}) } return }
   if (T > .2) return; const r = Math.max(2.5, 3.4 * dpr);
+  const amer = QI && T <= .030;   // in the Americas the Williams et al. vegetation grid and BIOME 6000 sites take over for the last 30 ka
   for (let j = 0; j < VEG.s.length; j++) { const st = VEG.s[j]; if (st[2] < 0) continue; const k = vegSample(j); if (k < 0) continue;
+    if (amer && Math.atan2(VEGV[1][j], VEGV[0][j]) < -.52) continue;
     const [lo, la] = rot(qs, st[2], VEGV[0][j], VEGV[1][j], VEGV[2][j]); const [x, y] = ee(lo, la); const X = cx + x * sx, Y = cy - y * sy;
     const [cr, cg, cb] = vegCol(st[7][k][1]); ctx.fillStyle = `rgb(${cr},${cg},${cb})`; ctx.beginPath(); ctx.arc(X, Y, r, 0, 7); ctx.fill(); ctx.lineWidth = .9 * dpr; ctx.strokeStyle = 'rgba(0,0,0,.85)'; ctx.stroke();
     VEGH.push([X / dpr, Y / dpr, j, k]) }
+}
+/* ---------- the last 45,000 years in the style of the North America 20k map ----------
+   Ice: NADI-1 margins (Dalton et al. 2023; 1-25 ka, 0.5 ka steps), stage outlines at 26.5-45 ka, Salish lobes, PATICE (Davies et al. 2020),
+   present-day Greenland; other ice sheets as simplified LGM outlines scaled with sea level. Vegetation: Williams, Shuman, Webb, Bartlein & Leduc (2004)
+   pollen grids as the NA map's tiers (spruce, pine, hemlock, beech, oak, open). Biomes: BIOME 6000 sites (Harrison 2017) at 0, 6 and 21 ka. */
+let QI = null, qiLoading = false, B6H = [], NATWV = 0;
+const natW = t => t > .035 ? 0 : t < .03 ? 1 : (.035 - t) / .005;   // blend toward the NA-map palette between 35 and 30 ka
+async function gunz(b64) { const u = Uint8Array.from(atob(b64), ch => ch.charCodeAt(0)); return new Uint8Array(await new Response(new Blob([u]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer()) }
+const qiRings = rs => rs.map(d => { const a = new Float32Array(d.length); let x = 0, y = 0; for (let i = 0; i < d.length; i += 2) { x += d[i]; y += d[i + 1]; a[i] = x / 100; a[i + 1] = y / 100 } return a });
+function qiLoad() { if (QI || qiLoading || !('DecompressionStream' in window)) return; qiLoading = true;
+  fetch('data/qice.json').then(r => r.json()).then(async j => {
+    const set = o => o.t.map((t, i) => ({ t, r: qiRings(o.r[i]) })), v = j.veg, [c, ti, al] = await Promise.all([gunz(v.c), gunz(v.tier), gunz(v.alpha)]), hx = h => [1, 3, 5].map(q => parseInt(h.slice(q, q + 2), 16));
+    QI = { na: [...set(j.nadi), ...set(j.deep)], sal: set(j.salish), pat: set(j.patice), grl: qiRings(j.grl), b6k: j.b6k,
+      veg: { ages: v.ages, n: v.n, c: new Int32Array(c.buffer, c.byteOffset, c.byteLength >> 2), tier: ti, alpha: al, cols: v.cols.map(hx), names: v.names } };
+    ICEK = ''; redrawSoon() }).catch(() => { qiLoading = false }) }
+function qiBracket(list, ka) { ka = Math.max(list[0].t, Math.min(list[list.length - 1].t, ka)); let i = 0; while (i < list.length - 1 && list[i + 1].t <= ka) i++;
+  const y = list[i], o = list[Math.min(i + 1, list.length - 1)]; return [y, o, o === y ? 1 : (o.t - ka) / (o.t - y.t)] }
+function b6kCol(n) {
+  if (/tundra/.test(n)) return '#b3aed6'; if (/tropical evergreen/.test(n)) return '#0f6b4c'; if (/tropical semi/.test(n)) return '#3c9161'; if (/tropical deciduous/.test(n)) return '#a2ad37';
+  if (/warm-temperate/.test(n)) return '#2a9d8f'; if (/desert|xerophytic/.test(n)) return '#c97b4a'; if (/grassland|steppe/.test(n)) return '#d9b64f'; if (/open woodland/.test(n)) return '#b39a46';
+  if (/temperate deciduous/.test(n)) return '#7fb24a'; if (/cool mixed|cool-temperate/.test(n)) return '#4f9d69'; return '#2f5f48' }
+function natRGB(i, k, sl) { const o = i * 5, e = EQ[o + 2];   // NA-map palette: sea, flooded shelf, exposed shelf, land tinted by elevation
+  if (k === 2) return e > -250 ? [195, 221, 229] : [159, 195, 209];
+  let below = 0; for (let j = 0; j < 5; j++) if (EQ[o + j] < sl) below++;
+  if (k === 1) return below >= 3 ? [195, 221, 229] : [233, 217, 168];
+  const t = Math.pow(Math.max(0, Math.min(1, e / 3000)), .7); return [230 - 45 * t, 226 - 53 * t, 211 - 65 * t] }
+const COS = 1024; let CAPO = null, CAPOON = false;   // pole-centred overlay canvases for mapped ice and vegetation (no stretching at the poles)
+function drawQI(cx, cy, sx, sy) {
+  B6H = []; CAPOON = false; if (T > .046) return; qiLoad(); if (!QI) return; const D2 = Math.PI / 180;
+  qiPaint(ctx, (lo, la) => { const [x, y] = ee(lo * D2, la * D2); return [cx + x * sx, cy - y * sy] }, dpr, true);
+  if (gl) { if (!CAPO) CAPO = [0, 1].map(() => { const c = document.createElement('canvas'); c.width = c.height = COS; return c });
+    const k = COS / (2 * CA), u = dpr * k / (sx * .8612);
+    for (let h = 0; h < 2; h++) { const g = CAPO[h].getContext('2d'); g.clearRect(0, 0, COS, COS);
+      qiPaint(g, (lo, la) => { const rr = (90 - (h ? -la : la)) * D2 * k; return [COS / 2 + rr * Math.sin(lo * D2), COS / 2 + rr * Math.cos(lo * D2)] }, u, false) } CAPOON = true }
+}
+function qiPaint(ctx, P, dpr, hits) {
+  const ka = T * 1000;
+  const path = rs => { const p = new Path2D(); for (const r of rs) { let [X, Y] = P(r[0], r[1]); p.moveTo(X, Y); for (let i = 2; i < r.length; i += 2) { [X, Y] = P(r[i], r[i + 1]); p.lineTo(X, Y) } p.closePath() } return p };
+  if (OPT.veg && ka <= 21.5) {   // pollen vegetation tiers on the Williams et al. grid (about 52 km cells)
+    const V = QI.veg, a = Math.max(0, Math.min(V.ages.length - 1, ka)), a0 = Math.floor(a), sl = a - a0 < .5 ? a0 : Math.min(a0 + 1, V.ages.length - 1), G = new Map();
+    for (let c = 0; c < V.n; c++) { const t = V.tier[sl * V.n + c]; if (t === 255) continue; const key = t * 16 + (V.alpha[sl * V.n + c] >> 4); let g = G.get(key); if (!g) G.set(key, g = new Path2D());
+      const o = c * 8; let [X, Y] = P(V.c[o] / 100, V.c[o + 1] / 100); g.moveTo(X, Y); for (let q = 2; q < 8; q += 2) { [X, Y] = P(V.c[o + q] / 100, V.c[o + q + 1] / 100); g.lineTo(X, Y) } g.closePath() }
+    for (const [key, g] of G) { const [r, gg, b] = V.cols[key >> 4]; ctx.fillStyle = `rgba(${r},${gg},${b},${(((key & 15) * 16 + 8) / 255 * NATWV).toFixed(3)})`; ctx.fill(g) } }
+  if (OPT.ice) { ctx.save(); ctx.lineJoin = 'round'; const fill = '#F8FBFD', edge = 'rgba(91,143,176,.9)', lw = 1.1 * dpr;
+    const one = (pth, a) => { ctx.globalAlpha = a; ctx.fillStyle = fill; ctx.fill(pth, 'evenodd') };
+    const set = (list, kmax) => { if (!list.length || ka > kmax) return; const [y, o, f] = qiBracket(list, ka), py = path(y.r), po = o === y ? py : path(o.r);
+      one(po, 1 - f); one(py, 1); ctx.globalAlpha = .9; ctx.strokeStyle = edge; ctx.lineWidth = lw; ctx.stroke(f >= .5 ? py : po); ctx.globalAlpha = 1 };
+    set(QI.na, 45.5); set(QI.pat, 35.5); set(QI.sal, 21);
+    const gp = path(QI.grl); one(gp, 1); ctx.strokeStyle = edge; ctx.lineWidth = lw; ctx.stroke(gp);
+    const f = Math.max(0, Math.min(1, -(slAt(T) ?? 0) / 120));   // other ice sheets: simplified LGM outlines, scaled toward their domes with sea level
+    for (const Q of ICEPOLY) { if (Q.nm === 'Laurentide' || Q.nm === 'Cordilleran' || Q.nm === 'Patagonian') continue; const sc = Q.al ? .86 + .14 * f : Math.pow(f, .6); if (sc < .08) continue;
+      const p = new Path2D(); for (let j = 0; j < Q.px.length; j++) { const [X, Y] = P(Q.lo + Q.px[j] * sc / Q.c, Q.la + Q.py[j] * sc); j ? p.lineTo(X, Y) : p.moveTo(X, Y) } p.closePath(); one(p, 1); ctx.globalAlpha = 1; ctx.strokeStyle = edge; ctx.lineWidth = lw; ctx.stroke(p) }
+    ctx.restore() }
+  if (OPT.veg) { const sl = ka < 3 ? 0 : ka < 13.5 ? 6 : ka <= 30 ? 21 : -1; if (sl >= 0) { const r = Math.max(2, 3 * dpr); ctx.lineWidth = .8 * dpr; ctx.strokeStyle = 'rgba(20,24,28,.85)';
+    for (const [age, lo, la, bi] of QI.b6k.pts) { if (age !== sl) continue; const [X, Y] = P(lo, la); ctx.fillStyle = b6kCol(QI.b6k.names[bi]); ctx.fillRect(X - r, Y - r, 2 * r, 2 * r); ctx.strokeRect(X - r, Y - r, 2 * r, 2 * r); if (hits) B6H.push([X / dpr, Y / dpr, bi, sl]) } } }
 }
 function vegHTML(j, k) {
   const st = VEG.s[j], sm = st[7][k], top = []; for (let q = 2; q < sm.length; q += 2) top.push(`${escH(VEG.taxa[sm[q]])} ${sm[q + 1]}%`);
